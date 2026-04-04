@@ -17,7 +17,15 @@ const quickLinks = [
 
 export default async function DashboardPage() {
   const session = await auth();
-  const userId = session!.user!.id as string;
+  const userId = session?.user?.id;
+
+  if (!userId) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <p className="text-gray-500">Unable to load session. Please <a href="/login" className="text-red-600 underline">sign in again</a>.</p>
+      </div>
+    );
+  }
 
   const [streak, recentProgress, dueFlashcards] = await Promise.all([
     prisma.streak.findUnique({ where: { userId } }),

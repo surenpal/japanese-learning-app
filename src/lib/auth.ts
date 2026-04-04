@@ -1,7 +1,5 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
-import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/db";
 import bcrypt from "bcryptjs";
 import { z } from "zod";
@@ -12,17 +10,13 @@ const loginSchema = z.object({
 });
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  adapter: PrismaAdapter(prisma),
   session: { strategy: "jwt" },
+  secret: process.env.AUTH_SECRET,
   pages: {
     signIn: "/login",
     error: "/login",
   },
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
-    }),
     CredentialsProvider({
       name: "credentials",
       credentials: {
@@ -30,25 +24,35 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const parsed = loginSchema.safeParse(credentials);
-        if (!parsed.success) return null;
+        try {
+          const parsed = loginSchema.safeParse(credentials);
+          if (!parsed.success) return null;
 
-        const user = await prisma.user.findUnique({
-          where: { email: parsed.data.email },
-        });
+          const user = await prisma.user.findUnique({
+            where: { email: parsed.data.email },
+          });
 
-        if (!user || !user.password) return null;
+          if (!user || !user.password) return null;
 
-        const valid = await bcrypt.compare(parsed.data.password, user.password);
-        if (!valid) return null;
+          const valid = await bcrypt.compare(parsed.data.password, user.password);
+          if (!valid) return null;
 
-        return { id: user.id, email: user.email, name: user.name, image: user.image };
+          return {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            image: user.image,
+          };
+        } catch (err) {
+          console.error("[AUTH ERROR]", err);
+          return null;
+        }
       },
     }),
   ],
   callbacks: {
     async jwt({ token, user }) {
-      if (user) token.id = user.id;
+      if (user?.id) token.id = user.id;
       return token;
     },
     async session({ session, token }) {
