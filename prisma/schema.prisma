@@ -1,0 +1,269 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Auth ────────────────────────────────────────────────────────────────────
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts     Account[]
+  sessions     Session[]
+  progress     UserProgress[]
+  flashcards   FlashcardSRS[]
+  quizAttempts QuizAttempt[]
+  streak       Streak?
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum JLPTLevel {
+  N5
+  N4
+  N3
+  N2
+  N1
+}
+
+enum ExamType {
+  JLPT
+  JFT
+  SKILL_TEST
+}
+
+enum ContentType {
+  GRAMMAR
+  VOCABULARY
+  KANJI
+  HIRAGANA
+  KATAKANA
+}
+
+// ─── Lessons ─────────────────────────────────────────────────────────────────
+
+model Lesson {
+  id          String      @id @default(cuid())
+  title       String
+  description String?     @db.Text
+  examType    ExamType
+  level       JLPTLevel?
+  contentType ContentType
+  order       Int
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  vocabularyItems VocabularyItem[]
+  kanjiItems      KanjiItem[]
+  grammarItems    GrammarItem[]
+  userProgress    UserProgress[]
+}
+
+// ─── Vocabulary ───────────────────────────────────────────────────────────────
+
+model VocabularyItem {
+  id           String     @id @default(cuid())
+  word         String
+  reading      String
+  meaning      String
+  example      String?    @db.Text
+  exampleTrans String?    @db.Text
+  examType     ExamType
+  level        JLPTLevel?
+  lessonId     String?
+  createdAt    DateTime   @default(now())
+
+  lesson     Lesson?        @relation(fields: [lessonId], references: [id])
+  flashcards FlashcardSRS[]
+}
+
+// ─── Kanji ────────────────────────────────────────────────────────────────────
+
+model KanjiItem {
+  id          String     @id @default(cuid())
+  character   String
+  onyomi      String?
+  kunyomi     String?
+  meaning     String
+  strokeCount Int?
+  example     String?
+  examType    ExamType
+  level       JLPTLevel?
+  lessonId    String?
+  createdAt   DateTime   @default(now())
+
+  lesson     Lesson?        @relation(fields: [lessonId], references: [id])
+  flashcards FlashcardSRS[]
+}
+
+// ─── Grammar ──────────────────────────────────────────────────────────────────
+
+model GrammarItem {
+  id           String     @id @default(cuid())
+  pattern      String
+  meaning      String
+  usage        String?    @db.Text
+  example      String?    @db.Text
+  exampleTrans String?    @db.Text
+  examType     ExamType
+  level        JLPTLevel?
+  lessonId     String?
+  createdAt    DateTime   @default(now())
+
+  lesson Lesson? @relation(fields: [lessonId], references: [id])
+}
+
+// ─── Kana ─────────────────────────────────────────────────────────────────────
+
+model KanaItem {
+  id        String      @id @default(cuid())
+  character String
+  romaji    String
+  type      ContentType
+  group     String
+  order     Int
+}
+
+// ─── Quizzes ──────────────────────────────────────────────────────────────────
+
+model QuizQuestion {
+  id            String      @id @default(cuid())
+  question      String      @db.Text
+  optionA       String
+  optionB       String
+  optionC       String
+  optionD       String
+  correctAnswer String
+  explanation   String?     @db.Text
+  examType      ExamType
+  level         JLPTLevel?
+  contentType   ContentType
+  isPracticeExam Boolean    @default(false)
+  setNumber     Int?
+  createdAt     DateTime    @default(now())
+
+  attempts QuizAttemptQuestion[]
+}
+
+model QuizAttempt {
+  id          String      @id @default(cuid())
+  userId      String
+  examType    ExamType
+  level       JLPTLevel?
+  contentType ContentType
+  score       Int
+  total       Int
+  timeTaken   Int?
+  createdAt   DateTime    @default(now())
+
+  user      User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questions QuizAttemptQuestion[]
+}
+
+model QuizAttemptQuestion {
+  id             String  @id @default(cuid())
+  attemptId      String
+  questionId     String
+  selectedAnswer String
+  isCorrect      Boolean
+
+  attempt  QuizAttempt  @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  question QuizQuestion @relation(fields: [questionId], references: [id])
+}
+
+// ─── Flashcards (SM-2 Spaced Repetition) ─────────────────────────────────────
+
+model FlashcardSRS {
+  id             String    @id @default(cuid())
+  userId         String
+  vocabularyId   String?
+  kanjiId        String?
+  interval       Int       @default(1)
+  repetitions    Int       @default(0)
+  easeFactor     Float     @default(2.5)
+  nextReviewAt   DateTime  @default(now())
+  lastReviewedAt DateTime?
+  createdAt      DateTime  @default(now())
+
+  user       User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  vocabulary VocabularyItem? @relation(fields: [vocabularyId], references: [id])
+  kanji      KanjiItem?      @relation(fields: [kanjiId], references: [id])
+
+  @@unique([userId, vocabularyId])
+  @@unique([userId, kanjiId])
+}
+
+// ─── Progress ─────────────────────────────────────────────────────────────────
+
+model UserProgress {
+  id          String    @id @default(cuid())
+  userId      String
+  lessonId    String
+  completed   Boolean   @default(false)
+  score       Int?
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id])
+
+  @@unique([userId, lessonId])
+}
+
+model Streak {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  currentStreak Int       @default(0)
+  longestStreak Int       @default(0)
+  lastStudiedAt DateTime?
+  updatedAt     DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
