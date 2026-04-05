@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(gh pr:*)",
+      "Bash(code \"C:\\\\Users\\\\suren\\\\Documents\\\\GitHub\\\\japanese-learning-app\\\\.claude\\\\worktrees\\\\recursing-shaw\")",
+      "Bash(cmd.exe /c \"code \"\"C:\\\\Users\\\\suren\\\\Documents\\\\GitHub\\\\japanese-learning-app\\\\.claude\\\\worktrees\\\\recursing-shaw\"\"\")"
+    ]
+  }
+}
