@@ -160,6 +160,8 @@ async function main() {
     { word: "話す", reading: "はなす", meaning: "to speak", example: "日本語を話します。", exampleTrans: "I speak Japanese." },
     { word: "読む", reading: "よむ", meaning: "to read", example: "本を読みます。", exampleTrans: "I read a book." },
     { word: "書く", reading: "かく", meaning: "to write", example: "手紙を書きます。", exampleTrans: "I write a letter." },
+    { word: "大きい", reading: "おおきい", meaning: "big", example: "大きい犬です。", exampleTrans: "It is a big dog." },
+    { word: "小さい", reading: "ちいさい", meaning: "small", example: "小さい猫がいます。", exampleTrans: "There is a small cat." }
   ];
 
   for (const v of n5Vocab) {
