@@ -9,7 +9,8 @@
       "Bash(cmd.exe /c \"cd /d C:\\\\Users\\\\suren\\\\Documents\\\\GitHub\\\\japanese-learning-app && node -e \"\"require\\(''fs''\\).readFileSync\\(''prisma/seed.ts'',''utf8''\\)\"\" 2>&1 && echo OK\")",
       "Bash(cmd.exe /c \"cd /d C:\\\\Users\\\\suren\\\\Documents\\\\GitHub\\\\japanese-learning-app && npm run db:seed 2>&1\")",
       "Bash(cmd.exe /c \"cd /d \"\"C:\\\\Users\\\\suren\\\\Documents\\\\GitHub\\\\japanese-learning-app\"\" && npm run db:seed\")",
-      "Bash(powershell.exe -Command \"Set-Location ''C:\\\\Users\\\\suren\\\\Documents\\\\GitHub\\\\japanese-learning-app''; npm run db:seed 2>&1\")"
+      "Bash(powershell.exe -Command \"Set-Location ''C:\\\\Users\\\\suren\\\\Documents\\\\GitHub\\\\japanese-learning-app''; npm run db:seed 2>&1\")",
+      "Bash(npm run:*)"
     ]
   }
 }
