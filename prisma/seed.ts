@@ -263,17 +263,30 @@ const n5GrammarLesson = await prisma.lesson.upsert({
       await prisma.grammarItem.upsert({
         where: { id },
         update: {},
-        create: {
-          id,
-          pattern: g.pattern,
-          meaning: g.meaning,
-          usage: g.usage,
-          example: g.example,
-          exampleTrans: g.exampleTrans,
-          examType: "JLPT",
-          level: "N5",
-          lessonId: n5GrammarLesson.id,
-        },
+        create: (() => {
+          // Collect all numbered examples dynamically (example1/exampleTrans1, example2/exampleTrans2, ...)
+          const gFlat = g as Record<string, string>;
+          const examples: { jp: string; en: string }[] = [];
+          let index = 1;
+          while (gFlat[`example${index}`] && gFlat[`exampleTrans${index}`]) {
+            examples.push({
+              jp: gFlat[`example${index}`],
+              en: gFlat[`exampleTrans${index}`],
+            });
+            index++;
+          }
+          return {
+            id,
+            pattern: g.pattern,
+            meaning: g.meaning,
+            usage: g.usage,
+            example: examples[0]?.jp ?? null,
+            exampleTrans: examples[0]?.en ?? null,
+            examType: "JLPT" as const,
+            level: "N5" as const,
+            lessonId: n5GrammarLesson.id,
+          };
+        })(),
       });
     } catch (err) {
       console.error(`Failed to upsert grammar item ${id} (${g.pattern}):`, err);
