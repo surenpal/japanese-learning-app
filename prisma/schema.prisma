@@ -148,7 +148,7 @@ model GrammarItem {
   id           String     @id @default(cuid())
   pattern      String
   meaning      String
-  usage        String?    @db.Text
+  usage        Json?
   example      String?    @db.Text
   exampleTrans String?    @db.Text
   examType     ExamType

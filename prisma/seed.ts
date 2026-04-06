@@ -279,8 +279,7 @@ async function main() {
           id,
           pattern: g.pattern,
           meaning: g.meaning,
-          // Schema stores usage as Text; serialise the structured object to JSON.
-          usage: JSON.stringify(g.usage),
+          usage: g.usage,
           example: g.example,
           exampleTrans: g.exampleTrans,
           examType: "JLPT",
