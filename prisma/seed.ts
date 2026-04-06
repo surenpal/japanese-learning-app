@@ -14,6 +14,7 @@ function loadJson<T>(filename: string): T[] {
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
 
+
 async function main() {
   console.log("🌱 Seeding database...");
 
@@ -225,12 +226,18 @@ async function main() {
     { word: "小さい", reading: "ちいさい", meaning: "small", example: "小さい猫がいます。", exampleTrans: "There is a small cat." }
   ];
 
-  for (const v of n5Vocab) {
-    await prisma.vocabularyItem.upsert({
-      where: { id: `n5-v-${v.word}` },
-      update: {},
-      create: { id: `n5-v-${v.word}`, ...v, examType: "JLPT", level: "N5", lessonId: n5VocabLesson.id },
-    });
+  for (let i = 0; i < n5Vocab.length; i++) {
+    const v = n5Vocab[i];
+    const id = `n5-v-${i + 1}`;
+    try {
+      await prisma.vocabularyItem.upsert({
+        where: { id },
+        update: {},
+        create: { id, ...v, examType: "JLPT", level: "N5", lessonId: n5VocabLesson.id },
+      });
+    } catch (err) {
+      console.error(`Failed to upsert vocab item ${id} (${v.word}):`, err);
+    }
   }
 
   // ─── JLPT N5 Grammar Lesson ───────────────────────────────────────────────────
@@ -251,47 +258,100 @@ async function main() {
   const n5Grammar = [
     {
       pattern: "〜は〜です",
-      meaning: "Topic marker + is/am/are",
-      usage: "Used to state that something is something else.",
-      example: "これは本です。",
-      exampleTrans: "This is a book.",
+      meaning: "A is B",
+      usage: { a: "Topic marker + is/am/are", b: "Basic sentence structure used to state that A equals B." },
+      example: "わたしは学生です。",
+      exampleTrans: "I am a student.",
     },
     {
-      pattern: "〜を〜します",
-      meaning: "Object marker — do something to an object",
-      usage: "を marks the direct object of a verb.",
-      example: "ごはんを食べます。",
-      exampleTrans: "I eat rice.",
+      pattern: "〜は〜ではありません",
+      meaning: "A is not B",
+      usage: { a: "Negative form of 〜は〜です", b: "Used to deny or negate a statement." },
+      example: "わたしは先生ではありません。",
+      exampleTrans: "I am not a teacher.",
     },
     {
-      pattern: "〜に行きます",
-      meaning: "Go to (a place)",
-      usage: "に marks a destination with movement verbs.",
-      example: "東京に行きます。",
-      exampleTrans: "I'm going to Tokyo.",
-    },
-    {
-      pattern: "〜で〜します",
-      meaning: "Do something at a place / by means of",
-      usage: "で marks the location of an action or the means used.",
-      example: "バスで行きます。",
-      exampleTrans: "I go by bus.",
+      pattern: "〜は〜ですか",
+      meaning: "Is A B?",
+      usage: { a: "Question form of 〜は〜です", b: "Add か at the end to form a question." },
+      example: "あなたは学生ですか。",
+      exampleTrans: "Are you a student?",
     },
     {
       pattern: "〜も",
       meaning: "Also / too",
-      usage: "も replaces は or が to mean 'also'.",
-      example: "私も学生です。",
+      usage: { a: "Replaces は or が in a sentence", b: "Used to include something in addition." },
+      example: "わたしも学生です。",
       exampleTrans: "I am also a student.",
+    },
+    {
+      pattern: "〜の",
+      meaning: "Possession / connection",
+      usage: { a: "Connects two nouns", b: "Shows ownership, relation, or description." },
+      example: "これはわたしの本です。",
+      exampleTrans: "This is my book.",
+    },
+    {
+      pattern: "〜さん",
+      meaning: "Polite name suffix",
+      usage: { a: "Added after a person's name", b: "Used to show respect or politeness." },
+      example: "田中さんは先生です。",
+      exampleTrans: "Mr. Tanaka is a teacher.",
+    },
+    {
+      pattern: "〜人（〜じん）",
+      meaning: "Nationality suffix",
+      usage: { a: "Added to country names", b: "Indicates nationality." },
+      example: "インドじんです。",
+      exampleTrans: "I am Indian.",
+    },
+    {
+      pattern: "〜歳（〜さい）",
+      meaning: "Age",
+      usage: { a: "Used with numbers", b: "Indicates a person's age." },
+      example: "20歳です。",
+      exampleTrans: "I am 20 years old.",
+    },
+    {
+      pattern: "おいくつ",
+      meaning: "How old? (polite)",
+      usage: { a: "Polite question word", b: "Used to ask someone's age respectfully." },
+      example: "おいくつですか。",
+      exampleTrans: "How old are you?",
+    },
+    {
+      pattern: "こちら／そちら／あちら／どちら",
+      meaning: "Polite this/that/which",
+      usage: { a: "Polite demonstrative expressions", b: "Used for people, direction, or location." },
+      example: "こちらは田中さんです。",
+      exampleTrans: "This is Mr. Tanaka.",
     },
   ];
 
-  for (const g of n5Grammar) {
-    await prisma.grammarItem.upsert({
-      where: { id: `n5-g-${g.pattern}` },
-      update: {},
-      create: { id: `n5-g-${g.pattern}`, ...g, examType: "JLPT", level: "N5", lessonId: n5GrammarLesson.id },
-    });
+  for (let i = 0; i < n5Grammar.length; i++) {
+    const g = n5Grammar[i];
+    // Use index-based ID — pattern contains Japanese/tilde chars that are unsafe as DB keys.
+    const id = `n5-g-${i + 1}`;
+    try {
+      await prisma.grammarItem.upsert({
+        where: { id },
+        update: {},
+        create: {
+          id,
+          pattern: g.pattern,
+          meaning: g.meaning,
+          // Schema stores usage as Text; serialise the structured object to JSON.
+          usage: JSON.stringify(g.usage),
+          example: g.example,
+          exampleTrans: g.exampleTrans,
+          examType: "JLPT",
+          level: "N5",
+          lessonId: n5GrammarLesson.id,
+        },
+      });
+    } catch (err) {
+      console.error(`Failed to upsert grammar item ${id} (${g.pattern}):`, err);
+    }
   }
 
   // ─── JLPT N5 Kanji Lesson ────────────────────────────────────────────────────
@@ -322,12 +382,18 @@ async function main() {
     { character: "木", onyomi: "モク・ボク", kunyomi: "き", meaning: "tree/wood", strokeCount: 4, example: "木曜日 (Thursday)" },
   ];
 
-  for (const k of n5Kanji) {
-    await prisma.kanjiItem.upsert({
-      where: { id: `n5-k-${k.character}` },
-      update: {},
-      create: { id: `n5-k-${k.character}`, ...k, examType: "JLPT", level: "N5", lessonId: n5KanjiLesson.id },
-    });
+  for (let i = 0; i < n5Kanji.length; i++) {
+    const k = n5Kanji[i];
+    const id = `n5-k-${i + 1}`;
+    try {
+      await prisma.kanjiItem.upsert({
+        where: { id },
+        update: {},
+        create: { id, ...k, examType: "JLPT", level: "N5", lessonId: n5KanjiLesson.id },
+      });
+    } catch (err) {
+      console.error(`Failed to upsert kanji item ${id} (${k.character}):`, err);
+    }
   }
 
   // ─── JLPT N5 Quiz Questions ───────────────────────────────────────────────────
@@ -400,7 +466,11 @@ async function main() {
   ];
 
   for (const q of n5QuizQuestions) {
-    await prisma.quizQuestion.upsert({ where: { id: q.id }, update: {}, create: q });
+    try {
+      await prisma.quizQuestion.upsert({ where: { id: q.id }, update: {}, create: q });
+    } catch (err) {
+      console.error(`Failed to upsert quiz question ${q.id}:`, err);
+    }
   }
 
   // ─── JFT Practice Questions ───────────────────────────────────────────────────
@@ -453,7 +523,11 @@ async function main() {
   ];
 
   for (const q of jftPracticeQuestions) {
-    await prisma.quizQuestion.upsert({ where: { id: q.id }, update: {}, create: q });
+    try {
+      await prisma.quizQuestion.upsert({ where: { id: q.id }, update: {}, create: q });
+    } catch (err) {
+      console.error(`Failed to upsert JFT question ${q.id}:`, err);
+    }
   }
 
   // ─── Skills Test Practice Questions ──────────────────────────────────────────
@@ -491,7 +565,11 @@ async function main() {
   ];
 
   for (const q of skillTestQuestions) {
-    await prisma.quizQuestion.upsert({ where: { id: q.id }, update: {}, create: q });
+    try {
+      await prisma.quizQuestion.upsert({ where: { id: q.id }, update: {}, create: q });
+    } catch (err) {
+      console.error(`Failed to upsert skill-test question ${q.id}:`, err);
+    }
   }
 
   console.log("✅ Seed complete!");
