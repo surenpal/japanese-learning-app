@@ -2,71 +2,139 @@
   {
     "pattern": "〜は〜です",
     "meaning": "A is B",
-    "usage": { "a": "Topic marker + is/am/are", "b": "Basic sentence structure used to state that A equals B." },
-    "example": "わたしは学生です。",
-    "exampleTrans": "I am a student."
+    "usage": {
+      "a": "Topic marker は",
+      "b": "Used to state that A equals or is B"
+    },
+    "example1": "わたしは学生です。",
+    "exampleTrans1": "I am a student.",
+    "example2": "これは本です。",
+    "exampleTrans2": "This is a book.",
+    "example3": "田中さんは先生です。",
+    "exampleTrans3": "Mr. Tanaka is a teacher."
   },
   {
     "pattern": "〜は〜ではありません",
     "meaning": "A is not B",
-    "usage": { "a": "Negative form of 〜は〜です", "b": "Used to deny or negate a statement." },
-    "example": "わたしは先生ではありません。",
-    "exampleTrans": "I am not a teacher."
+    "usage": {
+      "a": "Negative form of です",
+      "b": "Used to deny a statement"
+    },
+    "example1": "わたしは先生ではありません。",
+    "exampleTrans1": "I am not a teacher.",
+    "example2": "これはペンではありません。",
+    "exampleTrans2": "This is not a pen.",
+    "example3": "彼は学生ではありません。",
+    "exampleTrans3": "He is not a student."
   },
   {
     "pattern": "〜は〜ですか",
     "meaning": "Is A B?",
-    "usage": { "a": "Question form of 〜は〜です", "b": "Add か at the end to form a question." },
-    "example": "あなたは学生ですか。",
-    "exampleTrans": "Are you a student?"
+    "usage": {
+      "a": "Add か at the end",
+      "b": "Forms a yes/no question"
+    },
+    "example1": "あなたは学生ですか。",
+    "exampleTrans1": "Are you a student?",
+    "example2": "これは本ですか。",
+    "exampleTrans2": "Is this a book?",
+    "example3": "田中さんは先生ですか。",
+    "exampleTrans3": "Is Mr. Tanaka a teacher?"
   },
   {
     "pattern": "〜も",
-    "meaning": "Also / too",
-    "usage": { "a": "Replaces は or が in a sentence", "b": "Used to include something in addition." },
-    "example": "わたしも学生です。",
-    "exampleTrans": "I am also a student."
+    "meaning": "also / too",
+    "usage": {
+      "a": "Replaces は, が, or を",
+      "b": "Indicates inclusion"
+    },
+    "example1": "わたしも学生です。",
+    "exampleTrans1": "I am also a student.",
+    "example2": "彼も来ます。",
+    "exampleTrans2": "He will come too.",
+    "example3": "これもください。",
+    "exampleTrans3": "Please give me this too."
   },
   {
     "pattern": "〜の",
-    "meaning": "Possession / connection",
-    "usage": { "a": "Connects two nouns", "b": "Shows ownership, relation, or description." },
-    "example": "これはわたしの本です。",
-    "exampleTrans": "This is my book."
+    "meaning": "possession / connection",
+    "usage": {
+      "a": "Connects two nouns",
+      "b": "Shows ownership or relation"
+    },
+    "example1": "これはわたしの本です。",
+    "exampleTrans1": "This is my book.",
+    "example2": "日本の食べ物",
+    "exampleTrans2": "Japanese food",
+    "example3": "あれは先生の車です。",
+    "exampleTrans3": "That is the teacher’s car."
   },
   {
     "pattern": "〜さん",
-    "meaning": "Polite name suffix",
-    "usage": { "a": "Added after a person's name", "b": "Used to show respect or politeness." },
-    "example": "田中さんは先生です。",
-    "exampleTrans": "Mr. Tanaka is a teacher."
+    "meaning": "polite name suffix",
+    "usage": {
+      "a": "Used after a name",
+      "b": "Shows politeness"
+    },
+    "example1": "田中さんは先生です。",
+    "exampleTrans1": "Mr. Tanaka is a teacher.",
+    "example2": "山田さんは学生です。",
+    "exampleTrans2": "Ms. Yamada is a student.",
+    "example3": "佐藤さん、こんにちは。",
+    "exampleTrans3": "Hello, Mr./Ms. Sato."
   },
   {
     "pattern": "〜人（〜じん）",
-    "meaning": "Nationality suffix",
-    "usage": { "a": "Added to country names", "b": "Indicates nationality." },
-    "example": "インドじんです。",
-    "exampleTrans": "I am Indian."
+    "meaning": "nationality suffix",
+    "usage": {
+      "a": "Added to country names",
+      "b": "Indicates nationality"
+    },
+    "example1": "わたしはインドじんです。",
+    "exampleTrans1": "I am Indian.",
+    "example2": "彼は日本人です。",
+    "exampleTrans2": "He is Japanese.",
+    "example3": "あの人はアメリカじんです。",
+    "exampleTrans3": "That person is American."
   },
   {
     "pattern": "〜歳（〜さい）",
-    "meaning": "Age",
-    "usage": { "a": "Used with numbers", "b": "Indicates a person's age." },
-    "example": "20歳です。",
-    "exampleTrans": "I am 20 years old."
+    "meaning": "age",
+    "usage": {
+      "a": "Used with numbers",
+      "b": "Indicates age"
+    },
+    "example1": "20歳です。",
+    "exampleTrans1": "I am 20 years old.",
+    "example2": "彼は18歳です。",
+    "exampleTrans2": "He is 18 years old.",
+    "example3": "妹は10歳です。",
+    "exampleTrans3": "My younger sister is 10 years old."
   },
   {
     "pattern": "おいくつ",
-    "meaning": "How old? (polite)",
-    "usage": { "a": "Polite question word", "b": "Used to ask someone's age respectfully." },
-    "example": "おいくつですか。",
-    "exampleTrans": "How old are you?"
+    "meaning": "how old? (polite)",
+    "usage": {
+      "a": "Polite question",
+      "b": "Used to ask age respectfully"
+    },
+    "example1": "おいくつですか。",
+    "exampleTrans1": "How old are you?",
+    "example2": "田中さんはおいくつですか。",
+    "exampleTrans2": "How old is Mr. Tanaka?"
   },
   {
     "pattern": "こちら／そちら／あちら／どちら",
-    "meaning": "Polite this/that/which",
-    "usage": { "a": "Polite demonstrative expressions", "b": "Used for people, direction, or location." },
-    "example": "こちらは田中さんです。",
-    "exampleTrans": "This is Mr. Tanaka."
+    "meaning": "polite this/that/which",
+    "usage": {
+      "a": "Polite demonstratives",
+      "b": "Used for people, direction, or place"
+    },
+    "example1": "こちらは田中さんです。",
+    "exampleTrans1": "This is Mr. Tanaka.",
+    "example2": "そちらは図書館ですか。",
+    "exampleTrans2": "Is that the library?",
+    "example3": "どちらへ行きますか。",
+    "exampleTrans3": "Which way are you going?"
   }
 ]

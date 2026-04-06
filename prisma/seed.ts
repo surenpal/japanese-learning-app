@@ -246,32 +246,46 @@ const n5GrammarLesson = await prisma.lesson.upsert({
   },
 });
 
-  const n5Grammar = n5GrammarData;
+const n5Grammar = n5GrammarData;
 
-  for (let i = 0; i < n5Grammar.length; i++) {
-    const g = n5Grammar[i];
-    const id = `n5-g-${i + 1}`;
-    try {
-      await prisma.grammarItem.upsert({
-        where: { id },
-        update: {},
-        create: {
-          id,
-          pattern: g.pattern,
-          meaning: g.meaning,
-          usage: g.usage,
-          example: g.example,
-          exampleTrans: g.exampleTrans,
-          examType: "JLPT",
-          level: "N5",
-          lessonId: n5GrammarLesson.id,
-        },
-      });
-    } catch (err) {
-      console.error(`Failed to upsert grammar item ${id} (${g.pattern}):`, err);
-    }
+for (let i = 0; i < n5Grammar.length; i++) {
+  const g = n5Grammar[i];
+  const id = `n5-g-${i + 1}`;
+
+  // 🔹 Collect all examples dynamically
+  const examples: { jp: string; en: string }[] = [];
+
+  let index = 1;
+  while (g[`example${index}`] && g[`exampleTrans${index}`]) {
+    examples.push({
+      jp: g[`example${index}`],
+      en: g[`exampleTrans${index}`],
+    });
+    index++;
   }
 
+  try {
+    await prisma.grammarItem.upsert({
+      where: { id },
+      update: {},
+      create: {
+        id,
+        pattern: g.pattern,
+        meaning: g.meaning,
+        usage: g.usage,
+
+        // 🔹 Store as JSON (recommended)
+        examples: examples,
+
+        examType: "JLPT",
+        level: "N5",
+        lessonId: n5GrammarLesson.id,
+      },
+    });
+  } catch (err) {
+    console.error(`Failed to upsert grammar item ${id} (${g.pattern}):`, err);
+  }
+}
 
   // ─── JLPT N5 Kanji Lesson ────────────────────────────────────────────────────
   const n5KanjiLesson = await prisma.lesson.upsert({
