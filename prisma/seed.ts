@@ -71,11 +71,15 @@ async function main() {
   ];
 
   for (const h of hiragana) {
-    await prisma.kanaItem.upsert({
-      where: { id: `h-${h.order}` },
-      update: {},
-      create: { id: `h-${h.order}`, ...h, type: "HIRAGANA" },
-    });
+    try {
+      await prisma.kanaItem.upsert({
+        where: { id: `h-${h.order}` },
+        update: {},
+        create: { id: `h-${h.order}`, ...h, type: "HIRAGANA" },
+      });
+    } catch (err) {
+      console.error(`Failed to upsert hiragana item h-${h.order} (${h.character}):`, err);
+    }
   }
 
   // ─── Katakana ─────────────────────────────────────────────────────────────────
@@ -129,11 +133,15 @@ async function main() {
   ];
 
   for (const k of katakana) {
-    await prisma.kanaItem.upsert({
-      where: { id: `k-${k.order}` },
-      update: {},
-      create: { id: `k-${k.order}`, ...k, type: "KATAKANA" },
-    });
+    try {
+      await prisma.kanaItem.upsert({
+        where: { id: `k-${k.order}` },
+        update: {},
+        create: { id: `k-${k.order}`, ...k, type: "KATAKANA" },
+      });
+    } catch (err) {
+      console.error(`Failed to upsert katakana item k-${k.order} (${k.character}):`, err);
+    }
   }
 
   // ─── JLPT N5 Vocabulary Lesson ────────────────────────────────────────────────
@@ -420,8 +428,8 @@ async function main() {
       question: "「この機械を使って（　　）ください。」",
       optionA: "いて",
       optionB: "います",
-      optionC: "ください",
-      optionD: "ください",
+      optionC: "つかって",
+      optionD: "つかいます",
       correctAnswer: "A",
       explanation: "〜てください is the request form. 使って (つかって) + ください = Please use.",
       examType: "SKILL_TEST" as const,
