@@ -1,12 +1,73 @@
 import "dotenv/config";
+import * as fs from "fs";
+import * as path from "path";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+
+// Load JSON produced by `npm run db:extract`, fall back to empty array
+function loadJson<T>(filename: string): T[] {
+  const filePath = path.join(__dirname, "data", filename);
+  if (!fs.existsSync(filePath)) return [];
+  return JSON.parse(fs.readFileSync(filePath, "utf-8")) as T[];
+}
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log("🌱 Seeding database...");
+
+  // ─── From extracted JSON (if prisma/data/*.json files exist) ─────────────────
+
+  const jsonLessons = loadJson<{ id: string; title: string; description?: string; examType: string; level?: string; contentType: string; order: number }>("lessons.json");
+  for (const l of jsonLessons) {
+    await prisma.lesson.upsert({
+      where: { id: l.id },
+      update: {},
+      create: l as Parameters<typeof prisma.lesson.create>[0]["data"],
+    });
+  }
+
+  const jsonVocab = loadJson<{ word: string; reading: string; meaning: string; example?: string; exampleTrans?: string; examType: string; level?: string; lessonId?: string }>("vocabulary.json");
+  for (const v of jsonVocab) {
+    await prisma.vocabularyItem.upsert({
+      where: { id: `json-v-${v.word}-${v.reading}` },
+      update: {},
+      create: { id: `json-v-${v.word}-${v.reading}`, ...v } as Parameters<typeof prisma.vocabularyItem.create>[0]["data"],
+    });
+  }
+
+  const jsonKanji = loadJson<{ character: string; onyomi?: string; kunyomi?: string; meaning: string; strokeCount?: number; example?: string; examType: string; level?: string; lessonId?: string }>("kanji.json");
+  for (const k of jsonKanji) {
+    await prisma.kanjiItem.upsert({
+      where: { id: `json-k-${k.character}` },
+      update: {},
+      create: { id: `json-k-${k.character}`, ...k } as Parameters<typeof prisma.kanjiItem.create>[0]["data"],
+    });
+  }
+
+  const jsonGrammar = loadJson<{ pattern: string; meaning: string; usage?: string; example?: string; exampleTrans?: string; examType: string; level?: string; lessonId?: string }>("grammar.json");
+  for (const g of jsonGrammar) {
+    await prisma.grammarItem.upsert({
+      where: { id: `json-g-${g.pattern}` },
+      update: {},
+      create: { id: `json-g-${g.pattern}`, ...g } as Parameters<typeof prisma.grammarItem.create>[0]["data"],
+    });
+  }
+
+  const jsonQuiz = loadJson<{ question: string; optionA: string; optionB: string; optionC: string; optionD: string; correctAnswer: string; explanation?: string; examType: string; level?: string; contentType: string; isPracticeExam?: boolean; setNumber?: number }>("quiz-questions.json");
+  for (let i = 0; i < jsonQuiz.length; i++) {
+    const q = jsonQuiz[i];
+    await prisma.quizQuestion.upsert({
+      where: { id: `json-q-${i + 1}` },
+      update: {},
+      create: { id: `json-q-${i + 1}`, ...q } as Parameters<typeof prisma.quizQuestion.create>[0]["data"],
+    });
+  }
+
+  if (jsonVocab.length || jsonKanji.length || jsonGrammar.length || jsonQuiz.length) {
+    console.log(`  📦 Loaded from JSON — vocab: ${jsonVocab.length}, kanji: ${jsonKanji.length}, grammar: ${jsonGrammar.length}, quiz: ${jsonQuiz.length}`);
+  }
 
   // ─── Hiragana ────────────────────────────────────────────────────────────────
   const hiragana = [
