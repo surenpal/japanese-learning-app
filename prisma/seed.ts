@@ -1,6 +1,7 @@
 import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+import n5GrammarData from "./data/n5-grammar.json";
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
@@ -194,78 +195,7 @@ async function main() {
     },
   });
 
-  const n5Grammar = [
-    {
-      pattern: "〜は〜です",
-      meaning: "A is B",
-      usage: { a: "Topic marker + is/am/are", b: "Basic sentence structure used to state that A equals B." },
-      example: "わたしは学生です。",
-      exampleTrans: "I am a student.",
-    },
-    {
-      pattern: "〜は〜ではありません",
-      meaning: "A is not B",
-      usage: { a: "Negative form of 〜は〜です", b: "Used to deny or negate a statement." },
-      example: "わたしは先生ではありません。",
-      exampleTrans: "I am not a teacher.",
-    },
-    {
-      pattern: "〜は〜ですか",
-      meaning: "Is A B?",
-      usage: { a: "Question form of 〜は〜です", b: "Add か at the end to form a question." },
-      example: "あなたは学生ですか。",
-      exampleTrans: "Are you a student?",
-    },
-    {
-      pattern: "〜も",
-      meaning: "Also / too",
-      usage: { a: "Replaces は or が in a sentence", b: "Used to include something in addition." },
-      example: "わたしも学生です。",
-      exampleTrans: "I am also a student.",
-    },
-    {
-      pattern: "〜の",
-      meaning: "Possession / connection",
-      usage: { a: "Connects two nouns", b: "Shows ownership, relation, or description." },
-      example: "これはわたしの本です。",
-      exampleTrans: "This is my book.",
-    },
-    {
-      pattern: "〜さん",
-      meaning: "Polite name suffix",
-      usage: { a: "Added after a person's name", b: "Used to show respect or politeness." },
-      example: "田中さんは先生です。",
-      exampleTrans: "Mr. Tanaka is a teacher.",
-    },
-    {
-      pattern: "〜人（〜じん）",
-      meaning: "Nationality suffix",
-      usage: { a: "Added to country names", b: "Indicates nationality." },
-      example: "インドじんです。",
-      exampleTrans: "I am Indian.",
-    },
-    {
-      pattern: "〜歳（〜さい）",
-      meaning: "Age",
-      usage: { a: "Used with numbers", b: "Indicates a person's age." },
-      example: "20歳です。",
-      exampleTrans: "I am 20 years old.",
-    },
-    {
-      pattern: "おいくつ",
-      meaning: "How old? (polite)",
-      usage: { a: "Polite question word", b: "Used to ask someone's age respectfully." },
-      example: "おいくつですか。",
-      exampleTrans: "How old are you?",
-    },
-    {
-      pattern: "こちら／そちら／あちら／どちら",
-      meaning: "Polite this/that/which",
-      usage: { a: "Polite demonstrative expressions", b: "Used for people, direction, or location." },
-      example: "こちらは田中さんです。",
-      exampleTrans: "This is Mr. Tanaka.",
-    },
-  ];
+  const n5Grammar = n5GrammarData;
 
   for (let i = 0; i < n5Grammar.length; i++) {
     const g = n5Grammar[i];
