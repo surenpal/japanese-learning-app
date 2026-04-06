@@ -1,7 +1,19 @@
 import "dotenv/config";
+import * as fs from "fs";
+import * as path from "path";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
-import n5GrammarData from "./data/n5-grammar.json";
+import n5VocabData from "./data/n5vocabulary.json";
+import n5KanjiData from "./data/n5kanji.json";
+import n5GrammarData from "./data/n5grammar.json";
+
+
+// Load JSON produced by `npm run db:extract`, fall back to empty array
+function loadJson<T>(filename: string): T[] {
+  const filePath = path.join(__dirname, "data", filename);
+  if (!fs.existsSync(filePath)) return [];
+  return JSON.parse(fs.readFileSync(filePath, "utf-8")) as T[];
+}
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
@@ -9,6 +21,58 @@ const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log("🌱 Seeding database...");
+
+  // ─── From extracted JSON (if prisma/data/*.json files exist) ─────────────────
+
+  const jsonLessons = loadJson<{ id: string; title: string; description?: string; examType: string; level?: string; contentType: string; order: number }>("lessons.json");
+  for (const l of jsonLessons) {
+    await prisma.lesson.upsert({
+      where: { id: l.id },
+      update: {},
+      create: l as Parameters<typeof prisma.lesson.create>[0]["data"],
+    });
+  }
+
+  const jsonVocab = loadJson<{ word: string; reading: string; meaning: string; example?: string; exampleTrans?: string; examType: string; level?: string; lessonId?: string }>("vocabulary.json");
+  for (const v of jsonVocab) {
+    await prisma.vocabularyItem.upsert({
+      where: { id: `json-v-${v.word}-${v.reading}` },
+      update: {},
+      create: { id: `json-v-${v.word}-${v.reading}`, ...v } as Parameters<typeof prisma.vocabularyItem.create>[0]["data"],
+    });
+  }
+
+  const jsonKanji = loadJson<{ character: string; onyomi?: string; kunyomi?: string; meaning: string; strokeCount?: number; example?: string; examType: string; level?: string; lessonId?: string }>("kanji.json");
+  for (const k of jsonKanji) {
+    await prisma.kanjiItem.upsert({
+      where: { id: `json-k-${k.character}` },
+      update: {},
+      create: { id: `json-k-${k.character}`, ...k } as Parameters<typeof prisma.kanjiItem.create>[0]["data"],
+    });
+  }
+
+  const jsonGrammar = loadJson<{ pattern: string; meaning: string; usage?: string; example?: string; exampleTrans?: string; examType: string; level?: string; lessonId?: string }>("grammar.json");
+  for (const g of jsonGrammar) {
+    await prisma.grammarItem.upsert({
+      where: { id: `json-g-${g.pattern}` },
+      update: {},
+      create: { id: `json-g-${g.pattern}`, ...g } as Parameters<typeof prisma.grammarItem.create>[0]["data"],
+    });
+  }
+
+  const jsonQuiz = loadJson<{ question: string; optionA: string; optionB: string; optionC: string; optionD: string; correctAnswer: string; explanation?: string; examType: string; level?: string; contentType: string; isPracticeExam?: boolean; setNumber?: number }>("quiz-questions.json");
+  for (let i = 0; i < jsonQuiz.length; i++) {
+    const q = jsonQuiz[i];
+    await prisma.quizQuestion.upsert({
+      where: { id: `json-q-${i + 1}` },
+      update: {},
+      create: { id: `json-q-${i + 1}`, ...q } as Parameters<typeof prisma.quizQuestion.create>[0]["data"],
+    });
+  }
+
+  if (jsonVocab.length || jsonKanji.length || jsonGrammar.length || jsonQuiz.length) {
+    console.log(`  📦 Loaded from JSON — vocab: ${jsonVocab.length}, kanji: ${jsonKanji.length}, grammar: ${jsonGrammar.length}, quiz: ${jsonQuiz.length}`);
+  }
 
   // ─── Hiragana ────────────────────────────────────────────────────────────────
   const hiragana = [
@@ -159,20 +223,7 @@ async function main() {
     },
   });
 
-  const n5Vocab = [
-    { word: "水", reading: "みず", meaning: "water", example: "水を飲みます。", exampleTrans: "I drink water." },
-    { word: "食べる", reading: "たべる", meaning: "to eat", example: "ごはんを食べます。", exampleTrans: "I eat rice." },
-    { word: "飲む", reading: "のむ", meaning: "to drink", example: "お茶を飲みます。", exampleTrans: "I drink tea." },
-    { word: "行く", reading: "いく", meaning: "to go", example: "学校に行きます。", exampleTrans: "I go to school." },
-    { word: "来る", reading: "くる", meaning: "to come", example: "友達が来ます。", exampleTrans: "A friend is coming." },
-    { word: "見る", reading: "みる", meaning: "to see/watch", example: "テレビを見ます。", exampleTrans: "I watch TV." },
-    { word: "聞く", reading: "きく", meaning: "to listen/ask", example: "音楽を聞きます。", exampleTrans: "I listen to music." },
-    { word: "話す", reading: "はなす", meaning: "to speak", example: "日本語を話します。", exampleTrans: "I speak Japanese." },
-    { word: "読む", reading: "よむ", meaning: "to read", example: "本を読みます。", exampleTrans: "I read a book." },
-    { word: "書く", reading: "かく", meaning: "to write", example: "手紙を書きます。", exampleTrans: "I write a letter." },
-    { word: "大きい", reading: "おおきい", meaning: "big", example: "大きい犬です。", exampleTrans: "It is a big dog." },
-    { word: "小さい", reading: "ちいさい", meaning: "small", example: "小さい猫がいます。", exampleTrans: "There is a small cat." }
-  ];
+  const n5Vocab = n5VocabData;
 
   for (let i = 0; i < n5Vocab.length; i++) {
     const v = n5Vocab[i];
@@ -188,26 +239,25 @@ async function main() {
     }
   }
 
-  // ─── JLPT N5 Grammar Lesson ───────────────────────────────────────────────────
-  const n5GrammarLesson = await prisma.lesson.upsert({
-    where: { id: "n5-grammar-1" },
-    update: {},
-    create: {
-      id: "n5-grammar-1",
-      title: "N5 Grammar — Basic Sentence Patterns",
-      description: "Fundamental grammar patterns for N5: は、が、を、に、で、も",
-      examType: "JLPT",
-      level: "N5",
-      contentType: "GRAMMAR",
-      order: 1,
-    },
-  });
+// ─── JLPT N5 Grammar Lesson ───────────────────────────────────────────────────
+const n5GrammarLesson = await prisma.lesson.upsert({
+  where: { id: "n5-grammar-1" },
+  update: {},
+  create: {
+    id: "n5-grammar-1",
+    title: "N5 Grammar — Basic Sentence Patterns",
+    description: "Fundamental grammar patterns for N5: は、が、を、に、で、も",
+    examType: "JLPT",
+    level: "N5",
+    contentType: "GRAMMAR",
+    order: 1,
+  },
+});
 
   const n5Grammar = n5GrammarData;
 
   for (let i = 0; i < n5Grammar.length; i++) {
     const g = n5Grammar[i];
-    // Use index-based ID — pattern contains Japanese/tilde chars that are unsafe as DB keys.
     const id = `n5-g-${i + 1}`;
     try {
       await prisma.grammarItem.upsert({
@@ -230,6 +280,7 @@ async function main() {
     }
   }
 
+
   // ─── JLPT N5 Kanji Lesson ────────────────────────────────────────────────────
   const n5KanjiLesson = await prisma.lesson.upsert({
     where: { id: "n5-kanji-1" },
@@ -245,18 +296,13 @@ async function main() {
     },
   });
 
-  const n5Kanji = [
-    { character: "一", onyomi: "イチ・イツ", kunyomi: "ひと", meaning: "one", strokeCount: 1, example: "一月 (January)" },
-    { character: "二", onyomi: "ニ", kunyomi: "ふた", meaning: "two", strokeCount: 2, example: "二月 (February)" },
-    { character: "三", onyomi: "サン", kunyomi: "み", meaning: "three", strokeCount: 3, example: "三月 (March)" },
-    { character: "山", onyomi: "サン", kunyomi: "やま", meaning: "mountain", strokeCount: 3, example: "富士山" },
-    { character: "川", onyomi: "セン", kunyomi: "かわ", meaning: "river", strokeCount: 3, example: "川の水" },
-    { character: "日", onyomi: "ニチ・ジツ", kunyomi: "ひ・か", meaning: "sun/day", strokeCount: 4, example: "日曜日 (Sunday)" },
-    { character: "月", onyomi: "ゲツ・ガツ", kunyomi: "つき", meaning: "moon/month", strokeCount: 4, example: "月曜日 (Monday)" },
-    { character: "火", onyomi: "カ", kunyomi: "ひ", meaning: "fire", strokeCount: 4, example: "火曜日 (Tuesday)" },
-    { character: "水", onyomi: "スイ", kunyomi: "みず", meaning: "water", strokeCount: 4, example: "水曜日 (Wednesday)" },
-    { character: "木", onyomi: "モク・ボク", kunyomi: "き", meaning: "tree/wood", strokeCount: 4, example: "木曜日 (Thursday)" },
-  ];
+  const n5Kanji = n5KanjiData;
+
+  // Remove stale kanji records (e.g. from old index-based IDs) before upserting
+  const validKanjiIds = n5Kanji.map((k) => `n5-k-${k.character}`);
+  await prisma.kanjiItem.deleteMany({
+    where: { lessonId: n5KanjiLesson.id, id: { notIn: validKanjiIds } },
+  });
 
   for (let i = 0; i < n5Kanji.length; i++) {
     const k = n5Kanji[i];
