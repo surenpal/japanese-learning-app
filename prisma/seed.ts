@@ -239,60 +239,60 @@ async function main() {
     }
   }
 
-// ─── JLPT N5 Grammar Lesson ───────────────────────────────────────────────────
-const n5GrammarLesson = await prisma.lesson.upsert({
-  where: { id: "n5-grammar-1" },
-  update: {},
-  create: {
-    id: "n5-grammar-1",
-    title: "N5 Grammar — Basic Sentence Patterns",
-    description: "Fundamental grammar patterns for N5: は、が、を、に、で、も",
-    examType: "JLPT",
-    level: "N5",
-    contentType: "GRAMMAR",
-    order: 1,
-  },
-});
+  // ─── JLPT N5 Grammar Lesson ───────────────────────────────────────────────────
+  const n5GrammarLesson = await prisma.lesson.upsert({
+    where: { id: "n5-grammar-1" },
+    update: {},
+    create: {
+      id: "n5-grammar-1",
+      title: "N5 Grammar — Basic Sentence Patterns",
+      description: "Fundamental grammar patterns for N5: は、が、を、に、で、も",
+      examType: "JLPT",
+      level: "N5",
+      contentType: "GRAMMAR",
+      order: 1,
+    },
+  });
 
   const n5Grammar = n5GrammarData;
 
   for (let i = 0; i < n5Grammar.length; i++) {
     const g = n5Grammar[i];
     const id = `n5-g-${i + 1}`;
+
+    // 🔹 Collect all examples dynamically
+    const examples: { jp: string; en: string }[] = [];
+    const gFlat = g as Record<string, string>; // cast to allow dynamic key access
+    let index = 1;
+    while (gFlat[`example${index}`] && gFlat[`exampleTrans${index}`]) {
+      examples.push({
+        jp: gFlat[`example${index}`],
+        en: gFlat[`exampleTrans${index}`],
+      });
+      index++;
+    }
+
     try {
       await prisma.grammarItem.upsert({
         where: { id },
         update: {},
-        create: (() => {
-          // Collect all numbered examples dynamically (example1/exampleTrans1, example2/exampleTrans2, ...)
-          const gFlat = g as Record<string, string>;
-          const examples: { jp: string; en: string }[] = [];
-          let index = 1;
-          while (gFlat[`example${index}`] && gFlat[`exampleTrans${index}`]) {
-            examples.push({
-              jp: gFlat[`example${index}`],
-              en: gFlat[`exampleTrans${index}`],
-            });
-            index++;
-          }
-          return {
-            id,
-            pattern: g.pattern,
-            meaning: g.meaning,
-            usage: g.usage,
-            example: examples[0]?.jp ?? null,
-            exampleTrans: examples[0]?.en ?? null,
-            examType: "JLPT" as const,
-            level: "N5" as const,
-            lessonId: n5GrammarLesson.id,
-          };
-        })(),
+        create: {
+          id,
+          pattern: g.pattern,
+          meaning: g.meaning,
+          usage: g.usage,
+          // 🔹 Store first example in existing columns; full list available in examples array
+          example: examples[0]?.jp ?? null,
+          exampleTrans: examples[0]?.en ?? null,
+          examType: "JLPT",
+          level: "N5",
+          lessonId: n5GrammarLesson.id,
+        },
       });
     } catch (err) {
       console.error(`Failed to upsert grammar item ${id} (${g.pattern}):`, err);
     }
   }
-
 
   // ─── JLPT N5 Kanji Lesson ────────────────────────────────────────────────────
   const n5KanjiLesson = await prisma.lesson.upsert({
@@ -312,7 +312,7 @@ const n5GrammarLesson = await prisma.lesson.upsert({
   const n5Kanji = n5KanjiData;
 
   // Remove stale kanji records (e.g. from old index-based IDs) before upserting
-  const validKanjiIds = n5Kanji.map((k) => `n5-k-${k.character}`);
+  const validKanjiIds = n5Kanji.map((_k, idx) => `n5-k-${idx + 1}`);
   await prisma.kanjiItem.deleteMany({
     where: { lessonId: n5KanjiLesson.id, id: { notIn: validKanjiIds } },
   });
