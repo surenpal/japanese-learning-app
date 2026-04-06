@@ -60,8 +60,9 @@ export default async function LessonDetailPage({
             </div>
             <p className="text-gray-700 font-medium">{g.meaning}</p>
             {g.usage && (
-              <div className="bg-gray-50 rounded-lg p-3 text-sm text-gray-600">
-                <strong>Usage: </strong>{g.usage}
+              <div className="bg-gray-50 rounded-lg p-3 text-sm text-gray-600 space-y-1">
+                <p><strong>Usage: </strong>{(g.usage as { a: string; b: string }).a}</p>
+                <p>{(g.usage as { a: string; b: string }).b}</p>
               </div>
             )}
             {g.example && (
