@@ -21,7 +21,7 @@
 import * as XLSX from "xlsx";
 import * as fs from "fs";
 import * as path from "path";
-const pdf = require("pdf-parse");
+import { PDFParse } from "pdf-parse";
 
 // ─── Paths ────────────────────────────────────────────────────────────────────
 
@@ -235,11 +235,13 @@ async function extractPdfs() {
   for (const file of pdfFiles) {
     const filePath = path.join(SOURCE_DIR, file);
     const buffer = fs.readFileSync(filePath);
-    const data = await pdf(buffer);
+    const parser = new PDFParse({ data: buffer });
+    const data = await parser.getText();
 
     const outFile = path.join(PDF_OUT_DIR, file.replace(".pdf", ".txt"));
     fs.writeFileSync(outFile, data.text, "utf-8");
-    console.log(`  ✅ ${file} → ${path.relative(process.cwd(), outFile)} (${data.numpages} pages)`);
+    console.log(`  ✅ ${file} → ${path.relative(process.cwd(), outFile)} (${data.total} pages)`);
+    await parser.destroy();
   }
 
   console.log(`\n  ℹ️  PDF text files are in prisma/data/pdf-raw/`);
