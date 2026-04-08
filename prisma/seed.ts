@@ -225,6 +225,11 @@ async function main() {
 
   const n5Vocab = n5VocabData;
 
+  const validVocabIds = n5Vocab.map((_, i) => `n5-v-${i + 1}`);
+  await prisma.vocabularyItem.deleteMany({
+    where: { lessonId: n5VocabLesson.id, id: { notIn: validVocabIds } },
+  });
+
   for (let i = 0; i < n5Vocab.length; i++) {
     const v = n5Vocab[i];
     const id = `n5-v-${i + 1}`;
@@ -239,62 +244,57 @@ async function main() {
     }
   }
 
-// ─── JLPT N5 Grammar Lesson ───────────────────────────────────────────────────
-const n5GrammarLesson = await prisma.lesson.upsert({
-  where: { id: "n5-grammar-1" },
-  update: {},
-  create: {
-    id: "n5-grammar-1",
-    title: "N5 Grammar — Basic Sentence Patterns",
-    description: "Fundamental grammar patterns for N5: は、が、を、に、で、も",
-    examType: "JLPT",
-    level: "N5",
-    contentType: "GRAMMAR",
-    order: 1,
-  },
-});
+ // ─── JLPT N5 Grammar Lesson ───────────────────────────────────────────────────
+  const n5GrammarLesson = await prisma.lesson.upsert({
+    where: { id: "n5-grammar-1" },
+    update: {},
+    create: {
+      id: "n5-grammar-1",
+      title: "N5 Grammar — Basic Sentence Patterns",
+      description: "Fundamental grammar patterns for N5: は、が、を、に、で、も",
+      examType: "JLPT",
+      level: "N5",
+      contentType: "GRAMMAR",
+      order: 1,
+    },
+  });
+  const n5Grammar = n5GrammarData;
 
-const n5Grammar = n5GrammarData;
+  for (let i = 0; i < n5Grammar.length; i++) {
+    const g = n5Grammar[i];
+    const id = `n5-g-${i + 1}`;
 
-for (let i = 0; i < n5Grammar.length; i++) {
-  const g = n5Grammar[i];
-  const id = `n5-g-${i + 1}`;
+    // 🔹 Collect all examples dynamically
+    const examples: { jp: string; en: string }[] = [];
+    const gFlat = g as Record<string, unknown>; // ← fixes ts(7053)
+    let index = 1;
+    while (gFlat[`example${index}`] && gFlat[`exampleTrans${index}`]) {
+      examples.push({
+        jp: gFlat[`example${index}`] as string,
+        en: gFlat[`exampleTrans${index}`] as string,
+      });
+      index++;
+    }
 
-  // 🔹 Collect all examples dynamically
-  const examples: { jp: string; en: string }[] = [];
-
-  let index = 1;
-  while (g[`example${index}`] && g[`exampleTrans${index}`]) {
-    examples.push({
-      jp: g[`example${index}`],
-      en: g[`exampleTrans${index}`],
-    });
-    index++;
+    try {
+      await prisma.grammarItem.upsert({
+        where: { id },
+        update: { examples, usage: g.usage },
+        create: {
+          id,
+          pattern: g.pattern,
+          meaning: g.meaning,
+          usage: g.usage,
+          examples,
+          examType: "JLPT",
+          level: "N5",
+          lessonId: n5GrammarLesson.id,
+        },
+      });
+    } catch (err) {
+      console.error(`Failed to upsert grammar item ${id} (${g.pattern}):`, err);
+    }
   }
-
-  try {
-    await prisma.grammarItem.upsert({
-      where: { id },
-      update: {},
-      create: {
-        id,
-        pattern: g.pattern,
-        meaning: g.meaning,
-        usage: g.usage,
-
-        // 🔹 Store as JSON (recommended)
-        examples: examples,
-
-        examType: "JLPT",
-        level: "N5",
-        lessonId: n5GrammarLesson.id,
-      },
-    });
-  } catch (err) {
-    console.error(`Failed to upsert grammar item ${id} (${g.pattern}):`, err);
-  }
-}
-
   // ─── JLPT N5 Kanji Lesson ────────────────────────────────────────────────────
   const n5KanjiLesson = await prisma.lesson.upsert({
     where: { id: "n5-kanji-1" },
@@ -320,7 +320,7 @@ for (let i = 0; i < n5Grammar.length; i++) {
 
   for (let i = 0; i < n5Kanji.length; i++) {
     const k = n5Kanji[i];
-    const id = `n5-k-${i + 1}`;
+    const id = `n5-k-${k.character}`;
     try {
       await prisma.kanjiItem.upsert({
         where: { id },

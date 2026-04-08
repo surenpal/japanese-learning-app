@@ -149,7 +149,7 @@ model GrammarItem {
   pattern      String
   meaning      String
   usage        Json?
-  examples     Json
+  examples     Json?
   examType     ExamType
   level        JLPTLevel?
   lessonId     String?

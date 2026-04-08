@@ -21,7 +21,7 @@
 import * as XLSX from "xlsx";
 import * as fs from "fs";
 import * as path from "path";
-import pdf from "pdf-parse";
+const pdf = require("pdf-parse");
 
 // ─── Paths ────────────────────────────────────────────────────────────────────
 

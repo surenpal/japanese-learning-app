@@ -65,10 +65,14 @@ export default async function LessonDetailPage({
                 <p>{(g.usage as { a: string; b: string }).b}</p>
               </div>
             )}
-            {g.example && (
-              <div className="bg-red-50 rounded-lg p-3 space-y-1">
-                <p className="text-sm font-medium text-gray-800">{g.example}</p>
-                {g.exampleTrans && <p className="text-xs text-gray-500">{g.exampleTrans}</p>}
+            {g.examples && (g.examples as { jp: string; en: string }[]).length > 0 && (
+              <div className="space-y-2">
+                {(g.examples as { jp: string; en: string }[]).map((ex, i) => (
+                  <div key={i} className="bg-red-50 rounded-lg p-3 space-y-1">
+                    <p className="text-sm font-medium text-gray-800">{ex.jp}</p>
+                    <p className="text-xs text-gray-500">{ex.en}</p>
+                  </div>
+                ))}
               </div>
             )}
           </CardContent>
