@@ -157,7 +157,7 @@ export default async function DashboardPage() {
             </div>
           ) : (
             <div className="space-y-3">
-              {recentProgress.map((p) => (
+              {recentProgress.map((p: { id: string; completedAt: Date | null; score?: number | null; lesson: { title: string } }) => (
                 <div key={p.id} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
                   <div>
                     <p className="text-sm font-medium text-gray-800">{p.lesson.title}</p>
