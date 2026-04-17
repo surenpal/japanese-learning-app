@@ -45,10 +45,10 @@ export default async function DashboardPage() {
     <div className="max-w-5xl mx-auto space-y-6">
       {/* Welcome */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
           Welcome back, {session?.user?.name?.split(" ")[0] ?? "Learner"} 👋
         </h1>
-        <p className="text-gray-500 text-sm mt-1">
+        <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
           {new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })}
         </p>
       </div>
@@ -58,12 +58,12 @@ export default async function DashboardPage() {
         <Card>
           <CardContent className="pt-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-orange-50 dark:bg-orange-950 flex items-center justify-center">
                 <Flame className="w-5 h-5 text-orange-500" />
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-900">{streak?.currentStreak ?? 0}</p>
-                <p className="text-xs text-gray-500">Day streak</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{streak?.currentStreak ?? 0}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Day streak</p>
               </div>
             </div>
           </CardContent>
@@ -72,12 +72,12 @@ export default async function DashboardPage() {
         <Card>
           <CardContent className="pt-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-green-50 dark:bg-green-950 flex items-center justify-center">
                 <BookOpen className="w-5 h-5 text-green-600" />
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-900">{totalCompleted}</p>
-                <p className="text-xs text-gray-500">Lessons done</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{totalCompleted}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Lessons done</p>
               </div>
             </div>
           </CardContent>
@@ -86,12 +86,12 @@ export default async function DashboardPage() {
         <Card>
           <CardContent className="pt-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950 flex items-center justify-center">
                 <Brain className="w-5 h-5 text-purple-600" />
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-900">{dueFlashcards}</p>
-                <p className="text-xs text-gray-500">Cards due</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{dueFlashcards}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Cards due</p>
               </div>
             </div>
           </CardContent>
@@ -100,12 +100,12 @@ export default async function DashboardPage() {
         <Card>
           <CardContent className="pt-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-950 flex items-center justify-center">
                 <Flame className="w-5 h-5 text-red-500" />
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-900">{streak?.longestStreak ?? 0}</p>
-                <p className="text-xs text-gray-500">Best streak</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{streak?.longestStreak ?? 0}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Best streak</p>
               </div>
             </div>
           </CardContent>
@@ -123,7 +123,7 @@ export default async function DashboardPage() {
               <Link
                 key={href}
                 href={href}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow text-sm font-medium text-gray-700`}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow text-sm font-medium text-gray-700 dark:text-gray-300`}
               >
                 <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${color}`}>
                   <Icon className="w-4 h-4" />
@@ -158,10 +158,10 @@ export default async function DashboardPage() {
             <div className="space-y-3">
               
               {recentProgress.map((p: { id: string; completedAt: Date | null; score?: number | null; lesson: { title: string } }) => (
-                <div key={p.id} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
+                <div key={p.id} className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
                   <div>
-                    <p className="text-sm font-medium text-gray-800">{p.lesson.title}</p>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{p.lesson.title}</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">
                       {p.completedAt
                         ? new Date(p.completedAt).toLocaleDateString()
                         : "—"}
