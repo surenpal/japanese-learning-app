@@ -208,40 +208,48 @@ async function main() {
     }
   }
 
-  // ─── JLPT N5 Vocabulary Lesson ────────────────────────────────────────────────
-  const n5VocabLesson = await prisma.lesson.upsert({
-    where: { id: "n5-vocab-1" },
-    update: {},
-    create: {
-      id: "n5-vocab-1",
-      title: "N5 Vocabulary — Everyday Words",
-      description: "Core vocabulary for daily life situations at N5 level.",
-      examType: "JLPT",
-      level: "N5",
-      contentType: "VOCABULARY",
-      order: 1,
-    },
-  });
+  // ─── JLPT N5 Vocabulary — split into sets of 35 ─────────────────────────────
+  const SET_SIZE = 35;
+  const allVocab = n5VocabData as { word: string; reading: string; meaning: string; example?: string; exampleTrans?: string }[];
+  const totalSets = Math.ceil(allVocab.length / SET_SIZE);
 
-  const n5Vocab = n5VocabData;
+  for (let setNum = 1; setNum <= totalSets; setNum++) {
+    const setData = allVocab.slice((setNum - 1) * SET_SIZE, setNum * SET_SIZE);
+    const lessonId = `n5-vocab-set-${String(setNum).padStart(2, "0")}`;
 
-  const validVocabIds = n5Vocab.map((_, i) => `n5-v-${i + 1}`);
-  await prisma.vocabularyItem.deleteMany({
-    where: { lessonId: n5VocabLesson.id, id: { notIn: validVocabIds } },
-  });
+    await prisma.lesson.upsert({
+      where: { id: lessonId },
+      update: { order: setNum },
+      create: {
+        id: lessonId,
+        title: `N5 Vocabulary — Set ${setNum}`,
+        description: `N5 vocabulary set ${setNum} of ${totalSets} (${setData.length} words).`,
+        examType: "JLPT",
+        level: "N5",
+        contentType: "VOCABULARY",
+        order: setNum,
+      },
+    });
 
-  for (let i = 0; i < n5Vocab.length; i++) {
-    const v = n5Vocab[i];
-    const id = `n5-v-${i + 1}`;
-    try {
-      await prisma.vocabularyItem.upsert({
-        where: { id },
-        update: {},
-        create: { id, ...v, examType: "JLPT", level: "N5", lessonId: n5VocabLesson.id },
-      });
-    } catch (err) {
-      console.error(`Failed to upsert vocab item ${id} (${v.word}):`, err);
+    const validIds = setData.map((_, i) => `n5-vs${setNum}-${i + 1}`);
+    await prisma.vocabularyItem.deleteMany({
+      where: { lessonId, id: { notIn: validIds } },
+    });
+
+    for (let i = 0; i < setData.length; i++) {
+      const v = setData[i];
+      const id = `n5-vs${setNum}-${i + 1}`;
+      try {
+        await prisma.vocabularyItem.upsert({
+          where: { id },
+          update: {},
+          create: { id, ...v, examType: "JLPT", level: "N5", lessonId },
+        });
+      } catch (err) {
+        console.error(`Failed to upsert vocab set ${setNum} item ${id} (${v.word}):`, err);
+      }
     }
+    console.log(`  ✓ N5 Vocab Set ${setNum}/${totalSets} — ${setData.length} words`);
   }
 
  // ─── JLPT N5 Grammar Lesson ───────────────────────────────────────────────────
