@@ -55,90 +55,47 @@ export default async function DashboardPage() {
 
       {/* Stats row */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-orange-50 dark:bg-orange-950 flex items-center justify-center">
-                <Flame className="w-5 h-5 text-orange-500" />
+        {[
+          { icon: Flame, color: "text-orange-500", bg: "bg-orange-50 dark:bg-orange-950/60", value: streak?.currentStreak ?? 0, label: "Day streak" },
+          { icon: BookOpen, color: "text-green-600", bg: "bg-green-50 dark:bg-green-950/60", value: totalCompleted, label: "Lessons done" },
+          { icon: Brain, color: "text-purple-600", bg: "bg-purple-50 dark:bg-purple-950/60", value: dueFlashcards, label: "Cards due" },
+          { icon: Flame, color: "text-red-500", bg: "bg-red-50 dark:bg-red-950/60", value: streak?.longestStreak ?? 0, label: "Best streak" },
+        ].map(({ icon: Icon, color, bg, value, label }) => (
+          <Card key={label} className="hover:shadow-md transition-all duration-200">
+            <CardContent className="pt-5 pb-5">
+              <div className={`w-9 h-9 rounded-xl ${bg} flex items-center justify-center mb-3`}>
+                <Icon className={`w-5 h-5 ${color}`} />
               </div>
-              <div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{streak?.currentStreak ?? 0}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Day streak</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-green-50 dark:bg-green-950 flex items-center justify-center">
-                <BookOpen className="w-5 h-5 text-green-600" />
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{totalCompleted}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Lessons done</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950 flex items-center justify-center">
-                <Brain className="w-5 h-5 text-purple-600" />
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{dueFlashcards}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Cards due</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-950 flex items-center justify-center">
-                <Flame className="w-5 h-5 text-red-500" />
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{streak?.longestStreak ?? 0}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Best streak</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+              <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{value}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{label}</p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
 
       {/* Quick start */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Quick Start</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-3">
-            {quickLinks.map(({ href, label, icon: Icon, color }) => (
-              <Link
-                key={href}
-                href={href}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow text-sm font-medium text-gray-700 dark:text-gray-300`}
-              >
-                <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${color}`}>
-                  <Icon className="w-4 h-4" />
-                </div>
-                {label}
-              </Link>
-            ))}
-            {dueFlashcards > 0 && (
-              <Button asChild size="sm" className="rounded-xl">
-                <Link href="/flashcards">Review {dueFlashcards} flashcard{dueFlashcards !== 1 ? "s" : ""}</Link>
-              </Button>
-            )}
-          </div>
-        </CardContent>
-      </Card>
+      <div>
+        <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Quick Start</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          {quickLinks.map(({ href, label, icon: Icon, color }) => (
+            <Link
+              key={href}
+              href={href}
+              className="flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-200/80 dark:border-gray-700/60 bg-white dark:bg-gray-800/90 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${color} dark:opacity-90`}>
+                <Icon className="w-5 h-5" />
+              </div>
+              {label}
+            </Link>
+          ))}
+        </div>
+        {dueFlashcards > 0 && (
+          <Button asChild className="mt-3 rounded-xl w-full sm:w-auto">
+            <Link href="/flashcards">Review {dueFlashcards} flashcard{dueFlashcards !== 1 ? "s" : ""} due</Link>
+          </Button>
+        )}
+      </div>
 
       {/* Recent activity */}
       <Card>
