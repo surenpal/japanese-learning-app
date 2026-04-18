@@ -2,6 +2,7 @@ import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { Sidebar } from "@/components/layout/sidebar";
 import { Navbar } from "@/components/layout/navbar";
+import { AIAssistant } from "@/components/ai-assistant/ai-assistant";
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
@@ -14,6 +15,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
         <Navbar user={session.user} />
         <main className="flex-1 overflow-y-auto p-6">{children}</main>
       </div>
+      <AIAssistant />
     </div>
   );
 }
