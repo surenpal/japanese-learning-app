@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { JLPT_LEVELS } from "@/lib/utils";
-import { BookOpen, Brain, Flame, Star, TrendingUp } from "lucide-react";
+import { BookOpen, Brain, Flame, Star } from "lucide-react";
 
 export default async function ProgressPage() {
   const session = await auth();
@@ -41,8 +41,8 @@ export default async function ProgressPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">My Progress</h1>
-        <p className="text-sm text-gray-500 mt-1">Your learning journey at a glance</p>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">My Progress</h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Your learning journey at a glance</p>
       </div>
 
       {/* Summary stats */}
@@ -51,10 +51,10 @@ export default async function ProgressPage() {
           <CardContent className="pt-5">
             <div className="flex items-center gap-2 mb-1">
               <Flame className="w-4 h-4 text-orange-500" />
-              <span className="text-xs text-gray-500">Streak</span>
+              <span className="text-xs text-gray-500 dark:text-gray-400">Streak</span>
             </div>
-            <p className="text-3xl font-bold text-gray-900">{streak?.currentStreak ?? 0}</p>
-            <p className="text-xs text-gray-400">Best: {streak?.longestStreak ?? 0} days</p>
+            <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">{streak?.currentStreak ?? 0}</p>
+            <p className="text-xs text-gray-400 dark:text-gray-500">Best: {streak?.longestStreak ?? 0} days</p>
           </CardContent>
         </Card>
         <Card>
@@ -63,8 +63,8 @@ export default async function ProgressPage() {
               <BookOpen className="w-4 h-4 text-green-500" />
               <span className="text-xs text-gray-500">Lessons</span>
             </div>
-            <p className="text-3xl font-bold text-gray-900">{totalCompleted}</p>
-            <p className="text-xs text-gray-400">completed</p>
+            <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">{totalCompleted}</p>
+            <p className="text-xs text-gray-400 dark:text-gray-500">completed</p>
           </CardContent>
         </Card>
         <Card>
@@ -73,10 +73,10 @@ export default async function ProgressPage() {
               <Star className="w-4 h-4 text-yellow-500" />
               <span className="text-xs text-gray-500">Quiz avg</span>
             </div>
-            <p className="text-3xl font-bold text-gray-900">
+            <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">
               {avgScore != null ? `${avgScore}%` : "—"}
             </p>
-            <p className="text-xs text-gray-400">{quizAttempts.length} attempts</p>
+            <p className="text-xs text-gray-400 dark:text-gray-500">{quizAttempts.length} attempts</p>
           </CardContent>
         </Card>
         <Card>
@@ -85,8 +85,8 @@ export default async function ProgressPage() {
               <Brain className="w-4 h-4 text-purple-500" />
               <span className="text-xs text-gray-500">Flashcards</span>
             </div>
-            <p className="text-3xl font-bold text-gray-900">{totalFlashcards}</p>
-            <p className="text-xs text-gray-400">in deck</p>
+            <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">{totalFlashcards}</p>
+            <p className="text-xs text-gray-400 dark:text-gray-500">in deck</p>
           </CardContent>
         </Card>
       </div>
@@ -104,9 +104,9 @@ export default async function ProgressPage() {
                 <div className="flex items-center justify-between mb-1">
                   <div className="flex items-center gap-2">
                     <Badge variant={level as "N5" | "N4" | "N3" | "N2" | "N1"}>{level}</Badge>
-                    <span className="text-sm text-gray-600">{done} / {total} lessons</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">{done} / {total} lessons</span>
                   </div>
-                  <span className="text-sm font-medium text-gray-700">{pct}%</span>
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{pct}%</span>
                 </div>
                 <Progress value={pct} />
               </div>
@@ -126,9 +126,9 @@ export default async function ProgressPage() {
               {quizAttempts.map((a) => {
                 const pct = Math.round((a.score / a.total) * 100);
                 return (
-                  <div key={a.id} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
+                  <div key={a.id} className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
                     <div>
-                      <p className="text-sm font-medium text-gray-800">
+                      <p className="text-sm font-medium text-gray-800 dark:text-gray-200">
                         {a.examType} {a.level ?? ""} — {a.contentType}
                       </p>
                       <p className="text-xs text-gray-400">

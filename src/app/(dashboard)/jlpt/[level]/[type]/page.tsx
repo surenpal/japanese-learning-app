@@ -40,7 +40,7 @@ export default async function JLPTContentPage({
       <div className="flex items-center gap-3">
         <Badge variant={level}>{level}</Badge>
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 capitalize">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 capitalize">
             {level} {type}
           </h1>
           <p className="text-sm text-gray-500">{lessons.length} lessons</p>
@@ -89,7 +89,7 @@ export default async function JLPTContentPage({
                     <Badge variant="secondary">{itemCount} items</Badge>
                   </div>
                   {lesson.description && (
-                    <p className="text-sm text-gray-500 mt-1">{lesson.description}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{lesson.description}</p>
                   )}
                 </CardHeader>
                 <CardContent className="pt-0">
@@ -97,7 +97,7 @@ export default async function JLPTContentPage({
                   {contentType === "VOCABULARY" && lesson.vocabularyItems.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-3">
                       {lesson.vocabularyItems.slice(0, 6).map((v) => (
-                        <span key={v.id} className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-100">
+                        <span key={v.id} className="text-xs bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full border border-blue-100 dark:border-blue-800">
                           {v.word} ({v.reading})
                         </span>
                       ))}
@@ -106,7 +106,7 @@ export default async function JLPTContentPage({
                   {contentType === "KANJI" && lesson.kanjiItems.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-3">
                       {lesson.kanjiItems.slice(0, 8).map((k) => (
-                        <span key={k.id} className="text-lg font-bold bg-gray-50 text-gray-800 px-2 py-0.5 rounded border border-gray-200">
+                        <span key={k.id} className="text-lg font-bold bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded border border-gray-200 dark:border-gray-600">
                           {k.character}
                         </span>
                       ))}
@@ -115,7 +115,7 @@ export default async function JLPTContentPage({
                   {contentType === "GRAMMAR" && lesson.grammarItems.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-3">
                       {lesson.grammarItems.slice(0, 4).map((g) => (
-                        <span key={g.id} className="text-xs bg-red-50 text-red-700 px-2 py-0.5 rounded-full border border-red-100">
+                        <span key={g.id} className="text-xs bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-300 px-2 py-0.5 rounded-full border border-red-100 dark:border-red-800">
                           {g.pattern}
                         </span>
                       ))}

@@ -43,11 +43,11 @@ export default async function LessonDetailPage({
           </Link>
         </Button>
         <Badge variant={level}>{level}</Badge>
-        <h1 className="text-xl font-bold text-gray-900">{lesson.title}</h1>
+        <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">{lesson.title}</h1>
       </div>
 
       {lesson.description && (
-        <p className="text-gray-500 text-sm">{lesson.description}</p>
+        <p className="text-gray-500 dark:text-gray-400 text-sm">{lesson.description}</p>
       )}
 
       {/* Grammar items */}
@@ -55,12 +55,12 @@ export default async function LessonDetailPage({
         <Card key={g.id}>
           <CardContent className="pt-5 space-y-3">
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-gray-900">{g.pattern}</span>
+              <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">{g.pattern}</span>
               <Badge variant="outline">{g.examType}</Badge>
             </div>
-            <p className="text-gray-700 font-medium">{g.meaning}</p>
+            <p className="text-gray-700 dark:text-gray-300 font-medium">{g.meaning}</p>
             {g.usage && (
-              <div className="bg-gray-50 rounded-lg p-3 text-sm text-gray-600 space-y-1">
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 text-sm text-gray-600 dark:text-gray-300 space-y-1">
                 <p><strong>Usage: </strong>{(g.usage as { a: string; b: string }).a}</p>
                 <p>{(g.usage as { a: string; b: string }).b}</p>
               </div>
@@ -68,9 +68,9 @@ export default async function LessonDetailPage({
             {g.examples && (g.examples as { jp: string; en: string }[]).length > 0 && (
               <div className="space-y-2">
                 {(g.examples as { jp: string; en: string }[]).map((ex, i) => (
-                  <div key={i} className="bg-red-50 rounded-lg p-3 space-y-1">
-                    <p className="text-sm font-medium text-gray-800">{ex.jp}</p>
-                    <p className="text-xs text-gray-500">{ex.en}</p>
+                  <div key={i} className="bg-red-50 dark:bg-red-950 rounded-lg p-3 space-y-1">
+                    <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{ex.jp}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">{ex.en}</p>
                   </div>
                 ))}
               </div>
@@ -86,14 +86,14 @@ export default async function LessonDetailPage({
             <Card key={v.id}>
               <CardContent className="pt-5 space-y-2">
                 <div>
-                  <p className="text-2xl font-bold text-gray-900">{v.word}</p>
-                  <p className="text-sm text-gray-400">{v.reading}</p>
+                  <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{v.word}</p>
+                  <p className="text-sm text-gray-400 dark:text-gray-500">{v.reading}</p>
                 </div>
-                <p className="text-gray-700">{v.meaning}</p>
+                <p className="text-gray-700 dark:text-gray-300">{v.meaning}</p>
                 {v.example && (
-                  <div className="bg-blue-50 rounded p-2 text-xs space-y-0.5">
-                    <p className="text-gray-800">{v.example}</p>
-                    {v.exampleTrans && <p className="text-gray-500">{v.exampleTrans}</p>}
+                  <div className="bg-blue-50 dark:bg-blue-950 rounded p-2 text-xs space-y-0.5">
+                    <p className="text-gray-800 dark:text-gray-200">{v.example}</p>
+                    {v.exampleTrans && <p className="text-gray-500 dark:text-gray-400">{v.exampleTrans}</p>}
                   </div>
                 )}
               </CardContent>
@@ -109,13 +109,13 @@ export default async function LessonDetailPage({
             <Card key={k.id}>
               <CardContent className="pt-5">
                 <div className="flex gap-4">
-                  <div className="text-6xl font-bold text-gray-900 w-16 flex-shrink-0">{k.character}</div>
+                  <div className="text-6xl font-bold text-gray-900 dark:text-gray-100 w-16 flex-shrink-0">{k.character}</div>
                   <div className="space-y-1 text-sm">
-                    <p className="font-medium text-gray-800">{k.meaning}</p>
-                    {k.onyomi && <p className="text-gray-500">音: {k.onyomi}</p>}
-                    {k.kunyomi && <p className="text-gray-500">訓: {k.kunyomi}</p>}
-                    {k.strokeCount && <p className="text-gray-400">{k.strokeCount} strokes</p>}
-                    {k.example && <p className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded">{k.example}</p>}
+                    <p className="font-medium text-gray-800 dark:text-gray-200">{k.meaning}</p>
+                    {k.onyomi && <p className="text-gray-500 dark:text-gray-400">音: {k.onyomi}</p>}
+                    {k.kunyomi && <p className="text-gray-500 dark:text-gray-400">訓: {k.kunyomi}</p>}
+                    {k.strokeCount && <p className="text-gray-400 dark:text-gray-500">{k.strokeCount} strokes</p>}
+                    {k.example && <p className="text-xs bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-400 px-2 py-0.5 rounded">{k.example}</p>}
                   </div>
                 </div>
               </CardContent>

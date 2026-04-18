@@ -52,8 +52,8 @@ export default async function QuizzesPage({
     return (
       <div className="max-w-4xl mx-auto space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Quizzes</h1>
-          <p className="text-sm text-gray-500 mt-1">Test your knowledge across all exam types</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Quizzes</h1>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Test your knowledge across all exam types</p>
         </div>
 
         {/* Quick select */}
@@ -84,9 +84,9 @@ export default async function QuizzesPage({
             <CardContent>
               <div className="space-y-2">
                 {recentAttempts.map((a) => (
-                  <div key={a.id} className="flex items-center justify-between text-sm py-2 border-b border-gray-50 last:border-0">
+                  <div key={a.id} className="flex items-center justify-between text-sm py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
                     <div>
-                      <span className="font-medium text-gray-800">
+                      <span className="font-medium text-gray-800 dark:text-gray-200">
                         {a.examType} {a.level ?? ""} {a.contentType}
                       </span>
                       <p className="text-xs text-gray-400">
@@ -112,7 +112,7 @@ export default async function QuizzesPage({
         <Button variant="ghost" size="sm" asChild>
           <Link href="/quizzes">← Back</Link>
         </Button>
-        <h1 className="text-xl font-bold text-gray-900">
+        <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">
           {sp.examType} {sp.level ?? ""} {sp.contentType ?? "Practice Exam"}
           {sp.setNumber ? ` — Set ${sp.setNumber}` : ""}
         </h1>

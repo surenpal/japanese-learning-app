@@ -56,7 +56,6 @@ export function QuizClient({ questions, examType, level, contentType }: Props) {
 
   async function handleNext() {
     if (index + 1 >= questions.length) {
-      const score = answers.filter((a) => a.correct).length + (selected === q.correctAnswer ? 0 : 0);
       const finalScore = answers.filter((a) => a.correct).length;
       const timeTaken = Math.round((Date.now() - startTime) / 1000);
       await fetch("/api/quizzes/submit", {
@@ -87,10 +86,10 @@ export function QuizClient({ questions, examType, level, contentType }: Props) {
       <Card>
         <CardContent className="py-12 text-center space-y-4">
           <p className="text-6xl">{pct >= 80 ? "🎉" : pct >= 60 ? "👍" : "📚"}</p>
-          <p className="text-3xl font-bold text-gray-900">
+          <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">
             {score} / {questions.length}
           </p>
-          <p className="text-gray-500">
+          <p className="text-gray-500 dark:text-gray-400">
             {pct >= 80 ? "Excellent!" : pct >= 60 ? "Good work!" : "Keep practising!"}
           </p>
           <Progress value={pct} className="max-w-xs mx-auto" />
@@ -109,7 +108,7 @@ export function QuizClient({ questions, examType, level, contentType }: Props) {
     <div className="space-y-5">
       {/* Progress */}
       <div className="space-y-1">
-        <div className="flex justify-between text-xs text-gray-400">
+        <div className="flex justify-between text-xs text-gray-400 dark:text-gray-500">
           <span>Question {index + 1} of {questions.length}</span>
           <span>{answers.filter((a) => a.correct).length} correct</span>
         </div>
@@ -119,7 +118,7 @@ export function QuizClient({ questions, examType, level, contentType }: Props) {
       {/* Question */}
       <Card>
         <CardContent className="pt-6">
-          <p className="text-lg font-semibold text-gray-900 mb-6">{q.question}</p>
+          <p className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-6">{q.question}</p>
           <div className="space-y-3">
             {OPTIONS.map((opt) => {
               const isSelected = selected === opt;
@@ -133,17 +132,17 @@ export function QuizClient({ questions, examType, level, contentType }: Props) {
                   disabled={answered}
                   className={cn(
                     "w-full flex items-center gap-3 px-4 py-3 rounded-xl border text-left text-sm transition-all",
-                    !showResult && "hover:border-gray-300 hover:bg-gray-50 border-gray-200 bg-white",
-                    showResult && isCorrect && "border-green-400 bg-green-50 text-green-800",
-                    showResult && isSelected && !isCorrect && "border-red-400 bg-red-50 text-red-800",
-                    showResult && !isSelected && !isCorrect && "border-gray-100 bg-white text-gray-400"
+                    !showResult && "hover:border-gray-300 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+                    showResult && isCorrect && "border-green-400 bg-green-50 dark:bg-green-950 text-green-800 dark:text-green-300",
+                    showResult && isSelected && !isCorrect && "border-red-400 bg-red-50 dark:bg-red-950 text-red-800 dark:text-red-300",
+                    showResult && !isSelected && !isCorrect && "border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-400 dark:text-gray-500"
                   )}
                 >
                   <span className={cn(
                     "flex-shrink-0 w-7 h-7 rounded-full border flex items-center justify-center text-xs font-bold",
-                    showResult && isCorrect ? "border-green-400 bg-green-100 text-green-700" :
-                    showResult && isSelected && !isCorrect ? "border-red-400 bg-red-100 text-red-700" :
-                    "border-gray-200 bg-gray-50 text-gray-500"
+                    showResult && isCorrect ? "border-green-400 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300" :
+                    showResult && isSelected && !isCorrect ? "border-red-400 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300" :
+                    "border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-500 dark:text-gray-400"
                   )}>
                     {opt}
                   </span>
@@ -157,7 +156,7 @@ export function QuizClient({ questions, examType, level, contentType }: Props) {
 
           {/* Explanation */}
           {answered && q.explanation && (
-            <div className="mt-4 bg-blue-50 border border-blue-100 rounded-xl p-4 text-sm text-blue-700">
+            <div className="mt-4 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-800 rounded-xl p-4 text-sm text-blue-700 dark:text-blue-300">
               <strong>Explanation:</strong> {q.explanation}
             </div>
           )}

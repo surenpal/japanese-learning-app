@@ -44,8 +44,8 @@ export default function JFTPage() {
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">JFT — Japan Foundation Test</h1>
-          <p className="text-sm text-gray-500 mt-1">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">JFT — Japan Foundation Test</h1>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
             Japanese language test for specified skilled workers (特定技能)
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function JFTPage() {
       </div>
 
       {/* Info banner */}
-      <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 text-sm text-blue-700">
+      <div className="bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-800 rounded-xl p-4 text-sm text-blue-700 dark:text-blue-300">
         <strong>About JFT-Basic:</strong> The Japan Foundation Test for Basic Japanese measures
         Japanese ability needed for daily life in Japan. Aimed at those seeking specified skilled
         worker status. Based on the{" "}
@@ -106,7 +106,7 @@ export default function JFTPage() {
                 href={r.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 text-gray-600 transition-colors"
+                className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors"
               >
                 {r.name} ↗
               </a>

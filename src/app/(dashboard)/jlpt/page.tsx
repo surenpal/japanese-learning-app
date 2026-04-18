@@ -28,7 +28,7 @@ export default async function JLPTPage() {
   return (
     <div className="max-w-5xl mx-auto space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">JLPT Preparation</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">JLPT Preparation</h1>
         <p className="text-gray-500 text-sm mt-1">
           Japanese Language Proficiency Test — N5 (Beginner) to N1 (Advanced)
         </p>
@@ -53,7 +53,7 @@ export default async function JLPTPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <div className="flex justify-between text-xs text-gray-500 mb-1">
+                  <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-1">
                     <span>{completed} / {totalLessons} lessons</span>
                     <span>{pct}%</span>
                   </div>
@@ -108,7 +108,7 @@ export default async function JLPTPage() {
                 href={r.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 text-gray-600 transition-colors"
+                className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors"
               >
                 {r.name} ↗
               </a>

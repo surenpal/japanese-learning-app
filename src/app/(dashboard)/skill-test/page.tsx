@@ -46,10 +46,10 @@ export default function SkillTestPage() {
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
             Skills Test — 特定技能評価試験
           </h1>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
             Japanese language component of the Specified Skilled Worker evaluation
           </p>
         </div>
@@ -57,7 +57,7 @@ export default function SkillTestPage() {
       </div>
 
       {/* Info banner */}
-      <div className="bg-green-50 border border-green-100 rounded-xl p-4 text-sm text-green-700">
+      <div className="bg-green-50 dark:bg-green-950 border border-green-100 dark:border-green-800 rounded-xl p-4 text-sm text-green-700 dark:text-green-300">
         <strong>About the Skills Test:</strong> The Specified Skills evaluation assesses both
         industry knowledge and Japanese language ability. Our practice sets follow the format used
         by{" "}

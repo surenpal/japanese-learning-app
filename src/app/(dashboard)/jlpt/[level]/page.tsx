@@ -5,7 +5,6 @@ import { auth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import { BookOpen, CheckCircle, FileText, Grid3x3 } from "lucide-react";
 import { JLPT_LEVELS } from "@/lib/utils";
 
@@ -42,7 +41,7 @@ export default async function JLPTLevelPage({
       <div className="flex items-center gap-3">
         <Badge variant={level}>{level}</Badge>
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
             JLPT {level} — {levelLabel(level)}
           </h1>
           <p className="text-sm text-gray-500">{lessons.length} lessons total</p>
@@ -75,15 +74,15 @@ export default async function JLPTLevelPage({
                     <Link
                       key={lesson.id}
                       href={`/jlpt/${levelParam}/${type.toLowerCase()}/${lesson.id}`}
-                      className="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:border-gray-200 hover:bg-gray-50 transition-colors group"
+                      className="flex items-center justify-between p-3 rounded-lg border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group"
                     >
                       <div className="flex items-center gap-3">
                         {done ? (
                           <CheckCircle className="w-4 h-4 text-green-500" />
                         ) : (
-                          <div className="w-4 h-4 rounded-full border-2 border-gray-300 group-hover:border-red-400 transition-colors" />
+                          <div className="w-4 h-4 rounded-full border-2 border-gray-300 dark:border-gray-600 group-hover:border-red-400 transition-colors" />
                         )}
-                        <span className="text-sm font-medium text-gray-800">{lesson.title}</span>
+                        <span className="text-sm font-medium text-gray-800 dark:text-gray-200">{lesson.title}</span>
                       </div>
                       {lesson.userProgress[0]?.score != null && (
                         <Badge variant="secondary">{lesson.userProgress[0].score}%</Badge>
