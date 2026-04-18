@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import Groq from "groq-sdk";
 import { auth } from "@/lib/auth";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 const SYSTEM_PROMPT = `You are Sensei (先生), a friendly AI Japanese language learning assistant embedded in Nihongo Master, a Japanese learning app.
 
@@ -28,44 +28,34 @@ export async function POST(req: NextRequest) {
 
   const { messages } = await req.json();
 
-  const model = genAI.getGenerativeModel({
-    model: "gemini-2.0-flash",
-    systemInstruction: SYSTEM_PROMPT,
-  });
+  // Build message history — skip the UI welcome message, start from first user message
+  const allMessages = messages.map((m: { role: string; content: string }) => ({
+    role: m.role === "assistant" ? "assistant" : "user",
+    content: m.content,
+  }));
 
-  // Build contents — only include actual user/assistant exchanges (skip the UI welcome message)
-  // Gemini requires alternating user/model turns starting with user
-  const contents = messages
-    .filter((m: { role: string; content: string }) => m.role === "user" || m.role === "assistant")
-    .map((m: { role: string; content: string }) => ({
-      role: m.role === "assistant" ? "model" : "user",
-      parts: [{ text: m.content }],
-    }));
-
-  // Ensure it starts with a user turn
-  const firstUserIdx = contents.findIndex((c: { role: string }) => c.role === "user");
-  const trimmedContents = firstUserIdx >= 0 ? contents.slice(firstUserIdx) : contents;
+  const firstUserIdx = allMessages.findIndex((m: { role: string }) => m.role === "user");
+  const trimmed = firstUserIdx >= 0 ? allMessages.slice(firstUserIdx) : allMessages;
 
   try {
-    const result = await model.generateContent({ contents: trimmedContents });
-    const text = result.response.text();
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.1-8b-instant",
+      messages: [{ role: "system", content: SYSTEM_PROMPT }, ...trimmed],
+      max_tokens: 1024,
+      temperature: 0.7,
+    });
+
+    const text = completion.choices[0]?.message?.content ?? "Sorry, I could not generate a response.";
     return NextResponse.json({ text });
   } catch (err) {
-    console.error("Gemini error:", err);
+    console.error("Groq error:", err);
     const message = err instanceof Error ? err.message : String(err);
-    // Surface rate limit specifically
-    if (message.includes("429")) {
-      return NextResponse.json(
-        { error: "Rate limit reached — please wait a moment and try again." },
-        { status: 429 }
-      );
-    }
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
 
 export async function GET() {
-  const key = process.env.GEMINI_API_KEY;
+  const key = process.env.GROQ_API_KEY;
   return NextResponse.json({
     hasKey: !!key,
     keyLength: key?.length ?? 0,
