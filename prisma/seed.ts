@@ -6,6 +6,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import n5VocabData from "./data/n5vocabulary.json";
 import n5KanjiData from "./data/n5kanji.json";
 import n5GrammarData from "./data/n5grammar.json";
+import n4VocabData from "./data/n4vocabulary.json";
 
 
 // Load JSON produced by `npm run db:extract`, fall back to empty array
@@ -250,6 +251,49 @@ async function main() {
       }
     }
     console.log(`  ✓ N5 Vocab Set ${setNum}/${totalSets} — ${setData.length} words`);
+  }
+
+  // ─── JLPT N4 Vocabulary — split into sets of 35 ─────────────────────────────
+  const allN4Vocab = n4VocabData as { word: string; reading: string; meaning: string; example?: string; exampleTrans?: string }[];
+  const totalN4Sets = Math.ceil(allN4Vocab.length / SET_SIZE);
+
+  for (let setNum = 1; setNum <= totalN4Sets; setNum++) {
+    const setData = allN4Vocab.slice((setNum - 1) * SET_SIZE, setNum * SET_SIZE);
+    const lessonId = `n4-vocab-set-${String(setNum).padStart(2, "0")}`;
+
+    await prisma.lesson.upsert({
+      where: { id: lessonId },
+      update: { order: setNum },
+      create: {
+        id: lessonId,
+        title: `N4 Vocabulary — Set ${setNum}`,
+        description: `N4 vocabulary set ${setNum} of ${totalN4Sets} (${setData.length} words).`,
+        examType: "JLPT",
+        level: "N4",
+        contentType: "VOCABULARY",
+        order: setNum,
+      },
+    });
+
+    const validIds = setData.map((_, i) => `n4-vs${setNum}-${i + 1}`);
+    await prisma.vocabularyItem.deleteMany({
+      where: { lessonId, id: { notIn: validIds } },
+    });
+
+    for (let i = 0; i < setData.length; i++) {
+      const v = setData[i];
+      const id = `n4-vs${setNum}-${i + 1}`;
+      try {
+        await prisma.vocabularyItem.upsert({
+          where: { id },
+          update: {},
+          create: { id, ...v, examType: "JLPT", level: "N4", lessonId },
+        });
+      } catch (err) {
+        console.error(`Failed to upsert N4 vocab set ${setNum} item ${id} (${v.word}):`, err);
+      }
+    }
+    console.log(`  ✓ N4 Vocab Set ${setNum}/${totalN4Sets} — ${setData.length} words`);
   }
 
  // ─── JLPT N5 Grammar Lesson ───────────────────────────────────────────────────
