@@ -370,6 +370,7 @@ async function main() {
     strokeCount?: number;
     commonWords?: string[][];
     example?: string;
+    Hiragana?: string;
     exampleTrans?: string;
   }[];
 
@@ -388,6 +389,7 @@ async function main() {
         update: {
           commonWords: k.commonWords ?? [],
           example: k.example,
+          hiragana: k.Hiragana,
           exampleTrans: k.exampleTrans,
         },
         create: {
@@ -399,6 +401,7 @@ async function main() {
           strokeCount: k.strokeCount,
           commonWords: k.commonWords ?? [],
           example: k.example,
+          hiragana: k.Hiragana,
           exampleTrans: k.exampleTrans,
           examType: "JLPT",
           level: "N5",

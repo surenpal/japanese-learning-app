@@ -133,6 +133,7 @@ model KanjiItem {
   meaning     String
   strokeCount  Int?
   example      String?
+  hiragana     String?
   exampleTrans String?  @db.Text
   commonWords  Json?
   examType     ExamType

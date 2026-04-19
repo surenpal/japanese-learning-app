@@ -110,10 +110,11 @@ export default async function LessonDetailPage({
 
       {/* Kanji items */}
       {contentType === "KANJI" && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4">
           {lesson.kanjiItems.map((k) => (
             <Card key={k.id} className="hover:shadow-md transition-all duration-200">
-              <CardContent className="pt-5">
+              <CardContent className="pt-5 space-y-4">
+                {/* Character + basic info */}
                 <div className="flex gap-4 items-start">
                   <div className="w-20 h-20 flex-shrink-0 flex items-center justify-center bg-gray-50 dark:bg-gray-700/60 rounded-xl border border-gray-100 dark:border-gray-600">
                     <span className="text-5xl font-bold text-gray-900 dark:text-gray-100">{k.character}</span>
@@ -133,15 +134,42 @@ export default async function LessonDetailPage({
                       </div>
                     )}
                     {k.strokeCount && (
-                      <p className="text-xs text-gray-400 dark:text-gray-500">{k.strokeCount} strokes</p>
-                    )}
-                    {k.example && (
-                      <span className="inline-block text-xs text-green-600 dark:text-green-400 font-medium border border-green-200 dark:border-green-800 rounded-lg px-2 py-0.5">
-                        {k.example}
-                      </span>
+                      <p className="text-xs text-gray-400 dark:text-gray-500">{k.strokeCount} Strokes</p>
                     )}
                   </div>
                 </div>
+
+                {/* Common Words */}
+                {k.commonWords && (k.commonWords as string[][]).length > 0 && (
+                  <div className="space-y-2">
+                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">Common Words：</p>
+                    <div className="space-y-1">
+                      {(k.commonWords as string[][]).map((w, i) => (
+                        <p key={i} className="text-sm text-gray-700 dark:text-gray-300">
+                          <span className="font-medium">{w[0]}</span>
+                          {", "}
+                          <span className="text-gray-500 dark:text-gray-400">{w[1]}</span>
+                          {", "}
+                          <span>{w[2]}</span>
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Sentence */}
+                {k.example && (
+                  <div className="space-y-1">
+                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">Sentence:</p>
+                    <p className="text-sm text-gray-800 dark:text-gray-200">{k.example}</p>
+                    {k.hiragana && (
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{k.hiragana}</p>
+                    )}
+                    {k.exampleTrans && (
+                      <p className="text-sm text-gray-400 dark:text-gray-500">{k.exampleTrans}</p>
+                    )}
+                  </div>
+                )}
               </CardContent>
             </Card>
           ))}
