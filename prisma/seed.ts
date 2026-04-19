@@ -317,12 +317,14 @@ async function main() {
     const id = `n5-g-${i + 1}`;
 
     // 🔹 Collect all examples dynamically
-    const examples: { jp: string; en: string }[] = [];
+    const examples: { jp: string; hiragana?: string; en: string }[] = [];
     const gFlat = g as Record<string, unknown>; // ← fixes ts(7053)
     let index = 1;
     while (gFlat[`example${index}`] && gFlat[`exampleTrans${index}`]) {
+      const hiragana = (gFlat[`Hiragana${index}`] ?? (index === 1 ? gFlat[`Hiragana`] : undefined)) as string | undefined;
       examples.push({
         jp: gFlat[`example${index}`] as string,
+        ...(hiragana ? { hiragana } : {}),
         en: gFlat[`exampleTrans${index}`] as string,
       });
       index++;

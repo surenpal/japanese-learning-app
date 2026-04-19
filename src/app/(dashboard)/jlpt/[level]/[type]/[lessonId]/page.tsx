@@ -67,11 +67,14 @@ export default async function LessonDetailPage({
                   <p>{(g.usage as { a: string; b: string }).b}</p>
                 </div>
               )}
-              {g.examples && (g.examples as { jp: string; en: string }[]).length > 0 && (
+              {g.examples && (g.examples as { jp: string; hiragana?: string; en: string }[]).length > 0 && (
                 <div className="space-y-2">
-                  {(g.examples as { jp: string; en: string }[]).map((ex, i) => (
+                  {(g.examples as { jp: string; hiragana?: string; en: string }[]).map((ex, i) => (
                     <div key={i} className="border-l-2 border-red-400 dark:border-red-500 pl-3 space-y-0.5">
                       <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{ex.jp}</p>
+                      {ex.hiragana && (
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{ex.hiragana}</p>
+                      )}
                       <p className="text-xs text-gray-400 dark:text-gray-500">{ex.en}</p>
                     </div>
                   ))}
