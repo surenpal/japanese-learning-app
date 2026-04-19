@@ -7,10 +7,13 @@
       "b": "Used to state that A equals or is B"
     },
     "example1": "わたしは学生です。",
+    "Hiragana": "わたしはがくせいです。",
     "exampleTrans1": "I am a student.",
     "example2": "これは本です。",
+    "Hiragana2": "これはほんです。",
     "exampleTrans2": "This is a book.",
     "example3": "田中さんは先生です。",
+    "Hiragana3": "たなかさんはせんせいです。",
     "exampleTrans3": "Mr. Tanaka is a teacher."
   },
   {
@@ -21,10 +24,13 @@
       "b": "Used to deny a statement"
     },
     "example1": "わたしは先生ではありません。",
+    "Hiragana1": "わたしはせんせいではありません。",
     "exampleTrans1": "I am not a teacher.",
     "example2": "これはペンではありません。",
+    "Hiragana2": "これはぺんです。",
     "exampleTrans2": "This is not a pen.",
     "example3": "彼は学生ではありません。",
+    "Hiragana3": "かれはがくせいではありません。",
     "exampleTrans3": "He is not a student."
   },
   {
@@ -35,10 +41,13 @@
       "b": "Forms a yes/no question"
     },
     "example1": "あなたは学生ですか。",
+    "Hiragana1": "あなたはがくせいですか。",
     "exampleTrans1": "Are you a student?",
     "example2": "これは本ですか。",
+    "Hiragana2": "これはほんですか。",
     "exampleTrans2": "Is this a book?",
     "example3": "田中さんは先生ですか。",
+    "Hiragana3": "たなかさんはせんせいですか。",
     "exampleTrans3": "Is Mr. Tanaka a teacher?"
   },
   {
@@ -49,10 +58,13 @@
       "b": "Indicates inclusion"
     },
     "example1": "わたしも学生です。",
+    "Hiragana1": "わたしもがくせいです。",
     "exampleTrans1": "I am also a student.",
     "example2": "彼も来ます。",
+    "Hiragana2": "かれもきます。",
     "exampleTrans2": "He will come too.",
     "example3": "これもください。",
+    "Hiragana3": "これもください。",
     "exampleTrans3": "Please give me this too."
   },
   {
@@ -63,10 +75,13 @@
       "b": "Shows ownership or relation"
     },
     "example1": "これはわたしの本です。",
+    "Hiragana1": "これはわたしのほんです。",
     "exampleTrans1": "This is my book.",
     "example2": "日本の食べ物",
+    "Hiragana2": "にほんのたべもの",
     "exampleTrans2": "Japanese food",
     "example3": "あれは先生の車です。",
+    "Hiragana3": "あれはせんせいのくるまです。",
     "exampleTrans3": "That is the teacher's car."
   },
   {
@@ -77,10 +92,13 @@
       "b": "Shows politeness"
     },
     "example1": "田中さんは先生です。",
+    "Hiragana1": "たなかさんはせんせいです。",
     "exampleTrans1": "Mr. Tanaka is a teacher.",
     "example2": "山田さんは学生です。",
+    "Hiragana2": "やまださんはがくせいです。",
     "exampleTrans2": "Ms. Yamada is a student.",
     "example3": "佐藤さん、こんにちは。",
+    "Hiragana3": "さとうさん、こんにちは。",
     "exampleTrans3": "Hello, Mr./Ms. Sato."
   },
   {
@@ -91,10 +109,13 @@
       "b": "Indicates nationality"
     },
     "example1": "わたしはインドじんです。",
+    "Hiragana1": "わたしはインドじんです。",
     "exampleTrans1": "I am Indian.",
     "example2": "彼は日本人です。",
+    "Hiragana2": "かれは日本人です。",
     "exampleTrans2": "He is Japanese.",
     "example3": "あの人はアメリカじんです。",
+    "Hiragana3": "あの人はアメリカじんです。",
     "exampleTrans3": "That person is American."
   },
   {
@@ -105,10 +126,13 @@
       "b": "Indicates age"
     },
     "example1": "20歳です。",
+    "Hiragana1": "20さいです。",
     "exampleTrans1": "I am 20 years old.",
     "example2": "彼は18歳です。",
+    "Hiragana2": "かれは18さいです。",
     "exampleTrans2": "He is 18 years old.",
     "example3": "妹は10歳です。",
+    "Hiragana3": "いもうとはじゅうさいです。",
     "exampleTrans3": "My younger sister is 10 years old."
   },
   {
@@ -119,8 +143,10 @@
       "b": "Used to ask age respectfully"
     },
     "example1": "おいくつですか。",
+    "Hiragana1": "おいくつですか。",
     "exampleTrans1": "How old are you?",
     "example2": "田中さんはおいくつですか。",
+    "Hiragana2": "たなかさんはおいくつですか。",
     "exampleTrans2": "How old is Mr. Tanaka?"
   },
   {
@@ -131,10 +157,13 @@
       "b": "Used for people, direction, or place"
     },
     "example1": "こちらは田中さんです。",
+    "Hiragana1": "こちらはたなかさんです。",
     "exampleTrans1": "This is Mr. Tanaka.",
     "example2": "そちらは図書館ですか。",
+    "Hiragana2": "そちらはとしょかんですか。",
     "exampleTrans2": "Is that the library?",
     "example3": "どちらへ行きますか。",
+    "Hiragana3": "どちらへいきますか。",
     "exampleTrans3": "Which way are you going?"
   }
 ]
