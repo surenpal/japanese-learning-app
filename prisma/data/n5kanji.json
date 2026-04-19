@@ -1,82 +1,3682 @@
 [
-  { "character": "一", "onyomi": "イチ・イツ", "kunyomi": "ひと", "meaning": "one", "strokeCount": 1, "example": "一月 (January)" },
-  { "character": "二", "onyomi": "ニ", "kunyomi": "ふた", "meaning": "two", "strokeCount": 2, "example": "二人 (two people)" },
-  { "character": "三", "onyomi": "サン", "kunyomi": "みっ", "meaning": "three", "strokeCount": 3, "example": "三日 (third day)" },
-  { "character": "四", "onyomi": "シ", "kunyomi": "よん", "meaning": "four", "strokeCount": 5, "example": "四時 (4 o'clock)" },
-  { "character": "五", "onyomi": "ゴ", "kunyomi": "いつ", "meaning": "five", "strokeCount": 4, "example": "五分 (five minutes)" },
-  { "character": "六", "onyomi": "ロク", "kunyomi": "むっ", "meaning": "six", "strokeCount": 4, "example": "六月 (June)" },
-  { "character": "七", "onyomi": "シチ", "kunyomi": "なな", "meaning": "seven", "strokeCount": 2, "example": "七日 (seven days)" },
-  { "character": "八", "onyomi": "ハチ", "kunyomi": "やっ", "meaning": "eight", "strokeCount": 2, "example": "八人 (eight people)" },
-  { "character": "九", "onyomi": "キュウ・ク", "kunyomi": "ここの", "meaning": "nine", "strokeCount": 2, "example": "九月 (September)" },
-  { "character": "十", "onyomi": "ジュウ", "kunyomi": "とお", "meaning": "ten", "strokeCount": 2, "example": "十日 (ten days)" },
-  { "character": "百", "onyomi": "ヒャク", "kunyomi": "", "meaning": "hundred", "strokeCount": 6, "example": "百円 (100 yen)" },
-  { "character": "千", "onyomi": "セン", "kunyomi": "ち", "meaning": "thousand", "strokeCount": 3, "example": "千円 (1000 yen)" },
-  { "character": "万", "onyomi": "マン", "kunyomi": "", "meaning": "ten thousand", "strokeCount": 3, "example": "一万 (10,000)" },
-  { "character": "円", "onyomi": "エン", "kunyomi": "まる", "meaning": "yen / circle", "strokeCount": 4, "example": "百円 (100 yen)" },
-  { "character": "日", "onyomi": "ニチ・ジツ", "kunyomi": "ひ", "meaning": "day / sun", "strokeCount": 4, "example": "日曜日 (Sunday)" },
-  { "character": "月", "onyomi": "ゲツ・ガツ", "kunyomi": "つき", "meaning": "month / moon", "strokeCount": 4, "example": "一月 (January)" },
-  { "character": "火", "onyomi": "カ", "kunyomi": "ひ", "meaning": "fire", "strokeCount": 4, "example": "火曜日 (Tuesday)" },
-  { "character": "水", "onyomi": "スイ", "kunyomi": "みず", "meaning": "water", "strokeCount": 4, "example": "水曜日 (Wednesday)" },
-  { "character": "木", "onyomi": "モク・ボク", "kunyomi": "き", "meaning": "tree", "strokeCount": 4, "example": "木曜日 (Thursday)" },
-  { "character": "金", "onyomi": "キン", "kunyomi": "かね", "meaning": "gold / money", "strokeCount": 8, "example": "金曜日 (Friday)" },
-  { "character": "土", "onyomi": "ド・ト", "kunyomi": "つち", "meaning": "earth", "strokeCount": 3, "example": "土曜日 (Saturday)" },
-  { "character": "時", "onyomi": "ジ", "kunyomi": "とき", "meaning": "time", "strokeCount": 10, "example": "三時 (3 o'clock)" },
-  { "character": "分", "onyomi": "フン・ブン", "kunyomi": "わ", "meaning": "minute / part", "strokeCount": 4, "example": "十分 (10 minutes)" },
-  { "character": "午", "onyomi": "ゴ", "kunyomi": "", "meaning": "noon", "strokeCount": 4, "example": "午後 (PM)" },
-  { "character": "前", "onyomi": "ゼン", "kunyomi": "まえ", "meaning": "before", "strokeCount": 9, "example": "午前 (AM)" },
-  { "character": "後", "onyomi": "ゴ・コウ", "kunyomi": "あと", "meaning": "after", "strokeCount": 9, "example": "午後 (PM)" },
-  { "character": "毎", "onyomi": "マイ", "kunyomi": "", "meaning": "every", "strokeCount": 6, "example": "毎日 (every day)" },
-  { "character": "年", "onyomi": "ネン", "kunyomi": "とし", "meaning": "year", "strokeCount": 6, "example": "今年 (this year)" },
-  { "character": "今", "onyomi": "コン", "kunyomi": "いま", "meaning": "now", "strokeCount": 4, "example": "今 (now)" },
-  { "character": "何", "onyomi": "カ", "kunyomi": "なに", "meaning": "what", "strokeCount": 7, "example": "何時 (what time)" },
-  { "character": "上", "onyomi": "ジョウ", "kunyomi": "うえ", "meaning": "up", "strokeCount": 3, "example": "上 (up)" },
-  { "character": "下", "onyomi": "カ", "kunyomi": "した", "meaning": "down", "strokeCount": 3, "example": "下 (down)" },
-  { "character": "右", "onyomi": "ウ", "kunyomi": "みぎ", "meaning": "right", "strokeCount": 5, "example": "右 (right)" },
-  { "character": "左", "onyomi": "サ", "kunyomi": "ひだり", "meaning": "left", "strokeCount": 5, "example": "左 (left)" },
-  { "character": "中", "onyomi": "チュウ", "kunyomi": "なか", "meaning": "inside", "strokeCount": 4, "example": "中 (inside)" },
-  { "character": "外", "onyomi": "ガイ", "kunyomi": "そと", "meaning": "outside", "strokeCount": 5, "example": "外 (outside)" },
-  { "character": "北", "onyomi": "ホク", "kunyomi": "きた", "meaning": "north", "strokeCount": 5, "example": "北 (north)" },
-  { "character": "南", "onyomi": "ナン", "kunyomi": "みなみ", "meaning": "south", "strokeCount": 9, "example": "南 (south)" },
-  { "character": "東", "onyomi": "トウ", "kunyomi": "ひがし", "meaning": "east", "strokeCount": 8, "example": "東京 (Tokyo)" },
-  { "character": "西", "onyomi": "セイ・サイ", "kunyomi": "にし", "meaning": "west", "strokeCount": 6, "example": "西 (west)" },
-  { "character": "人", "onyomi": "ジン・ニン", "kunyomi": "ひと", "meaning": "person", "strokeCount": 2, "example": "日本人 (Japanese person)" },
-  { "character": "男", "onyomi": "ダン", "kunyomi": "おとこ", "meaning": "man", "strokeCount": 7, "example": "男の人 (man)" },
-  { "character": "女", "onyomi": "ジョ", "kunyomi": "おんな", "meaning": "woman", "strokeCount": 3, "example": "女の人 (woman)" },
-  { "character": "子", "onyomi": "シ", "kunyomi": "こ", "meaning": "child", "strokeCount": 3, "example": "子ども (child)" },
-  { "character": "父", "onyomi": "フ", "kunyomi": "ちち", "meaning": "father", "strokeCount": 4, "example": "父 (father)" },
-  { "character": "母", "onyomi": "ボ", "kunyomi": "はは", "meaning": "mother", "strokeCount": 5, "example": "母 (mother)" },
-  { "character": "友", "onyomi": "ユウ", "kunyomi": "とも", "meaning": "friend", "strokeCount": 4, "example": "友達 (friend)" },
-  { "character": "名", "onyomi": "メイ・ミョウ", "kunyomi": "な", "meaning": "name", "strokeCount": 6, "example": "名前 (name)" },
-  { "character": "先", "onyomi": "セン", "kunyomi": "さき", "meaning": "previous", "strokeCount": 6, "example": "先生 (teacher)" },
-  { "character": "山", "onyomi": "サン", "kunyomi": "やま", "meaning": "mountain", "strokeCount": 3, "example": "富士山 (Mt. Fuji)" },
-  { "character": "川", "onyomi": "セン", "kunyomi": "かわ", "meaning": "river", "strokeCount": 3, "example": "川 (river)" },
-  { "character": "天", "onyomi": "テン", "kunyomi": "", "meaning": "heaven", "strokeCount": 4, "example": "天気 (weather)" },
-  { "character": "気", "onyomi": "キ", "kunyomi": "", "meaning": "air / spirit", "strokeCount": 6, "example": "天気 (weather)" },
-  { "character": "雨", "onyomi": "ウ", "kunyomi": "あめ", "meaning": "rain", "strokeCount": 8, "example": "雨 (rain)" },
-  { "character": "電", "onyomi": "デン", "kunyomi": "", "meaning": "electricity", "strokeCount": 13, "example": "電車 (train)" },
-  { "character": "国", "onyomi": "コク", "kunyomi": "くに", "meaning": "country", "strokeCount": 8, "example": "外国 (foreign country)" },
-  { "character": "本", "onyomi": "ホン", "kunyomi": "もと", "meaning": "book / origin", "strokeCount": 5, "example": "本 (book)" },
-  { "character": "車", "onyomi": "シャ", "kunyomi": "くるま", "meaning": "car", "strokeCount": 7, "example": "車 (car)" },
-  { "character": "学", "onyomi": "ガク", "kunyomi": "まなぶ", "meaning": "study", "strokeCount": 8, "example": "学生 (student)" },
-  { "character": "校", "onyomi": "コウ", "kunyomi": "", "meaning": "school", "strokeCount": 10, "example": "学校 (school)" },
-  { "character": "間", "onyomi": "カン", "kunyomi": "あいだ", "meaning": "interval", "strokeCount": 12, "example": "時間 (time)" },
-  { "character": "高", "onyomi": "コウ", "kunyomi": "たかい", "meaning": "high / expensive", "strokeCount": 10, "example": "高い (expensive)" },
-  { "character": "半", "onyomi": "ハン", "kunyomi": "なかば", "meaning": "half", "strokeCount": 5, "example": "半分 (half)" },
-  { "character": "長", "onyomi": "チョウ", "kunyomi": "ながい", "meaning": "long", "strokeCount": 8, "example": "長い (long)" },
-  { "character": "白", "onyomi": "ハク", "kunyomi": "しろ", "meaning": "white", "strokeCount": 5, "example": "白い (white)" },
-  { "character": "行", "onyomi": "コウ", "kunyomi": "いく", "meaning": "go", "strokeCount": 6, "example": "行く (to go)" },
-  { "character": "来", "onyomi": "ライ", "kunyomi": "くる", "meaning": "come", "strokeCount": 7, "example": "来る (to come)" },
-  { "character": "入", "onyomi": "ニュウ", "kunyomi": "はいる", "meaning": "enter", "strokeCount": 2, "example": "入る (enter)" },
-  { "character": "出", "onyomi": "シュツ", "kunyomi": "でる", "meaning": "exit", "strokeCount": 5, "example": "出る (exit)" },
-  { "character": "食", "onyomi": "ショク", "kunyomi": "たべる", "meaning": "eat", "strokeCount": 9, "example": "食べる (eat)" },
-  { "character": "見", "onyomi": "ケン", "kunyomi": "みる", "meaning": "see", "strokeCount": 7, "example": "見る (see)" },
-  { "character": "聞", "onyomi": "ブン", "kunyomi": "きく", "meaning": "hear", "strokeCount": 14, "example": "聞く (listen)" },
-  { "character": "書", "onyomi": "ショ", "kunyomi": "かく", "meaning": "write", "strokeCount": 10, "example": "書く (write)" },
-  { "character": "読", "onyomi": "ドク", "kunyomi": "よむ", "meaning": "read", "strokeCount": 14, "example": "読む (read)" },
-  { "character": "話", "onyomi": "ワ", "kunyomi": "はなす", "meaning": "speak", "strokeCount": 13, "example": "話す (speak)" },
-  { "character": "語", "onyomi": "ゴ", "kunyomi": "かたる", "meaning": "language", "strokeCount": 14, "example": "日本語 (Japanese language)" },
-  { "character": "生", "onyomi": "セイ", "kunyomi": "いきる", "meaning": "life", "strokeCount": 5, "example": "学生 (student)" },
-  { "character": "休", "onyomi": "キュウ", "kunyomi": "やすむ", "meaning": "rest", "strokeCount": 6, "example": "休む (rest)" },
-  { "character": "大", "onyomi": "ダイ", "kunyomi": "おお(きい)", "meaning": "big, large", "strokeCount": 3, "example": "大学 (university)" },
-  { "character": "小", "onyomi": "ショウ", "kunyomi": "ちい(さい)", "meaning": "small", "strokeCount": 3, "example": "小学校 (elementary school)" }
+  {
+    "character": "一",
+    "onyomi": "イチ・イツ",
+    "kunyomi": "ひと",
+    "meaning": "one",
+    "strokeCount": 1,
+    "commonWords": [
+      [
+        "一月",
+        "いちがつ",
+        "January"
+      ],
+      [
+        "一日",
+        "ついたち / いちにち",
+        "First day / One day"
+      ],
+      [
+        "一人",
+        "ひとり",
+        "One person"
+      ],
+      [
+        "一つ",
+        "ひとつ",
+        "One thing"
+      ],
+      [
+        "一番",
+        "いちばん",
+        "Number one / Best"
+      ],
+      [
+        "一回",
+        "いっかい",
+        "One time / Once"
+      ],
+      [
+        "一緒",
+        "いっしょ",
+        "Together"
+      ]
+    ],
+    "example": "今日は一日です。",
+    "exampleTrans": "Today is the first day of the month."
+  },
+  {
+    "character": "二",
+    "onyomi": "ニ",
+    "kunyomi": "ふた",
+    "meaning": "two",
+    "strokeCount": 2,
+    "commonWords": [
+      [
+        "二人",
+        "ふたり",
+        "Two people"
+      ],
+      [
+        "二つ",
+        "ふたつ",
+        "Two things"
+      ],
+      [
+        "二月",
+        "にがつ",
+        "February"
+      ],
+      [
+        "二日",
+        "ふつか",
+        "Second day / Two days"
+      ],
+      [
+        "二回",
+        "にかい",
+        "Two times"
+      ],
+      [
+        "二年",
+        "にねん",
+        "Two years"
+      ],
+      [
+        "二番",
+        "にばん",
+        "Number two"
+      ]
+    ],
+    "example": "二人で映画を見ます。",
+    "exampleTrans": "Two people will watch a movie."
+  },
+  {
+    "character": "三",
+    "onyomi": "サン",
+    "kunyomi": "みっ",
+    "meaning": "three",
+    "strokeCount": 3,
+    "commonWords": [
+      [
+        "三人",
+        "さんにん",
+        "Three people"
+      ],
+      [
+        "三つ",
+        "みっつ",
+        "Three things"
+      ],
+      [
+        "三日",
+        "みっか",
+        "Third day / Three days"
+      ],
+      [
+        "三月",
+        "さんがつ",
+        "March"
+      ],
+      [
+        "三回",
+        "さんかい",
+        "Three times"
+      ],
+      [
+        "三年",
+        "さんねん",
+        "Three years"
+      ],
+      [
+        "三角",
+        "さんかく",
+        "Triangle"
+      ]
+    ],
+    "example": "三人でごはんを食べます。",
+    "exampleTrans": "Three people will eat a meal."
+  },
+  {
+    "character": "四",
+    "onyomi": "シ",
+    "kunyomi": "よん / よっ",
+    "meaning": "four",
+    "strokeCount": 5,
+    "commonWords": [
+      [
+        "四人",
+        "よにん",
+        "Four people"
+      ],
+      [
+        "四つ",
+        "よっつ",
+        "Four things"
+      ],
+      [
+        "四月",
+        "しがつ",
+        "April"
+      ],
+      [
+        "四日",
+        "よっか",
+        "Fourth day / Four days"
+      ],
+      [
+        "四時",
+        "よじ",
+        "Four o'clock"
+      ],
+      [
+        "四回",
+        "よんかい",
+        "Four times"
+      ],
+      [
+        "四年",
+        "よねん",
+        "Four years"
+      ]
+    ],
+    "example": "四時に学校へ行きます。",
+    "exampleTrans": "I will go to school at four o'clock."
+  },
+  {
+    "character": "五",
+    "onyomi": "ゴ",
+    "kunyomi": "いつ",
+    "meaning": "five",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "五人",
+        "ごにん",
+        "Five people"
+      ],
+      [
+        "五つ",
+        "いつつ",
+        "Five things"
+      ],
+      [
+        "五月",
+        "ごがつ",
+        "May"
+      ],
+      [
+        "五日",
+        "いつか",
+        "Fifth day / Five days"
+      ],
+      [
+        "五分",
+        "ごふん",
+        "Five minutes"
+      ],
+      [
+        "五回",
+        "ごかい",
+        "Five times"
+      ],
+      [
+        "五年",
+        "ごねん",
+        "Five years"
+      ]
+    ],
+    "example": "五分だけ休みます。",
+    "exampleTrans": "I will rest for only five minutes."
+  },
+  {
+    "character": "六",
+    "onyomi": "ロク",
+    "kunyomi": "むっ",
+    "meaning": "six",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "六人",
+        "ろくにん",
+        "Six people"
+      ],
+      [
+        "六つ",
+        "むっつ",
+        "Six things"
+      ],
+      [
+        "六月",
+        "ろくがつ",
+        "June"
+      ],
+      [
+        "六日",
+        "むいか",
+        "Sixth day / Six days"
+      ],
+      [
+        "六回",
+        "ろっかい",
+        "Six times"
+      ],
+      [
+        "六年",
+        "ろくねん",
+        "Six years"
+      ],
+      [
+        "六百",
+        "ろっぴゃく",
+        "Six hundred"
+      ]
+    ],
+    "example": "六月は雨が多いです。",
+    "exampleTrans": "June has a lot of rain."
+  },
+  {
+    "character": "七",
+    "onyomi": "シチ",
+    "kunyomi": "なな / なの",
+    "meaning": "seven",
+    "strokeCount": 2,
+    "commonWords": [
+      [
+        "七人",
+        "しちにん / ななにん",
+        "Seven people"
+      ],
+      [
+        "七つ",
+        "ななつ",
+        "Seven things"
+      ],
+      [
+        "七月",
+        "しちがつ",
+        "July"
+      ],
+      [
+        "七日",
+        "なのか",
+        "Seventh day / Seven days"
+      ],
+      [
+        "七回",
+        "ななかい",
+        "Seven times"
+      ],
+      [
+        "七年",
+        "ななねん",
+        "Seven years"
+      ],
+      [
+        "七時",
+        "しちじ",
+        "Seven o'clock"
+      ]
+    ],
+    "example": "七月に日本へ行きます。",
+    "exampleTrans": "I will go to Japan in July."
+  },
+  {
+    "character": "八",
+    "onyomi": "ハチ",
+    "kunyomi": "やっ",
+    "meaning": "eight",
+    "strokeCount": 2,
+    "commonWords": [
+      [
+        "八人",
+        "はちにん",
+        "Eight people"
+      ],
+      [
+        "八つ",
+        "やっつ",
+        "Eight things"
+      ],
+      [
+        "八月",
+        "はちがつ",
+        "August"
+      ],
+      [
+        "八日",
+        "ようか",
+        "Eighth day / Eight days"
+      ],
+      [
+        "八回",
+        "はっかい",
+        "Eight times"
+      ],
+      [
+        "八百",
+        "はっぴゃく",
+        "Eight hundred"
+      ],
+      [
+        "八年",
+        "はちねん",
+        "Eight years"
+      ]
+    ],
+    "example": "八月はとても暑いです。",
+    "exampleTrans": "August is very hot."
+  },
+  {
+    "character": "九",
+    "onyomi": "キュウ・ク",
+    "kunyomi": "ここの",
+    "meaning": "nine",
+    "strokeCount": 2,
+    "commonWords": [
+      [
+        "九人",
+        "きゅうにん",
+        "Nine people"
+      ],
+      [
+        "九つ",
+        "ここのつ",
+        "Nine things"
+      ],
+      [
+        "九月",
+        "くがつ",
+        "September"
+      ],
+      [
+        "九日",
+        "ここのか",
+        "Ninth day / Nine days"
+      ],
+      [
+        "九回",
+        "きゅうかい",
+        "Nine times"
+      ],
+      [
+        "九年",
+        "きゅうねん",
+        "Nine years"
+      ],
+      [
+        "九時",
+        "くじ",
+        "Nine o'clock"
+      ]
+    ],
+    "example": "九月に学校が始まります。",
+    "exampleTrans": "School starts in September."
+  },
+  {
+    "character": "十",
+    "onyomi": "ジュウ",
+    "kunyomi": "とお",
+    "meaning": "ten",
+    "strokeCount": 2,
+    "commonWords": [
+      [
+        "十人",
+        "じゅうにん",
+        "Ten people"
+      ],
+      [
+        "十月",
+        "じゅうがつ",
+        "October"
+      ],
+      [
+        "十日",
+        "とおか",
+        "Tenth day / Ten days"
+      ],
+      [
+        "十分",
+        "じゅうぶん / じっぷん",
+        "Enough / Ten minutes"
+      ],
+      [
+        "十回",
+        "じゅっかい",
+        "Ten times"
+      ],
+      [
+        "十年",
+        "じゅうねん",
+        "Ten years"
+      ],
+      [
+        "十字",
+        "じゅうじ",
+        "Cross shape"
+      ]
+    ],
+    "example": "十人の友だちがいます。",
+    "exampleTrans": "I have ten friends."
+  },
+  {
+    "character": "百",
+    "onyomi": "ヒャク",
+    "kunyomi": "",
+    "meaning": "hundred",
+    "strokeCount": 6,
+    "commonWords": [
+      [
+        "百円",
+        "ひゃくえん",
+        "100 yen"
+      ],
+      [
+        "百人",
+        "ひゃくにん",
+        "One hundred people"
+      ],
+      [
+        "百回",
+        "ひゃっかい",
+        "One hundred times"
+      ],
+      [
+        "百年",
+        "ひゃくねん",
+        "One hundred years"
+      ],
+      [
+        "百点",
+        "ひゃくてん",
+        "Perfect score"
+      ],
+      [
+        "百貨店",
+        "ひゃっかてん",
+        "Department store"
+      ],
+      [
+        "百冊",
+        "ひゃくさつ",
+        "One hundred books"
+      ]
+    ],
+    "example": "百円でジュースを買います。",
+    "exampleTrans": "I will buy juice for 100 yen."
+  },
+  {
+    "character": "千",
+    "onyomi": "セン",
+    "kunyomi": "ち",
+    "meaning": "thousand",
+    "strokeCount": 3,
+    "commonWords": [
+      [
+        "千円",
+        "せんえん",
+        "1000 yen"
+      ],
+      [
+        "千人",
+        "せんにん",
+        "One thousand people"
+      ],
+      [
+        "千回",
+        "せんかい",
+        "One thousand times"
+      ],
+      [
+        "千年",
+        "せんねん",
+        "One thousand years"
+      ],
+      [
+        "千本",
+        "せんぼん",
+        "One thousand long objects"
+      ],
+      [
+        "千葉",
+        "ちば",
+        "Chiba (place name)"
+      ],
+      [
+        "千円札",
+        "せんえんさつ",
+        "1000‑yen bill"
+      ]
+    ],
+    "example": "千円をはらいました。",
+    "exampleTrans": "I paid 1000 yen."
+  },
+  {
+    "character": "万",
+    "onyomi": "マン",
+    "kunyomi": "",
+    "meaning": "ten thousand",
+    "strokeCount": 3,
+    "commonWords": [
+      [
+        "一万",
+        "いちまん",
+        "Ten thousand"
+      ],
+      [
+        "万人",
+        "まんにん",
+        "Ten thousand people"
+      ],
+      [
+        "万年筆",
+        "まんねんひつ",
+        "Fountain pen"
+      ],
+      [
+        "万全",
+        "ばんぜん",
+        "Perfect / Complete"
+      ],
+      [
+        "万国",
+        "ばんこく",
+        "All countries"
+      ],
+      [
+        "万回",
+        "まんかい",
+        "Ten thousand times"
+      ],
+      [
+        "万引き",
+        "まんびき",
+        "Shoplifting"
+      ]
+    ],
+    "example": "一万円をもっています。",
+    "exampleTrans": "I have ten thousand yen."
+  },
+  {
+    "character": "円",
+    "onyomi": "エン",
+    "kunyomi": "まる",
+    "meaning": "yen / circle",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "百円",
+        "ひゃくえん",
+        "100 yen"
+      ],
+      [
+        "千円",
+        "せんえん",
+        "1000 yen"
+      ],
+      [
+        "円い",
+        "まるい",
+        "Round"
+      ],
+      [
+        "円高",
+        "えんだか",
+        "Strong yen"
+      ],
+      [
+        "円安",
+        "えんやす",
+        "Weak yen"
+      ],
+      [
+        "円形",
+        "えんけい",
+        "Circle shape"
+      ],
+      [
+        "円周",
+        "えんしゅう",
+        "Circumference"
+      ]
+    ],
+    "example": "このケーキは円いです。",
+    "exampleTrans": "This cake is round."
+  },
+  {
+    "character": "日",
+    "onyomi": "ニチ・ジツ",
+    "kunyomi": "ひ・か",
+    "meaning": "day / sun",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "日曜日",
+        "にちようび",
+        "Sunday"
+      ],
+      [
+        "毎日",
+        "まいにち",
+        "Every day"
+      ],
+      [
+        "今日",
+        "きょう",
+        "Today"
+      ],
+      [
+        "明日",
+        "あした",
+        "Tomorrow"
+      ],
+      [
+        "昨日",
+        "きのう",
+        "Yesterday"
+      ],
+      [
+        "日本",
+        "にほん",
+        "Japan"
+      ],
+      [
+        "日記",
+        "にっき",
+        "Diary"
+      ]
+    ],
+    "example": "今日はいい日です。",
+    "exampleTrans": "Today is a good day."
+  },
+  {
+    "character": "月",
+    "onyomi": "ゲツ・ガツ",
+    "kunyomi": "つき",
+    "meaning": "month / moon",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "一月",
+        "いちがつ",
+        "January"
+      ],
+      [
+        "月曜日",
+        "げつようび",
+        "Monday"
+      ],
+      [
+        "今月",
+        "こんげつ",
+        "This month"
+      ],
+      [
+        "来月",
+        "らいげつ",
+        "Next month"
+      ],
+      [
+        "先月",
+        "せんげつ",
+        "Last month"
+      ],
+      [
+        "毎月",
+        "まいつき",
+        "Every month"
+      ],
+      [
+        "月光",
+        "げっこう",
+        "Moonlight"
+      ]
+    ],
+    "example": "来月、日本へ行きます。",
+    "exampleTrans": "I will go to Japan next month."
+  },
+  {
+    "character": "火",
+    "onyomi": "カ",
+    "kunyomi": "ひ",
+    "meaning": "fire",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "火曜日",
+        "かようび",
+        "Tuesday"
+      ],
+      [
+        "火事",
+        "かじ",
+        "Fire accident"
+      ],
+      [
+        "火山",
+        "かざん",
+        "Volcano"
+      ],
+      [
+        "花火",
+        "はなび",
+        "Fireworks"
+      ],
+      [
+        "火力",
+        "かりょく",
+        "Fire power"
+      ],
+      [
+        "火の用心",
+        "ひのようじん",
+        "Fire safety"
+      ],
+      [
+        "火口",
+        "かこう",
+        "Crater"
+      ]
+    ],
+    "example": "火をつけないでください。",
+    "exampleTrans": "Please do not light a fire."
+  },
+  {
+    "character": "水",
+    "onyomi": "スイ",
+    "kunyomi": "みず",
+    "meaning": "water",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "水曜日",
+        "すいようび",
+        "Wednesday"
+      ],
+      [
+        "水道",
+        "すいどう",
+        "Water supply"
+      ],
+      [
+        "水中",
+        "すいちゅう",
+        "Underwater"
+      ],
+      [
+        "水色",
+        "みずいろ",
+        "Light blue"
+      ],
+      [
+        "飲み水",
+        "のみみず",
+        "Drinking water"
+      ],
+      [
+        "海水",
+        "かいすい",
+        "Seawater"
+      ],
+      [
+        "水泳",
+        "すいえい",
+        "Swimming"
+      ]
+    ],
+    "example": "水をのみたいです。",
+    "exampleTrans": "I want to drink water."
+  },
+  {
+    "character": "木",
+    "onyomi": "モク・ボク",
+    "kunyomi": "き",
+    "meaning": "tree / wood",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "木曜日",
+        "もくようび",
+        "Thursday"
+      ],
+      [
+        "木の葉",
+        "このは",
+        "Tree leaves"
+      ],
+      [
+        "木材",
+        "もくざい",
+        "Lumber"
+      ],
+      [
+        "木陰",
+        "こかげ",
+        "Shade of a tree"
+      ],
+      [
+        "木の実",
+        "きのみ",
+        "Nut / Fruit"
+      ],
+      [
+        "木立",
+        "こだち",
+        "Grove"
+      ],
+      [
+        "木刀",
+        "ぼくとう",
+        "Wooden sword"
+      ]
+    ],
+    "example": "大きい木があります。",
+    "exampleTrans": "There is a big tree."
+  },
+  {
+    "character": "金",
+    "onyomi": "キン",
+    "kunyomi": "かね",
+    "meaning": "gold / money",
+    "strokeCount": 8,
+    "commonWords": [
+      [
+        "金曜日",
+        "きんようび",
+        "Friday"
+      ],
+      [
+        "お金",
+        "おかね",
+        "Money"
+      ],
+      [
+        "金色",
+        "きんいろ",
+        "Gold color"
+      ],
+      [
+        "金魚",
+        "きんぎょ",
+        "Goldfish"
+      ],
+      [
+        "金庫",
+        "きんこ",
+        "Safe / Vault"
+      ],
+      [
+        "現金",
+        "げんきん",
+        "Cash"
+      ],
+      [
+        "金額",
+        "きんがく",
+        "Amount of money"
+      ]
+    ],
+    "example": "お金がありません。",
+    "exampleTrans": "I don't have money."
+  },
+  {
+    "character": "土",
+    "onyomi": "ド・ト",
+    "kunyomi": "つち",
+    "meaning": "earth / soil",
+    "strokeCount": 3,
+    "commonWords": [
+      [
+        "土曜日",
+        "どようび",
+        "Saturday"
+      ],
+      [
+        "土地",
+        "とち",
+        "Land"
+      ],
+      [
+        "土",
+        "つち",
+        "Soil"
+      ],
+      [
+        "土木",
+        "どぼく",
+        "Civil engineering"
+      ],
+      [
+        "土手",
+        "どて",
+        "Embankment"
+      ],
+      [
+        "土産",
+        "みやげ",
+        "Souvenir"
+      ],
+      [
+        "土台",
+        "どだい",
+        "Foundation"
+      ]
+    ],
+    "example": "土曜日に友だちと会います。",
+    "exampleTrans": "I will meet a friend on Saturday."
+  },
+  {
+    "character": "時",
+    "onyomi": "ジ",
+    "kunyomi": "とき",
+    "meaning": "time / hour",
+    "strokeCount": 10,
+    "commonWords": [
+      [
+        "時間",
+        "じかん",
+        "Time / Hours"
+      ],
+      [
+        "時々",
+        "ときどき",
+        "Sometimes"
+      ],
+      [
+        "一時",
+        "いちじ",
+        "1 o'clock"
+      ],
+      [
+        "何時",
+        "なんじ",
+        "What time"
+      ],
+      [
+        "時代",
+        "じだい",
+        "Era"
+      ],
+      [
+        "同時",
+        "どうじ",
+        "Same time"
+      ],
+      [
+        "時刻",
+        "じこく",
+        "Time (formal)"
+      ]
+    ],
+    "example": "今は三時です。",
+    "exampleTrans": "It is three o'clock now."
+  },
+  {
+    "character": "分",
+    "onyomi": "フン・ブン",
+    "kunyomi": "わ",
+    "meaning": "minute / part",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "五分",
+        "ごふん",
+        "Five minutes"
+      ],
+      [
+        "十分",
+        "じゅっぷん / じゅうぶん",
+        "Ten minutes / Enough"
+      ],
+      [
+        "分かる",
+        "わかる",
+        "To understand"
+      ],
+      [
+        "半分",
+        "はんぶん",
+        "Half"
+      ],
+      [
+        "気分",
+        "きぶん",
+        "Feeling"
+      ],
+      [
+        "自分",
+        "じぶん",
+        "Myself"
+      ],
+      [
+        "部分",
+        "ぶぶん",
+        "Part"
+      ]
+    ],
+    "example": "五分だけ待ってください。",
+    "exampleTrans": "Please wait for five minutes."
+  },
+  {
+    "character": "午",
+    "onyomi": "ゴ",
+    "kunyomi": "",
+    "meaning": "noon",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "午前",
+        "ごぜん",
+        "AM"
+      ],
+      [
+        "午後",
+        "ごご",
+        "PM"
+      ],
+      [
+        "正午",
+        "しょうご",
+        "Noon"
+      ],
+      [
+        "午前中",
+        "ごぜんちゅう",
+        "In the morning"
+      ],
+      [
+        "午後三時",
+        "ごごさんじ",
+        "3 PM"
+      ],
+      [
+        "午前零時",
+        "ごぜんれいじ",
+        "Midnight"
+      ],
+      [
+        "午睡",
+        "ごすい",
+        "Nap (rare but correct)"
+      ]
+    ],
+    "example": "午後に学校へ行きます。",
+    "exampleTrans": "I will go to school in the afternoon."
+  },
+  {
+    "character": "前",
+    "onyomi": "ゼン",
+    "kunyomi": "まえ",
+    "meaning": "before / front",
+    "strokeCount": 9,
+    "commonWords": [
+      [
+        "午前",
+        "ごぜん",
+        "AM"
+      ],
+      [
+        "名前",
+        "なまえ",
+        "Name"
+      ],
+      [
+        "前",
+        "まえ",
+        "Front / Before"
+      ],
+      [
+        "前日",
+        "ぜんじつ",
+        "The previous day"
+      ],
+      [
+        "前回",
+        "ぜんかい",
+        "Last time"
+      ],
+      [
+        "前半",
+        "ぜんはん",
+        "First half"
+      ],
+      [
+        "前方",
+        "ぜんぽう",
+        "Front side"
+      ]
+    ],
+    "example": "家の前に車があります。",
+    "exampleTrans": "There is a car in front of the house."
+  },
+  {
+    "character": "後",
+    "onyomi": "ゴ・コウ",
+    "kunyomi": "あと・うし",
+    "meaning": "after / behind",
+    "strokeCount": 9,
+    "commonWords": [
+      [
+        "午後",
+        "ごご",
+        "PM"
+      ],
+      [
+        "後で",
+        "あとで",
+        "Later"
+      ],
+      [
+        "後ろ",
+        "うしろ",
+        "Behind"
+      ],
+      [
+        "最後",
+        "さいご",
+        "Last"
+      ],
+      [
+        "後半",
+        "こうはん",
+        "Second half"
+      ],
+      [
+        "直後",
+        "ちょくご",
+        "Immediately after"
+      ],
+      [
+        "後日",
+        "ごじつ",
+        "Another day"
+      ]
+    ],
+    "example": "後で電話します。",
+    "exampleTrans": "I will call later."
+  },
+  {
+    "character": "毎",
+    "onyomi": "マイ",
+    "kunyomi": "",
+    "meaning": "every",
+    "strokeCount": 6,
+    "commonWords": [
+      [
+        "毎日",
+        "まいにち",
+        "Every day"
+      ],
+      [
+        "毎週",
+        "まいしゅう",
+        "Every week"
+      ],
+      [
+        "毎月",
+        "まいつき",
+        "Every month"
+      ],
+      [
+        "毎年",
+        "まいとし",
+        "Every year"
+      ],
+      [
+        "毎朝",
+        "まいあさ",
+        "Every morning"
+      ],
+      [
+        "毎晩",
+        "まいばん",
+        "Every night"
+      ],
+      [
+        "毎回",
+        "まいかい",
+        "Every time"
+      ]
+    ],
+    "example": "毎日日本語を勉強します。",
+    "exampleTrans": "I study Japanese every day."
+  },
+  {
+    "character": "年",
+    "onyomi": "ネン",
+    "kunyomi": "とし",
+    "meaning": "year",
+    "strokeCount": 6,
+    "commonWords": [
+      [
+        "今年",
+        "ことし",
+        "This year"
+      ],
+      [
+        "去年",
+        "きょねん",
+        "Last year"
+      ],
+      [
+        "来年",
+        "らいねん",
+        "Next year"
+      ],
+      [
+        "一年",
+        "いちねん",
+        "One year"
+      ],
+      [
+        "年上",
+        "としうえ",
+        "Older"
+      ],
+      [
+        "年下",
+        "としした",
+        "Younger"
+      ],
+      [
+        "年間",
+        "ねんかん",
+        "Per year"
+      ]
+    ],
+    "example": "今年はいい年です。",
+    "exampleTrans": "This year is a good year."
+  },
+  {
+    "character": "今",
+    "onyomi": "コン",
+    "kunyomi": "いま",
+    "meaning": "now",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "今",
+        "いま",
+        "Now"
+      ],
+      [
+        "今日",
+        "きょう",
+        "Today"
+      ],
+      [
+        "今週",
+        "こんしゅう",
+        "This week"
+      ],
+      [
+        "今月",
+        "こんげつ",
+        "This month"
+      ],
+      [
+        "今年",
+        "ことし",
+        "This year"
+      ],
+      [
+        "今夜",
+        "こんや",
+        "Tonight"
+      ],
+      [
+        "今度",
+        "こんど",
+        "Next time / This time"
+      ]
+    ],
+    "example": "今、勉強しています。",
+    "exampleTrans": "I am studying now."
+  },
+  {
+    "character": "何",
+    "onyomi": "カ",
+    "kunyomi": "なに・なん",
+    "meaning": "what",
+    "strokeCount": 7,
+    "commonWords": [
+      [
+        "何",
+        "なに",
+        "What"
+      ],
+      [
+        "何時",
+        "なんじ",
+        "What time"
+      ],
+      [
+        "何人",
+        "なんにん",
+        "How many people"
+      ],
+      [
+        "何回",
+        "なんかい",
+        "How many times"
+      ],
+      [
+        "何月",
+        "なんがつ",
+        "What month"
+      ],
+      [
+        "何曜日",
+        "なんようび",
+        "What day of the week"
+      ],
+      [
+        "何年",
+        "なんねん",
+        "What year"
+      ]
+    ],
+    "example": "これは何ですか。",
+    "exampleTrans": "What is this."
+  },
+  {
+    "character": "上",
+    "onyomi": "ジョウ",
+    "kunyomi": "うえ・あ",
+    "meaning": "up / above",
+    "strokeCount": 3,
+    "commonWords": [
+      [
+        "上",
+        "うえ",
+        "Up / Above"
+      ],
+      [
+        "上がる",
+        "あがる",
+        "To go up"
+      ],
+      [
+        "上げる",
+        "あげる",
+        "To raise"
+      ],
+      [
+        "上手",
+        "じょうず",
+        "Skilled"
+      ],
+      [
+        "屋上",
+        "おくじょう",
+        "Rooftop"
+      ],
+      [
+        "上着",
+        "うわぎ",
+        "Jacket"
+      ],
+      [
+        "以上",
+        "いじょう",
+        "More than / Above"
+      ]
+    ],
+    "example": "かばんは上にあります。",
+    "exampleTrans": "The bag is above."
+  },
+  {
+    "character": "下",
+    "onyomi": "カ・ゲ",
+    "kunyomi": "した・さ",
+    "meaning": "down / below",
+    "strokeCount": 3,
+    "commonWords": [
+      [
+        "下",
+        "した",
+        "Down / Below"
+      ],
+      [
+        "下がる",
+        "さがる",
+        "To go down"
+      ],
+      [
+        "下げる",
+        "さげる",
+        "To lower"
+      ],
+      [
+        "地下",
+        "ちか",
+        "Underground"
+      ],
+      [
+        "下手",
+        "へた",
+        "Unskilled"
+      ],
+      [
+        "以下",
+        "いか",
+        "Less than / Below"
+      ],
+      [
+        "下町",
+        "したまち",
+        "Old downtown area"
+      ]
+    ],
+    "example": "ねこはテーブルの下にいます。",
+    "exampleTrans": "The cat is under the table."
+  },
+  {
+    "character": "右",
+    "onyomi": "ウ・ユウ",
+    "kunyomi": "みぎ",
+    "meaning": "right (direction)",
+    "strokeCount": 5,
+    "commonWords": [
+      [
+        "右",
+        "みぎ",
+        "Right"
+      ],
+      [
+        "右手",
+        "みぎて",
+        "Right hand"
+      ],
+      [
+        "右側",
+        "みぎがわ",
+        "Right side"
+      ],
+      [
+        "左右",
+        "さゆう",
+        "Left and right"
+      ],
+      [
+        "右折",
+        "うせつ",
+        "Right turn"
+      ],
+      [
+        "右足",
+        "みぎあし",
+        "Right foot"
+      ],
+      [
+        "右目",
+        "みぎめ",
+        "Right eye"
+      ]
+    ],
+    "example": "右にまがってください。",
+    "exampleTrans": "Please turn right."
+  },
+  {
+    "character": "左",
+    "onyomi": "サ",
+    "kunyomi": "ひだり",
+    "meaning": "left (direction)",
+    "strokeCount": 5,
+    "commonWords": [
+      [
+        "左",
+        "ひだり",
+        "Left"
+      ],
+      [
+        "左手",
+        "ひだりて",
+        "Left hand"
+      ],
+      [
+        "左側",
+        "ひだりがわ",
+        "Left side"
+      ],
+      [
+        "左右",
+        "さゆう",
+        "Left and right"
+      ],
+      [
+        "左折",
+        "させつ",
+        "Left turn"
+      ],
+      [
+        "左足",
+        "ひだりあし",
+        "Left foot"
+      ],
+      [
+        "左目",
+        "ひだりめ",
+        "Left eye"
+      ]
+    ],
+    "example": "左にいってください。",
+    "exampleTrans": "Please go left."
+  },
+  {
+    "character": "中",
+    "onyomi": "チュウ",
+    "kunyomi": "なか",
+    "meaning": "inside / middle",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "中",
+        "なか",
+        "Inside"
+      ],
+      [
+        "中国",
+        "ちゅうごく",
+        "China"
+      ],
+      [
+        "中学校",
+        "ちゅうがっこう",
+        "Middle school"
+      ],
+      [
+        "一日中",
+        "いちにちじゅう",
+        "All day"
+      ],
+      [
+        "中心",
+        "ちゅうしん",
+        "Center"
+      ],
+      [
+        "中間",
+        "ちゅうかん",
+        "Middle"
+      ],
+      [
+        "空中",
+        "くうちゅう",
+        "In the air"
+      ]
+    ],
+    "example": "かぎはかばんの中にあります。",
+    "exampleTrans": "The key is inside the bag."
+  },
+  {
+    "character": "外",
+    "onyomi": "ガイ・ゲ",
+    "kunyomi": "そと・ほか",
+    "meaning": "outside",
+    "strokeCount": 5,
+    "commonWords": [
+      [
+        "外",
+        "そと",
+        "Outside"
+      ],
+      [
+        "外国",
+        "がいこく",
+        "Foreign country"
+      ],
+      [
+        "外国人",
+        "がいこくじん",
+        "Foreigner"
+      ],
+      [
+        "外出",
+        "がいしゅつ",
+        "Going out"
+      ],
+      [
+        "外食",
+        "がいしょく",
+        "Eating out"
+      ],
+      [
+        "外れ",
+        "はずれ",
+        "Outskirts"
+      ],
+      [
+        "屋外",
+        "おくがい",
+        "Outdoors"
+      ]
+    ],
+    "example": "今日は外がさむいです。",
+    "exampleTrans": "It is cold outside today."
+  },
+  {
+    "character": "北",
+    "onyomi": "ホク",
+    "kunyomi": "きた",
+    "meaning": "north",
+    "strokeCount": 5,
+    "commonWords": [
+      [
+        "北",
+        "きた",
+        "North"
+      ],
+      [
+        "北海道",
+        "ほっかいどう",
+        "Hokkaido"
+      ],
+      [
+        "北口",
+        "きたぐち",
+        "North exit"
+      ],
+      [
+        "北風",
+        "きたかぜ",
+        "North wind"
+      ],
+      [
+        "北西",
+        "ほくせい",
+        "Northwest"
+      ],
+      [
+        "北東",
+        "ほくとう",
+        "Northeast"
+      ],
+      [
+        "北国",
+        "きたぐに",
+        "Northern country"
+      ]
+    ],
+    "example": "北の空がきれいです。",
+    "exampleTrans": "The northern sky is beautiful."
+  },
+  {
+    "character": "南",
+    "onyomi": "ナン",
+    "kunyomi": "みなみ",
+    "meaning": "south",
+    "strokeCount": 9,
+    "commonWords": [
+      [
+        "南",
+        "みなみ",
+        "South"
+      ],
+      [
+        "南口",
+        "みなみぐち",
+        "South exit"
+      ],
+      [
+        "南風",
+        "みなみかぜ",
+        "South wind"
+      ],
+      [
+        "南国",
+        "なんごく",
+        "Southern country"
+      ],
+      [
+        "南西",
+        "なんせい",
+        "Southwest"
+      ],
+      [
+        "南東",
+        "なんとう",
+        "Southeast"
+      ],
+      [
+        "南米",
+        "なんべい",
+        "South America"
+      ]
+    ],
+    "example": "南のほうへ行きます。",
+    "exampleTrans": "I will go toward the south."
+  },
+  {
+    "character": "東",
+    "onyomi": "トウ",
+    "kunyomi": "ひがし",
+    "meaning": "east",
+    "strokeCount": 8,
+    "commonWords": [
+      [
+        "東",
+        "ひがし",
+        "East"
+      ],
+      [
+        "東京",
+        "とうきょう",
+        "Tokyo"
+      ],
+      [
+        "東口",
+        "ひがしぐち",
+        "East exit"
+      ],
+      [
+        "東北",
+        "とうほく",
+        "Tohoku region"
+      ],
+      [
+        "東南",
+        "とうなん",
+        "Southeast"
+      ],
+      [
+        "東西",
+        "とうざい",
+        "East and west"
+      ],
+      [
+        "中東",
+        "ちゅうとう",
+        "Middle East"
+      ]
+    ],
+    "example": "東の空が明るいです。",
+    "exampleTrans": "The eastern sky is bright."
+  },
+  {
+    "character": "西",
+    "onyomi": "セイ・サイ",
+    "kunyomi": "にし",
+    "meaning": "west",
+    "strokeCount": 6,
+    "commonWords": [
+      [
+        "西",
+        "にし",
+        "West"
+      ],
+      [
+        "西口",
+        "にしぐち",
+        "West exit"
+      ],
+      [
+        "西日本",
+        "にしにほん",
+        "Western Japan"
+      ],
+      [
+        "西風",
+        "にしかぜ",
+        "West wind"
+      ],
+      [
+        "西洋",
+        "せいよう",
+        "The West"
+      ],
+      [
+        "関西",
+        "かんさい",
+        "Kansai region"
+      ],
+      [
+        "西北",
+        "せいほく",
+        "Northwest"
+      ]
+    ],
+    "example": "西に山があります。",
+    "exampleTrans": "There is a mountain to the west."
+  },
+  {
+    "character": "人",
+    "onyomi": "ジン・ニン",
+    "kunyomi": "ひと",
+    "meaning": "person",
+    "strokeCount": 2,
+    "commonWords": [
+      [
+        "人",
+        "ひと",
+        "Person"
+      ],
+      [
+        "日本人",
+        "にほんじん",
+        "Japanese person"
+      ],
+      [
+        "一人",
+        "ひとり",
+        "One person"
+      ],
+      [
+        "二人",
+        "ふたり",
+        "Two people"
+      ],
+      [
+        "人々",
+        "ひとびと",
+        "People"
+      ],
+      [
+        "大人",
+        "おとな",
+        "Adult"
+      ],
+      [
+        "人口",
+        "じんこう",
+        "Population"
+      ]
+    ],
+    "example": "あの人は先生です。",
+    "exampleTrans": "That person is a teacher."
+  },
+  {
+    "character": "男",
+    "onyomi": "ダン・ナン",
+    "kunyomi": "おとこ",
+    "meaning": "man / male",
+    "strokeCount": 7,
+    "commonWords": [
+      [
+        "男",
+        "おとこ",
+        "Man"
+      ],
+      [
+        "男の人",
+        "おとこのひと",
+        "Man"
+      ],
+      [
+        "男子",
+        "だんし",
+        "Boy"
+      ],
+      [
+        "男性",
+        "だんせい",
+        "Male"
+      ],
+      [
+        "長男",
+        "ちょうなん",
+        "Eldest son"
+      ],
+      [
+        "男友だち",
+        "おとこともだち",
+        "Male friend"
+      ],
+      [
+        "男女",
+        "だんじょ",
+        "Men and women"
+      ]
+    ],
+    "example": "あの男の人はだれですか。",
+    "exampleTrans": "Who is that man."
+  },
+  {
+    "character": "女",
+    "onyomi": "ジョ・ニョ",
+    "kunyomi": "おんな",
+    "meaning": "woman / female",
+    "strokeCount": 3,
+    "commonWords": [
+      [
+        "女",
+        "おんな",
+        "Woman"
+      ],
+      [
+        "女の人",
+        "おんなのひと",
+        "Woman"
+      ],
+      [
+        "女子",
+        "じょし",
+        "Girl"
+      ],
+      [
+        "女性",
+        "じょせい",
+        "Female"
+      ],
+      [
+        "長女",
+        "ちょうじょ",
+        "Eldest daughter"
+      ],
+      [
+        "女友だち",
+        "おんなともだち",
+        "Female friend"
+      ],
+      [
+        "男女",
+        "だんじょ",
+        "Men and women"
+      ]
+    ],
+    "example": "女の人が本を読んでいます。",
+    "exampleTrans": "A woman is reading a book."
+  },
+  {
+    "character": "子",
+    "onyomi": "シ",
+    "kunyomi": "こ",
+    "meaning": "child",
+    "strokeCount": 3,
+    "commonWords": [
+      [
+        "子ども",
+        "こども",
+        "Child"
+      ],
+      [
+        "男子",
+        "だんし",
+        "Boy"
+      ],
+      [
+        "女子",
+        "じょし",
+        "Girl"
+      ],
+      [
+        "電子",
+        "でんし",
+        "Electronic"
+      ],
+      [
+        "様子",
+        "ようす",
+        "Appearance / State"
+      ],
+      [
+        "子犬",
+        "こいぬ",
+        "Puppy"
+      ],
+      [
+        "子猫",
+        "こねこ",
+        "Kitten"
+      ]
+    ],
+    "example": "子どもが公園であそんでいます。",
+    "exampleTrans": "Children are playing in the park."
+  },
+  {
+    "character": "父",
+    "onyomi": "フ",
+    "kunyomi": "ちち",
+    "meaning": "father",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "父",
+        "ちち",
+        "Father (my own)"
+      ],
+      [
+        "お父さん",
+        "おとうさん",
+        "Father (someone else's)"
+      ],
+      [
+        "父母",
+        "ふぼ",
+        "Parents"
+      ],
+      [
+        "祖父",
+        "そふ",
+        "Grandfather"
+      ],
+      [
+        "父親",
+        "ちちおや",
+        "Father (formal)"
+      ],
+      [
+        "義父",
+        "ぎふ",
+        "Father‑in‑law"
+      ],
+      [
+        "父の日",
+        "ちちのひ",
+        "Father's Day"
+      ]
+    ],
+    "example": "父は会社ではたらいています。",
+    "exampleTrans": "My father works at a company."
+  },
+  {
+    "character": "母",
+    "onyomi": "ボ",
+    "kunyomi": "はは",
+    "meaning": "mother",
+    "strokeCount": 5,
+    "commonWords": [
+      [
+        "母",
+        "はは",
+        "Mother (my own)"
+      ],
+      [
+        "お母さん",
+        "おかあさん",
+        "Mother (someone else's)"
+      ],
+      [
+        "母親",
+        "ははおや",
+        "Mother (formal)"
+      ],
+      [
+        "祖母",
+        "そぼ",
+        "Grandmother"
+      ],
+      [
+        "母国",
+        "ぼこく",
+        "Mother country"
+      ],
+      [
+        "母の日",
+        "ははのひ",
+        "Mother's Day"
+      ],
+      [
+        "母校",
+        "ぼこう",
+        "Alma mater"
+      ]
+    ],
+    "example": "母は料理が上手です。",
+    "exampleTrans": "My mother is good at cooking."
+  },
+  {
+    "character": "友",
+    "onyomi": "ユウ",
+    "kunyomi": "とも",
+    "meaning": "friend",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "友だち",
+        "ともだち",
+        "Friend"
+      ],
+      [
+        "親友",
+        "しんゆう",
+        "Best friend"
+      ],
+      [
+        "友人",
+        "ゆうじん",
+        "Friend (formal)"
+      ],
+      [
+        "友好",
+        "ゆうこう",
+        "Friendship"
+      ],
+      [
+        "友軍",
+        "ゆうぐん",
+        "Allied forces"
+      ],
+      [
+        "友愛",
+        "ゆうあい",
+        "Fraternity"
+      ],
+      [
+        "友達同士",
+        "ともだちどうし",
+        "Among friends"
+      ]
+    ],
+    "example": "友だちと映画を見ます。",
+    "exampleTrans": "I will watch a movie with my friend."
+  },
+  {
+    "character": "名",
+    "onyomi": "メイ・ミョウ",
+    "kunyomi": "な",
+    "meaning": "name / fame",
+    "strokeCount": 6,
+    "commonWords": [
+      [
+        "名前",
+        "なまえ",
+        "Name"
+      ],
+      [
+        "有名",
+        "ゆうめい",
+        "Famous"
+      ],
+      [
+        "名人",
+        "めいじん",
+        "Master / Expert"
+      ],
+      [
+        "名物",
+        "めいぶつ",
+        "Local specialty"
+      ],
+      [
+        "名所",
+        "めいしょ",
+        "Famous place"
+      ],
+      [
+        "本名",
+        "ほんみょう",
+        "Real name"
+      ],
+      [
+        "名字",
+        "みょうじ",
+        "Surname"
+      ]
+    ],
+    "example": "あなたの名前は何ですか。",
+    "exampleTrans": "What is your name."
+  },
+  {
+    "character": "先",
+    "onyomi": "セン",
+    "kunyomi": "さき",
+    "meaning": "previous / ahead",
+    "strokeCount": 6,
+    "commonWords": [
+      [
+        "先生",
+        "せんせい",
+        "Teacher"
+      ],
+      [
+        "先週",
+        "せんしゅう",
+        "Last week"
+      ],
+      [
+        "先月",
+        "せんげつ",
+        "Last month"
+      ],
+      [
+        "先に",
+        "さきに",
+        "Before / Ahead"
+      ],
+      [
+        "先日",
+        "せんじつ",
+        "The other day"
+      ],
+      [
+        "先輩",
+        "せんぱい",
+        "Senior"
+      ],
+      [
+        "先頭",
+        "せんとう",
+        "Front / Lead"
+      ]
+    ],
+    "example": "先生は先に教室に入りました。",
+    "exampleTrans": "The teacher entered the classroom first."
+  },
+  {
+    "character": "山",
+    "onyomi": "サン",
+    "kunyomi": "やま",
+    "meaning": "mountain",
+    "strokeCount": 3,
+    "commonWords": [
+      [
+        "山",
+        "やま",
+        "Mountain"
+      ],
+      [
+        "富士山",
+        "ふじさん",
+        "Mt. Fuji"
+      ],
+      [
+        "山道",
+        "やまみち",
+        "Mountain path"
+      ],
+      [
+        "山登り",
+        "やまのぼり",
+        "Mountain climbing"
+      ],
+      [
+        "山川",
+        "やまかわ",
+        "Mountains and rivers"
+      ],
+      [
+        "山小屋",
+        "やまごや",
+        "Mountain hut"
+      ],
+      [
+        "山国",
+        "やまぐに",
+        "Mountainous country"
+      ]
+    ],
+    "example": "山がとてもきれいです。",
+    "exampleTrans": "The mountain is very beautiful."
+  },
+  {
+    "character": "川",
+    "onyomi": "セン",
+    "kunyomi": "かわ",
+    "meaning": "river",
+    "strokeCount": 3,
+    "commonWords": [
+      [
+        "川",
+        "かわ",
+        "River"
+      ],
+      [
+        "川辺",
+        "かわべ",
+        "Riverside"
+      ],
+      [
+        "川口",
+        "かわぐち",
+        "River mouth"
+      ],
+      [
+        "川上",
+        "かわかみ",
+        "Upstream"
+      ],
+      [
+        "川下",
+        "かわしも",
+        "Downstream"
+      ],
+      [
+        "小川",
+        "おがわ",
+        "Stream"
+      ],
+      [
+        "川水",
+        "かわみず",
+        "River water"
+      ]
+    ],
+    "example": "川で魚を見ました。",
+    "exampleTrans": "I saw fish in the river."
+  },
+  {
+    "character": "天",
+    "onyomi": "テン",
+    "kunyomi": "",
+    "meaning": "heaven / sky",
+    "strokeCount": 4,
+    "commonWords": [
+      [
+        "天気",
+        "てんき",
+        "Weather"
+      ],
+      [
+        "天国",
+        "てんごく",
+        "Heaven"
+      ],
+      [
+        "天才",
+        "てんさい",
+        "Genius"
+      ],
+      [
+        "天井",
+        "てんじょう",
+        "Ceiling"
+      ],
+      [
+        "天の川",
+        "あまのがわ",
+        "Milky Way"
+      ],
+      [
+        "天気予報",
+        "てんきよほう",
+        "Weather forecast"
+      ],
+      [
+        "晴天",
+        "せいてん",
+        "Clear sky"
+      ]
+    ],
+    "example": "今日は天気がいいです。",
+    "exampleTrans": "The weather is nice today."
+  },
+  {
+    "character": "気",
+    "onyomi": "キ",
+    "kunyomi": "",
+    "meaning": "air / spirit / feeling",
+    "strokeCount": 6,
+    "commonWords": [
+      [
+        "天気",
+        "てんき",
+        "Weather"
+      ],
+      [
+        "元気",
+        "げんき",
+        "Healthy / Energetic"
+      ],
+      [
+        "気分",
+        "きぶん",
+        "Mood"
+      ],
+      [
+        "気持ち",
+        "きもち",
+        "Feeling"
+      ],
+      [
+        "気をつけて",
+        "きをつけて",
+        "Be careful"
+      ],
+      [
+        "気温",
+        "きおん",
+        "Temperature"
+      ],
+      [
+        "気配",
+        "けはい",
+        "Sign / Indication"
+      ]
+    ],
+    "example": "今日は元気です。",
+    "exampleTrans": "I feel good today."
+  },
+  {
+    "character": "雨",
+    "onyomi": "ウ",
+    "kunyomi": "あめ",
+    "meaning": "rain",
+    "strokeCount": 8,
+    "commonWords": [
+      [
+        "雨",
+        "あめ",
+        "Rain"
+      ],
+      [
+        "大雨",
+        "おおあめ",
+        "Heavy rain"
+      ],
+      [
+        "小雨",
+        "こさめ",
+        "Light rain"
+      ],
+      [
+        "雨天",
+        "うてん",
+        "Rainy weather"
+      ],
+      [
+        "雨水",
+        "あまみず",
+        "Rainwater"
+      ],
+      [
+        "雨雲",
+        "あまぐも",
+        "Rain cloud"
+      ],
+      [
+        "梅雨",
+        "つゆ",
+        "Rainy season"
+      ]
+    ],
+    "example": "今日は雨がふっています。",
+    "exampleTrans": "It is raining today."
+  },
+  {
+    "character": "電",
+    "onyomi": "デン",
+    "kunyomi": "",
+    "meaning": "electricity",
+    "strokeCount": 13,
+    "commonWords": [
+      [
+        "電気",
+        "でんき",
+        "Electricity / Light"
+      ],
+      [
+        "電車",
+        "でんしゃ",
+        "Train"
+      ],
+      [
+        "電話",
+        "でんわ",
+        "Telephone"
+      ],
+      [
+        "電池",
+        "でんち",
+        "Battery"
+      ],
+      [
+        "電子",
+        "でんし",
+        "Electronic"
+      ],
+      [
+        "電力",
+        "でんりょく",
+        "Electric power"
+      ],
+      [
+        "停電",
+        "ていでん",
+        "Power outage"
+      ]
+    ],
+    "example": "電気をつけてください。",
+    "exampleTrans": "Please turn on the light."
+  },
+  {
+    "character": "国",
+    "onyomi": "コク",
+    "kunyomi": "くに",
+    "meaning": "country",
+    "strokeCount": 8,
+    "commonWords": [
+      [
+        "国",
+        "くに",
+        "Country"
+      ],
+      [
+        "外国",
+        "がいこく",
+        "Foreign country"
+      ],
+      [
+        "外国人",
+        "がいこくじん",
+        "Foreigner"
+      ],
+      [
+        "国語",
+        "こくご",
+        "National language"
+      ],
+      [
+        "国立",
+        "こくりつ",
+        "National"
+      ],
+      [
+        "国会",
+        "こっかい",
+        "National Diet"
+      ],
+      [
+        "全国",
+        "ぜんこく",
+        "Nationwide"
+      ]
+    ],
+    "example": "日本はきれいな国です。",
+    "exampleTrans": "Japan is a beautiful country."
+  },
+  {
+    "character": "本",
+    "onyomi": "ホン",
+    "kunyomi": "もと",
+    "meaning": "book / origin",
+    "strokeCount": 5,
+    "commonWords": [
+      [
+        "本",
+        "ほん",
+        "Book"
+      ],
+      [
+        "日本",
+        "にほん",
+        "Japan"
+      ],
+      [
+        "本屋",
+        "ほんや",
+        "Bookstore"
+      ],
+      [
+        "本当",
+        "ほんとう",
+        "Truth / Really"
+      ],
+      [
+        "本日",
+        "ほんじつ",
+        "Today (formal)"
+      ],
+      [
+        "本気",
+        "ほんき",
+        "Seriousness"
+      ],
+      [
+        "本物",
+        "ほんもの",
+        "Real thing"
+      ]
+    ],
+    "example": "本をよむのが好きです。",
+    "exampleTrans": "I like reading books."
+  },
+  {
+    "character": "車",
+    "onyomi": "シャ",
+    "kunyomi": "くるま",
+    "meaning": "car / vehicle",
+    "strokeCount": 7,
+    "commonWords": [
+      [
+        "車",
+        "くるま",
+        "Car"
+      ],
+      [
+        "電車",
+        "でんしゃ",
+        "Train"
+      ],
+      [
+        "自転車",
+        "じてんしゃ",
+        "Bicycle"
+      ],
+      [
+        "車道",
+        "しゃどう",
+        "Roadway"
+      ],
+      [
+        "車内",
+        "しゃない",
+        "Inside a vehicle"
+      ],
+      [
+        "車線",
+        "しゃせん",
+        "Lane"
+      ],
+      [
+        "駐車場",
+        "ちゅうしゃじょう",
+        "Parking lot"
+      ]
+    ],
+    "example": "車で学校へ行きます。",
+    "exampleTrans": "I go to school by car."
+  },
+  {
+    "character": "学",
+    "onyomi": "ガク",
+    "kunyomi": "まなぶ",
+    "meaning": "study / learning",
+    "strokeCount": 8,
+    "commonWords": [
+      [
+        "学生",
+        "がくせい",
+        "Student"
+      ],
+      [
+        "学校",
+        "がっこう",
+        "School"
+      ],
+      [
+        "大学",
+        "だいがく",
+        "University"
+      ],
+      [
+        "学年",
+        "がくねん",
+        "School year"
+      ],
+      [
+        "学ぶ",
+        "まなぶ",
+        "To study"
+      ],
+      [
+        "学力",
+        "がくりょく",
+        "Academic ability"
+      ],
+      [
+        "留学生",
+        "りゅうがくせい",
+        "International student"
+      ]
+    ],
+    "example": "日本語を学びます。",
+    "exampleTrans": "I study Japanese."
+  },
+  {
+    "character": "校",
+    "onyomi": "コウ",
+    "kunyomi": "",
+    "meaning": "school",
+    "strokeCount": 10,
+    "commonWords": [
+      [
+        "学校",
+        "がっこう",
+        "School"
+      ],
+      [
+        "高校",
+        "こうこう",
+        "High school"
+      ],
+      [
+        "中学校",
+        "ちゅうがっこう",
+        "Middle school"
+      ],
+      [
+        "小学校",
+        "しょうがっこう",
+        "Elementary school"
+      ],
+      [
+        "校長",
+        "こうちょう",
+        "Principal"
+      ],
+      [
+        "校門",
+        "こうもん",
+        "School gate"
+      ],
+      [
+        "校庭",
+        "こうてい",
+        "Schoolyard"
+      ]
+    ],
+    "example": "学校へ行きます。",
+    "exampleTrans": "I am going to school."
+  },
+  {
+    "character": "間",
+    "onyomi": "カン",
+    "kunyomi": "あいだ・ま",
+    "meaning": "interval / between",
+    "strokeCount": 12,
+    "commonWords": [
+      [
+        "時間",
+        "じかん",
+        "Time / Hours"
+      ],
+      [
+        "間",
+        "あいだ",
+        "Between"
+      ],
+      [
+        "人間",
+        "にんげん",
+        "Human"
+      ],
+      [
+        "間に合う",
+        "まにあう",
+        "To be on time"
+      ],
+      [
+        "間違い",
+        "まちがい",
+        "Mistake"
+      ],
+      [
+        "間取り",
+        "まどり",
+        "Room layout"
+      ],
+      [
+        "昼間",
+        "ひるま",
+        "Daytime"
+      ]
+    ],
+    "example": "二人の間にねこがいます。",
+    "exampleTrans": "There is a cat between the two people."
+  },
+  {
+    "character": "高",
+    "onyomi": "コウ",
+    "kunyomi": "たかい",
+    "meaning": "high / tall / expensive",
+    "strokeCount": 10,
+    "commonWords": [
+      [
+        "高い",
+        "たかい",
+        "High / Expensive"
+      ],
+      [
+        "高校",
+        "こうこう",
+        "High school"
+      ],
+      [
+        "最高",
+        "さいこう",
+        "The best"
+      ],
+      [
+        "高速",
+        "こうそく",
+        "High speed"
+      ],
+      [
+        "高山",
+        "こうざん",
+        "High mountain"
+      ],
+      [
+        "高気圧",
+        "こうきあつ",
+        "High pressure"
+      ],
+      [
+        "高台",
+        "たかだい",
+        "High ground"
+      ]
+    ],
+    "example": "このりんごは少し高いです。",
+    "exampleTrans": "This apple is a little expensive."
+  },
+  {
+    "character": "半",
+    "onyomi": "ハン",
+    "kunyomi": "なかば",
+    "meaning": "half",
+    "strokeCount": 5,
+    "commonWords": [
+      [
+        "半分",
+        "はんぶん",
+        "Half"
+      ],
+      [
+        "半年",
+        "はんとし",
+        "Half a year"
+      ],
+      [
+        "半日",
+        "はんにち",
+        "Half a day"
+      ],
+      [
+        "前半",
+        "ぜんはん",
+        "First half"
+      ],
+      [
+        "後半",
+        "こうはん",
+        "Second half"
+      ],
+      [
+        "半月",
+        "はんつき",
+        "Half a month"
+      ],
+      [
+        "半そで",
+        "はんそで",
+        "Short sleeves"
+      ]
+    ],
+    "example": "ケーキを半分食べました。",
+    "exampleTrans": "I ate half of the cake."
+  },
+  {
+    "character": "長",
+    "onyomi": "チョウ",
+    "kunyomi": "ながい",
+    "meaning": "long / leader",
+    "strokeCount": 8,
+    "commonWords": [
+      [
+        "長い",
+        "ながい",
+        "Long"
+      ],
+      [
+        "校長",
+        "こうちょう",
+        "Principal"
+      ],
+      [
+        "社長",
+        "しゃちょう",
+        "Company president"
+      ],
+      [
+        "部長",
+        "ぶちょう",
+        "Department chief"
+      ],
+      [
+        "長所",
+        "ちょうしょ",
+        "Strength"
+      ],
+      [
+        "長男",
+        "ちょうなん",
+        "Eldest son"
+      ],
+      [
+        "長女",
+        "ちょうじょ",
+        "Eldest daughter"
+      ]
+    ],
+    "example": "この道はとても長いです。",
+    "exampleTrans": "This road is very long."
+  },
+  {
+    "character": "白",
+    "onyomi": "ハク",
+    "kunyomi": "しろ・しろい",
+    "meaning": "white",
+    "strokeCount": 5,
+    "commonWords": [
+      [
+        "白い",
+        "しろい",
+        "White"
+      ],
+      [
+        "白",
+        "しろ",
+        "White color"
+      ],
+      [
+        "白紙",
+        "はくし",
+        "Blank paper"
+      ],
+      [
+        "白鳥",
+        "はくちょう",
+        "Swan"
+      ],
+      [
+        "面白い",
+        "おもしろい",
+        "Interesting"
+      ],
+      [
+        "真っ白",
+        "まっしろ",
+        "Pure white"
+      ],
+      [
+        "白夜",
+        "びゃくや",
+        "Midnight sun"
+      ]
+    ],
+    "example": "白いシャツをきています。",
+    "exampleTrans": "I am wearing a white shirt."
+  },
+  {
+    "character": "行",
+    "onyomi": "コウ・ギョウ",
+    "kunyomi": "いく・ゆく",
+    "meaning": "go",
+    "strokeCount": 6,
+    "commonWords": [
+      [
+        "行く",
+        "いく",
+        "To go"
+      ],
+      [
+        "銀行",
+        "ぎんこう",
+        "Bank"
+      ],
+      [
+        "旅行",
+        "りょこう",
+        "Travel"
+      ],
+      [
+        "行き先",
+        "いきさき",
+        "Destination"
+      ],
+      [
+        "行動",
+        "こうどう",
+        "Action"
+      ],
+      [
+        "行列",
+        "ぎょうれつ",
+        "Line / Queue"
+      ],
+      [
+        "行事",
+        "ぎょうじ",
+        "Event"
+      ]
+    ],
+    "example": "明日、東京へ行きます。",
+    "exampleTrans": "I will go to Tokyo tomorrow."
+  },
+  {
+    "character": "来",
+    "onyomi": "ライ",
+    "kunyomi": "くる",
+    "meaning": "come",
+    "strokeCount": 7,
+    "commonWords": [
+      [
+        "来る",
+        "くる",
+        "To come"
+      ],
+      [
+        "来年",
+        "らいねん",
+        "Next year"
+      ],
+      [
+        "来月",
+        "らいげつ",
+        "Next month"
+      ],
+      [
+        "来週",
+        "らいしゅう",
+        "Next week"
+      ],
+      [
+        "未来",
+        "みらい",
+        "Future"
+      ],
+      [
+        "来日",
+        "らいにち",
+        "Coming to Japan"
+      ],
+      [
+        "来客",
+        "らいきゃく",
+        "Visitor"
+      ]
+    ],
+    "example": "友だちが家に来ます。",
+    "exampleTrans": "A friend is coming to my house."
+  },
+  {
+    "character": "入",
+    "onyomi": "ニュウ",
+    "kunyomi": "はいる・いれる",
+    "meaning": "enter / put in",
+    "strokeCount": 2,
+    "commonWords": [
+      [
+        "入る",
+        "はいる",
+        "To enter"
+      ],
+      [
+        "入れる",
+        "いれる",
+        "To put in"
+      ],
+      [
+        "入口",
+        "いりぐち",
+        "Entrance"
+      ],
+      [
+        "入学",
+        "にゅうがく",
+        "School admission"
+      ],
+      [
+        "輸入",
+        "ゆにゅう",
+        "Import"
+      ],
+      [
+        "加入",
+        "かにゅう",
+        "Subscription"
+      ],
+      [
+        "入門",
+        "にゅうもん",
+        "Introduction"
+      ]
+    ],
+    "example": "部屋に入ってください。",
+    "exampleTrans": "Please enter the room."
+  },
+  {
+    "character": "出",
+    "onyomi": "シュツ",
+    "kunyomi": "でる・だす",
+    "meaning": "exit / go out",
+    "strokeCount": 5,
+    "commonWords": [
+      [
+        "出る",
+        "でる",
+        "To go out / To exit"
+      ],
+      [
+        "出す",
+        "だす",
+        "To take out"
+      ],
+      [
+        "出口",
+        "でぐち",
+        "Exit"
+      ],
+      [
+        "出発",
+        "しゅっぱつ",
+        "Departure"
+      ],
+      [
+        "思い出",
+        "おもいで",
+        "Memory"
+      ],
+      [
+        "提出",
+        "ていしゅつ",
+        "Submission"
+      ],
+      [
+        "出席",
+        "しゅっせき",
+        "Attendance"
+      ]
+    ],
+    "example": "家を出ます。",
+    "exampleTrans": "I am leaving the house."
+  },
+  {
+    "character": "食",
+    "onyomi": "ショク",
+    "kunyomi": "たべる",
+    "meaning": "eat",
+    "strokeCount": 9,
+    "commonWords": [
+      [
+        "食べる",
+        "たべる",
+        "To eat"
+      ],
+      [
+        "食べ物",
+        "たべもの",
+        "Food"
+      ],
+      [
+        "食事",
+        "しょくじ",
+        "Meal"
+      ],
+      [
+        "朝食",
+        "ちょうしょく",
+        "Breakfast"
+      ],
+      [
+        "昼食",
+        "ちゅうしょく",
+        "Lunch"
+      ],
+      [
+        "夕食",
+        "ゆうしょく",
+        "Dinner"
+      ],
+      [
+        "外食",
+        "がいしょく",
+        "Eating out"
+      ]
+    ],
+    "example": "パンを食べます。",
+    "exampleTrans": "I will eat bread."
+  },
+  {
+    "character": "見",
+    "onyomi": "ケン",
+    "kunyomi": "みる",
+    "meaning": "see / look",
+    "strokeCount": 7,
+    "commonWords": [
+      [
+        "見る",
+        "みる",
+        "To see / To watch"
+      ],
+      [
+        "見せる",
+        "みせる",
+        "To show"
+      ],
+      [
+        "見える",
+        "みえる",
+        "To be visible"
+      ],
+      [
+        "意見",
+        "いけん",
+        "Opinion"
+      ],
+      [
+        "花見",
+        "はなみ",
+        "Flower viewing"
+      ],
+      [
+        "見物",
+        "けんぶつ",
+        "Sightseeing"
+      ],
+      [
+        "見学",
+        "けんがく",
+        "Study tour"
+      ]
+    ],
+    "example": "映画を見ます。",
+    "exampleTrans": "I will watch a movie."
+  },
+  {
+    "character": "聞",
+    "onyomi": "ブン",
+    "kunyomi": "きく",
+    "meaning": "hear / listen / ask",
+    "strokeCount": 14,
+    "commonWords": [
+      [
+        "聞く",
+        "きく",
+        "To listen / To ask"
+      ],
+      [
+        "聞こえる",
+        "きこえる",
+        "To be heard"
+      ],
+      [
+        "新聞",
+        "しんぶん",
+        "Newspaper"
+      ],
+      [
+        "聞き手",
+        "ききて",
+        "Listener"
+      ],
+      [
+        "聞き方",
+        "ききかた",
+        "Way of asking"
+      ],
+      [
+        "聞き取り",
+        "ききとり",
+        "Listening comprehension"
+      ],
+      [
+        "聞き返す",
+        "ききかえす",
+        "To ask again"
+      ]
+    ],
+    "example": "音楽を聞きます。",
+    "exampleTrans": "I listen to music."
+  },
+  {
+    "character": "書",
+    "onyomi": "ショ",
+    "kunyomi": "かく",
+    "meaning": "write",
+    "strokeCount": 10,
+    "commonWords": [
+      [
+        "書く",
+        "かく",
+        "To write"
+      ],
+      [
+        "読書",
+        "どくしょ",
+        "Reading books"
+      ],
+      [
+        "教科書",
+        "きょうかしょ",
+        "Textbook"
+      ],
+      [
+        "図書館",
+        "としょかん",
+        "Library"
+      ],
+      [
+        "書店",
+        "しょてん",
+        "Bookstore"
+      ],
+      [
+        "書類",
+        "しょるい",
+        "Documents"
+      ],
+      [
+        "書き方",
+        "かきかた",
+        "How to write"
+      ]
+    ],
+    "example": "手紙を書きます。",
+    "exampleTrans": "I will write a letter."
+  },
+  {
+    "character": "読",
+    "onyomi": "ドク",
+    "kunyomi": "よむ",
+    "meaning": "read",
+    "strokeCount": 14,
+    "commonWords": [
+      [
+        "読む",
+        "よむ",
+        "To read"
+      ],
+      [
+        "読書",
+        "どくしょ",
+        "Reading"
+      ],
+      [
+        "読者",
+        "どくしゃ",
+        "Reader"
+      ],
+      [
+        "読み物",
+        "よみもの",
+        "Reading material"
+      ],
+      [
+        "読み方",
+        "よみかた",
+        "How to read"
+      ],
+      [
+        "読解",
+        "どっかい",
+        "Reading comprehension"
+      ],
+      [
+        "音読",
+        "おんどく",
+        "Reading aloud"
+      ]
+    ],
+    "example": "本を読みます。",
+    "exampleTrans": "I will read a book."
+  },
+  {
+    "character": "話",
+    "onyomi": "ワ",
+    "kunyomi": "はなす",
+    "meaning": "speak / talk",
+    "strokeCount": 13,
+    "commonWords": [
+      [
+        "話す",
+        "はなす",
+        "To speak"
+      ],
+      [
+        "話",
+        "はなし",
+        "Story / Talk"
+      ],
+      [
+        "会話",
+        "かいわ",
+        "Conversation"
+      ],
+      [
+        "電話",
+        "でんわ",
+        "Telephone"
+      ],
+      [
+        "話題",
+        "わだい",
+        "Topic"
+      ],
+      [
+        "物語",
+        "ものがたり",
+        "Story"
+      ],
+      [
+        "話し方",
+        "はなしかた",
+        "Way of speaking"
+      ]
+    ],
+    "example": "友だちと話します。",
+    "exampleTrans": "I talk with my friend."
+  },
+  {
+    "character": "語",
+    "onyomi": "ゴ",
+    "kunyomi": "かたる / かたらう",
+    "meaning": "language / word",
+    "strokeCount": 14,
+    "commonWords": [
+      [
+        "日本語",
+        "にほんご",
+        "Japanese language"
+      ],
+      [
+        "英語",
+        "えいご",
+        "English"
+      ],
+      [
+        "外国語",
+        "がいこくご",
+        "Foreign language"
+      ],
+      [
+        "語る",
+        "かたる",
+        "To tell / To talk"
+      ],
+      [
+        "単語",
+        "たんご",
+        "Vocabulary"
+      ],
+      [
+        "物語",
+        "ものがたり",
+        "Story"
+      ],
+      [
+        "語学",
+        "ごがく",
+        "Language study"
+      ]
+    ],
+    "example": "日本語を勉強しています。",
+    "exampleTrans": "I am studying Japanese."
+  },
+  {
+    "character": "生",
+    "onyomi": "セイ・ショウ",
+    "kunyomi": "いきる・うまれる・なま",
+    "meaning": "life / birth / raw",
+    "strokeCount": 5,
+    "commonWords": [
+      [
+        "学生",
+        "がくせい",
+        "Student"
+      ],
+      [
+        "先生",
+        "せんせい",
+        "Teacher"
+      ],
+      [
+        "生きる",
+        "いきる",
+        "To live"
+      ],
+      [
+        "生まれる",
+        "うまれる",
+        "To be born"
+      ],
+      [
+        "人生",
+        "じんせい",
+        "Life"
+      ],
+      [
+        "生野菜",
+        "なまやさい",
+        "Raw vegetables"
+      ],
+      [
+        "生年月日",
+        "せいねんがっぴ",
+        "Birthdate"
+      ]
+    ],
+    "example": "私は東京で生まれました。",
+    "exampleTrans": "I was born in Tokyo."
+  },
+  {
+    "character": "休",
+    "onyomi": "キュウ",
+    "kunyomi": "やすむ",
+    "meaning": "rest / break",
+    "strokeCount": 6,
+    "commonWords": [
+      [
+        "休む",
+        "やすむ",
+        "To rest"
+      ],
+      [
+        "休み",
+        "やすみ",
+        "Holiday / Break"
+      ],
+      [
+        "休日",
+        "きゅうじつ",
+        "Day off"
+      ],
+      [
+        "夏休み",
+        "なつやすみ",
+        "Summer vacation"
+      ],
+      [
+        "冬休み",
+        "ふゆやすみ",
+        "Winter vacation"
+      ],
+      [
+        "休校",
+        "きゅうこう",
+        "School closed"
+      ],
+      [
+        "休憩",
+        "きゅうけい",
+        "Break / Rest"
+      ]
+    ],
+    "example": "今日は休みです。",
+    "exampleTrans": "Today is a day off."
+  },
+  {
+    "character": "大",
+    "onyomi": "ダイ・タイ",
+    "kunyomi": "おおきい",
+    "meaning": "big / large",
+    "strokeCount": 3,
+    "commonWords": [
+      [
+        "大きい",
+        "おおきい",
+        "Big"
+      ],
+      [
+        "大学",
+        "だいがく",
+        "University"
+      ],
+      [
+        "大人",
+        "おとな",
+        "Adult"
+      ],
+      [
+        "大好き",
+        "だいすき",
+        "Love / Like a lot"
+      ],
+      [
+        "大会",
+        "たいかい",
+        "Tournament"
+      ],
+      [
+        "大雨",
+        "おおあめ",
+        "Heavy rain"
+      ],
+      [
+        "大声",
+        "おおごえ",
+        "Loud voice"
+      ]
+    ],
+    "example": "大きい家に住みたいです。",
+    "exampleTrans": "I want to live in a big house."
+  },
+  {
+    "character": "小",
+    "onyomi": "ショウ",
+    "kunyomi": "ちいさい",
+    "meaning": "small",
+    "strokeCount": 3,
+    "commonWords": [
+      [
+        "小さい",
+        "ちいさい",
+        "Small"
+      ],
+      [
+        "小学校",
+        "しょうがっこう",
+        "Elementary school"
+      ],
+      [
+        "小学生",
+        "しょうがくせい",
+        "Elementary student"
+      ],
+      [
+        "小川",
+        "おがわ",
+        "Stream"
+      ],
+      [
+        "小鳥",
+        "ことり",
+        "Small bird"
+      ],
+      [
+        "小説",
+        "しょうせつ",
+        "Novel"
+      ],
+      [
+        "小石",
+        "こいし",
+        "Pebble"
+      ]
+    ],
+    "example": "小さいねこがいます。",
+    "exampleTrans": "There is a small cat."
+  }
 ]

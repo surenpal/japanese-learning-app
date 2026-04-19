@@ -362,7 +362,16 @@ async function main() {
     },
   });
 
-  const n5Kanji = n5KanjiData;
+  const n5Kanji = n5KanjiData as {
+    character: string;
+    onyomi?: string;
+    kunyomi?: string;
+    meaning: string;
+    strokeCount?: number;
+    commonWords?: string[][];
+    example?: string;
+    exampleTrans?: string;
+  }[];
 
   // Remove stale kanji records (e.g. from old index-based IDs) before upserting
   const validKanjiIds = n5Kanji.map((k) => `n5-k-${k.character}`);
@@ -376,13 +385,31 @@ async function main() {
     try {
       await prisma.kanjiItem.upsert({
         where: { id },
-        update: {},
-        create: { id, ...k, examType: "JLPT", level: "N5", lessonId: n5KanjiLesson.id },
+        update: {
+          commonWords: k.commonWords ?? [],
+          example: k.example,
+          exampleTrans: k.exampleTrans,
+        },
+        create: {
+          id,
+          character: k.character,
+          onyomi: k.onyomi,
+          kunyomi: k.kunyomi,
+          meaning: k.meaning,
+          strokeCount: k.strokeCount,
+          commonWords: k.commonWords ?? [],
+          example: k.example,
+          exampleTrans: k.exampleTrans,
+          examType: "JLPT",
+          level: "N5",
+          lessonId: n5KanjiLesson.id,
+        },
       });
     } catch (err) {
       console.error(`Failed to upsert kanji item ${id} (${k.character}):`, err);
     }
   }
+  console.log(`  ✓ N5 Kanji — ${n5Kanji.length} characters`);
 
   // ─── JLPT N5 Quiz Questions ───────────────────────────────────────────────────
   const n5QuizQuestions = [

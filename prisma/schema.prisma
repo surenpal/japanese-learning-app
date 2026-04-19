@@ -131,9 +131,11 @@ model KanjiItem {
   onyomi      String?
   kunyomi     String?
   meaning     String
-  strokeCount Int?
-  example     String?
-  examType    ExamType
+  strokeCount  Int?
+  example      String?
+  exampleTrans String?  @db.Text
+  commonWords  Json?
+  examType     ExamType
   level       JLPTLevel?
   lessonId    String?
   createdAt   DateTime   @default(now())
