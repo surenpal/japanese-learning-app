@@ -113,6 +113,7 @@ model VocabularyItem {
   reading      String
   meaning      String
   example      String?    @db.Text
+  hiragana     String?    @db.Text
   exampleTrans String?    @db.Text
   examType     ExamType
   level        JLPTLevel?

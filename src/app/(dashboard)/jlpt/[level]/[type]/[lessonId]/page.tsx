@@ -97,6 +97,9 @@ export default async function LessonDetailPage({
                 {v.example && (
                   <div className="border-l-2 border-blue-400 dark:border-blue-500 pl-3 space-y-0.5">
                     <p className="text-sm text-gray-700 dark:text-gray-300">{v.example}</p>
+                    {v.hiragana && (
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{v.hiragana}</p>
+                    )}
                     {v.exampleTrans && (
                       <p className="text-xs text-gray-400 dark:text-gray-500">{v.exampleTrans}</p>
                     )}

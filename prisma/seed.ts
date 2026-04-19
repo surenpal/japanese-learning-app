@@ -211,7 +211,7 @@ async function main() {
 
   // ─── JLPT N5 Vocabulary — split into sets of 35 ─────────────────────────────
   const SET_SIZE = 35;
-  const allVocab = n5VocabData as { word: string; reading: string; meaning: string; example?: string; exampleTrans?: string }[];
+  const allVocab = n5VocabData as { word: string; reading: string; meaning: string; example?: string; Hiragana?: string; exampleTrans?: string }[];
   const totalSets = Math.ceil(allVocab.length / SET_SIZE);
 
   for (let setNum = 1; setNum <= totalSets; setNum++) {
@@ -243,8 +243,8 @@ async function main() {
       try {
         await prisma.vocabularyItem.upsert({
           where: { id },
-          update: {},
-          create: { id, ...v, examType: "JLPT", level: "N5", lessonId },
+          update: { hiragana: v.Hiragana },
+          create: { id, word: v.word, reading: v.reading, meaning: v.meaning, example: v.example, hiragana: v.Hiragana, exampleTrans: v.exampleTrans, examType: "JLPT", level: "N5", lessonId },
         });
       } catch (err) {
         console.error(`Failed to upsert vocab set ${setNum} item ${id} (${v.word}):`, err);
