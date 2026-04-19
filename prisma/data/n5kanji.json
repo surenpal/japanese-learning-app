@@ -43,6 +43,7 @@
       ]
     ],
     "example": "今日は一日です。",
+    "Hiragana": "きょうはいちにちです。",
     "exampleTrans": "Today is the first day of the month."
   },
   {
@@ -89,6 +90,7 @@
       ]
     ],
     "example": "二人で映画を見ます。",
+    "Hiragana": "ふたりでえいがをみます。",
     "exampleTrans": "Two people will watch a movie."
   },
   {
@@ -135,6 +137,7 @@
       ]
     ],
     "example": "三人でごはんを食べます。",
+    "Hiragana": "さんにんでごはんをたべます。",
     "exampleTrans": "Three people will eat a meal."
   },
   {
@@ -181,6 +184,7 @@
       ]
     ],
     "example": "四時に学校へ行きます。",
+    "Hiragana": "よじにがっこうへいきます。",
     "exampleTrans": "I will go to school at four o'clock."
   },
   {
@@ -227,6 +231,7 @@
       ]
     ],
     "example": "五分だけ休みます。",
+    "Hiragana": "ごふんだけやすみます。",
     "exampleTrans": "I will rest for only five minutes."
   },
   {
@@ -273,6 +278,7 @@
       ]
     ],
     "example": "六月は雨が多いです。",
+    "Hiragana": "ろくがつはあめがおおいです。",
     "exampleTrans": "June has a lot of rain."
   },
   {
@@ -319,6 +325,7 @@
       ]
     ],
     "example": "七月に日本へ行きます。",
+    "Hiragana": "しちがつににほんへいきます。",
     "exampleTrans": "I will go to Japan in July."
   },
   {
@@ -365,6 +372,7 @@
       ]
     ],
     "example": "八月はとても暑いです。",
+    "Hiragana": "はちがつはとてもあついです。",
     "exampleTrans": "August is very hot."
   },
   {
@@ -411,6 +419,7 @@
       ]
     ],
     "example": "九月に学校が始まります。",
+    "Hiragana": "くがつにがっこうがはじまります。",
     "exampleTrans": "School starts in September."
   },
   {
@@ -457,6 +466,7 @@
       ]
     ],
     "example": "十人の友だちがいます。",
+    "Hiragana": "じゅうにんのともだちがいます。",
     "exampleTrans": "I have ten friends."
   },
   {
@@ -503,6 +513,7 @@
       ]
     ],
     "example": "百円でジュースを買います。",
+    "Hiragana": "ひゃくえんでジュースをかいます。",
     "exampleTrans": "I will buy juice for 100 yen."
   },
   {
@@ -549,6 +560,7 @@
       ]
     ],
     "example": "千円をはらいました。",
+    "Hiragana": "せんえんをはらいました。",
     "exampleTrans": "I paid 1000 yen."
   },
   {
@@ -595,6 +607,7 @@
       ]
     ],
     "example": "一万円をもっています。",
+    "Hiragana": "いちまんえんをもっています。",
     "exampleTrans": "I have ten thousand yen."
   },
   {
@@ -641,6 +654,7 @@
       ]
     ],
     "example": "このケーキは円いです。",
+    "Hiragana": "このケーキはまるいです。",
     "exampleTrans": "This cake is round."
   },
   {
@@ -686,8 +700,9 @@
         "Diary"
       ]
     ],
-    "example": "今日はいい日です。",
-    "exampleTrans": "Today is a good day."
+    "example": "今日はいい天気です。",
+    "Hiragana": "きょうはいいてんきです。",
+    "exampleTrans": "The weather is nice today."
   },
   {
     "character": "月",
@@ -733,6 +748,7 @@
       ]
     ],
     "example": "来月、日本へ行きます。",
+    "Hiragana": "らいげつ、にほんへいきます。",
     "exampleTrans": "I will go to Japan next month."
   },
   {
@@ -779,6 +795,7 @@
       ]
     ],
     "example": "火をつけないでください。",
+    "Hiragana": "ひをつけないでください。",
     "exampleTrans": "Please do not light a fire."
   },
   {
@@ -825,6 +842,7 @@
       ]
     ],
     "example": "水をのみたいです。",
+    "Hiragana": "みずをのみたいです。",
     "exampleTrans": "I want to drink water."
   },
   {
@@ -871,6 +889,7 @@
       ]
     ],
     "example": "大きい木があります。",
+    "Hiragana": "おおきいきがあります。",
     "exampleTrans": "There is a big tree."
   },
   {
@@ -917,6 +936,7 @@
       ]
     ],
     "example": "お金がありません。",
+    "Hiragana": "おかねがありません。",
     "exampleTrans": "I don't have money."
   },
   {
@@ -963,6 +983,7 @@
       ]
     ],
     "example": "土曜日に友だちと会います。",
+    "Hiragana": "どようびにともだちとあいます。",
     "exampleTrans": "I will meet a friend on Saturday."
   },
   {
@@ -1009,6 +1030,7 @@
       ]
     ],
     "example": "今は三時です。",
+    "Hiragana": "いまはさんじです。",
     "exampleTrans": "It is three o'clock now."
   },
   {
@@ -1055,6 +1077,7 @@
       ]
     ],
     "example": "五分だけ待ってください。",
+    "Hiragana": "ごふんだけまってください。",
     "exampleTrans": "Please wait for five minutes."
   },
   {
@@ -1101,6 +1124,7 @@
       ]
     ],
     "example": "午後に学校へ行きます。",
+    "Hiragana": "ごごにがっこうへいきます。",
     "exampleTrans": "I will go to school in the afternoon."
   },
   {
@@ -1147,6 +1171,7 @@
       ]
     ],
     "example": "家の前に車があります。",
+    "Hiragana": "いえのまえにくるまがあります。",
     "exampleTrans": "There is a car in front of the house."
   },
   {
@@ -1193,6 +1218,7 @@
       ]
     ],
     "example": "後で電話します。",
+    "Hiragana": "あとででんわします。",
     "exampleTrans": "I will call later."
   },
   {
@@ -1239,6 +1265,7 @@
       ]
     ],
     "example": "毎日日本語を勉強します。",
+    "Hiragana": "まいにちにほんごをべんきょうします。",
     "exampleTrans": "I study Japanese every day."
   },
   {
@@ -1285,6 +1312,7 @@
       ]
     ],
     "example": "今年はいい年です。",
+    "Hiragana": "ことしはいいとしです。",
     "exampleTrans": "This year is a good year."
   },
   {
@@ -1331,6 +1359,7 @@
       ]
     ],
     "example": "今、勉強しています。",
+    "Hiragana": "いま、べんきょうしています。",
     "exampleTrans": "I am studying now."
   },
   {
@@ -1377,6 +1406,7 @@
       ]
     ],
     "example": "これは何ですか。",
+    "Hiragana": "これはなにですか。",
     "exampleTrans": "What is this."
   },
   {
@@ -1423,6 +1453,7 @@
       ]
     ],
     "example": "かばんは上にあります。",
+    "Hiragana": "かばんはうえにあります。",
     "exampleTrans": "The bag is above."
   },
   {
@@ -1469,6 +1500,7 @@
       ]
     ],
     "example": "ねこはテーブルの下にいます。",
+    "Hiragana": "ねこはテーブルのしたにいます。",
     "exampleTrans": "The cat is under the table."
   },
   {
@@ -1515,6 +1547,7 @@
       ]
     ],
     "example": "右にまがってください。",
+    "Hiragana": "みぎにまがってください。",
     "exampleTrans": "Please turn right."
   },
   {
@@ -1561,6 +1594,7 @@
       ]
     ],
     "example": "左にいってください。",
+    "Hiragana": "ひだりにいってください。",
     "exampleTrans": "Please go left."
   },
   {
@@ -1607,6 +1641,7 @@
       ]
     ],
     "example": "かぎはかばんの中にあります。",
+    "Hiragana": "かぎはかばんのなかにあります。",
     "exampleTrans": "The key is inside the bag."
   },
   {
@@ -1653,6 +1688,7 @@
       ]
     ],
     "example": "今日は外がさむいです。",
+    "Hiragana": "きょうはそとがさむいです。",
     "exampleTrans": "It is cold outside today."
   },
   {
@@ -1699,6 +1735,7 @@
       ]
     ],
     "example": "北の空がきれいです。",
+    "Hiragana": "きたのそらがきれいです。",
     "exampleTrans": "The northern sky is beautiful."
   },
   {
@@ -1745,6 +1782,7 @@
       ]
     ],
     "example": "南のほうへ行きます。",
+    "Hiragana": "みなみのほうへいきます。",
     "exampleTrans": "I will go toward the south."
   },
   {
@@ -1791,6 +1829,7 @@
       ]
     ],
     "example": "東の空が明るいです。",
+    "Hiragana": "ひがしのそらがあかるいです。",
     "exampleTrans": "The eastern sky is bright."
   },
   {
@@ -1837,6 +1876,7 @@
       ]
     ],
     "example": "西に山があります。",
+    "Hiragana": "にしにやまがあります。",
     "exampleTrans": "There is a mountain to the west."
   },
   {
@@ -1883,6 +1923,7 @@
       ]
     ],
     "example": "あの人は先生です。",
+    "Hiragana": "あのひとはせんせいです。",
     "exampleTrans": "That person is a teacher."
   },
   {
@@ -1929,6 +1970,7 @@
       ]
     ],
     "example": "あの男の人はだれですか。",
+    "Hiragana": "あのおとこのひとはだれですか。",
     "exampleTrans": "Who is that man."
   },
   {
@@ -1975,6 +2017,7 @@
       ]
     ],
     "example": "女の人が本を読んでいます。",
+    "Hiragana": "おんなのひとがほんをよんでいます。",
     "exampleTrans": "A woman is reading a book."
   },
   {
@@ -2021,6 +2064,7 @@
       ]
     ],
     "example": "子どもが公園であそんでいます。",
+    "Hiragana": "こどもがこうえんであそんでいます。",
     "exampleTrans": "Children are playing in the park."
   },
   {
@@ -2067,6 +2111,7 @@
       ]
     ],
     "example": "父は会社ではたらいています。",
+    "Hiragana": "ちちはかいしゃではたらいています。",
     "exampleTrans": "My father works at a company."
   },
   {
@@ -2113,6 +2158,7 @@
       ]
     ],
     "example": "母は料理が上手です。",
+    "Hiragana": "はははりょうりがじょうずです。",
     "exampleTrans": "My mother is good at cooking."
   },
   {
@@ -2159,6 +2205,7 @@
       ]
     ],
     "example": "友だちと映画を見ます。",
+    "Hiragana": "ともだちとえいがをみます。",
     "exampleTrans": "I will watch a movie with my friend."
   },
   {
@@ -2205,6 +2252,7 @@
       ]
     ],
     "example": "あなたの名前は何ですか。",
+    "Hiragana": "あなたのなまえはなんですか。",
     "exampleTrans": "What is your name."
   },
   {
@@ -2251,6 +2299,7 @@
       ]
     ],
     "example": "先生は先に教室に入りました。",
+    "Hiragana": "せんせいはさきにきょうしつにいりました。",
     "exampleTrans": "The teacher entered the classroom first."
   },
   {
@@ -2297,6 +2346,7 @@
       ]
     ],
     "example": "山がとてもきれいです。",
+    "Hiragana": "やまがとてもきれいです。",
     "exampleTrans": "The mountain is very beautiful."
   },
   {
@@ -2343,6 +2393,7 @@
       ]
     ],
     "example": "川で魚を見ました。",
+    "Hiragana": "かわでさかなをみました。",
     "exampleTrans": "I saw fish in the river."
   },
   {
@@ -2389,6 +2440,7 @@
       ]
     ],
     "example": "今日は天気がいいです。",
+    "Hiragana": "きょうはてんきがいいです。",
     "exampleTrans": "The weather is nice today."
   },
   {
@@ -2435,6 +2487,7 @@
       ]
     ],
     "example": "今日は元気です。",
+    "Hiragana": "きょうはげんきです。",
     "exampleTrans": "I feel good today."
   },
   {
@@ -2481,6 +2534,7 @@
       ]
     ],
     "example": "今日は雨がふっています。",
+    "Hiragana": "きょうはあめがふっています。",
     "exampleTrans": "It is raining today."
   },
   {
@@ -2527,6 +2581,7 @@
       ]
     ],
     "example": "電気をつけてください。",
+    "Hiragana": "でんきをつけてください。",
     "exampleTrans": "Please turn on the light."
   },
   {
@@ -2573,6 +2628,7 @@
       ]
     ],
     "example": "日本はきれいな国です。",
+    "Hiragana": "にほんはきれいなくにです。",
     "exampleTrans": "Japan is a beautiful country."
   },
   {
@@ -2619,6 +2675,7 @@
       ]
     ],
     "example": "本をよむのが好きです。",
+    "Hiragana": "ほんをよむのがすきです。",
     "exampleTrans": "I like reading books."
   },
   {
@@ -2665,6 +2722,7 @@
       ]
     ],
     "example": "車で学校へ行きます。",
+    "Hiragana": "くるまでがっこうへいきます。",
     "exampleTrans": "I go to school by car."
   },
   {
@@ -2711,6 +2769,7 @@
       ]
     ],
     "example": "日本語を学びます。",
+    "Hiragana": "にほんごをまなびます。",
     "exampleTrans": "I study Japanese."
   },
   {
@@ -2757,6 +2816,7 @@
       ]
     ],
     "example": "学校へ行きます。",
+    "Hiragana": "がっこうへいきます。",
     "exampleTrans": "I am going to school."
   },
   {
@@ -2803,6 +2863,7 @@
       ]
     ],
     "example": "二人の間にねこがいます。",
+    "Hiragana": "ふたりのあいだにねこがいます。",
     "exampleTrans": "There is a cat between the two people."
   },
   {
@@ -2849,6 +2910,7 @@
       ]
     ],
     "example": "このりんごは少し高いです。",
+    "Hiragana": "このりんごはすこしたかいです。",
     "exampleTrans": "This apple is a little expensive."
   },
   {
@@ -2895,6 +2957,7 @@
       ]
     ],
     "example": "ケーキを半分食べました。",
+    "Hiragana": "ケーキをはんぶんたべました。",
     "exampleTrans": "I ate half of the cake."
   },
   {
@@ -2941,6 +3004,7 @@
       ]
     ],
     "example": "この道はとても長いです。",
+    "Hiragana": "このみちはとてもながいです。",
     "exampleTrans": "This road is very long."
   },
   {
@@ -2987,6 +3051,7 @@
       ]
     ],
     "example": "白いシャツをきています。",
+    "Hiragana": "しろいシャツをきています。",
     "exampleTrans": "I am wearing a white shirt."
   },
   {
@@ -3033,6 +3098,7 @@
       ]
     ],
     "example": "明日、東京へ行きます。",
+    "Hiragana": "あした、とうきょうへいきます。",
     "exampleTrans": "I will go to Tokyo tomorrow."
   },
   {
@@ -3079,6 +3145,7 @@
       ]
     ],
     "example": "友だちが家に来ます。",
+    "Hiragana": "ともだちがいえにきます。",
     "exampleTrans": "A friend is coming to my house."
   },
   {
@@ -3125,6 +3192,7 @@
       ]
     ],
     "example": "部屋に入ってください。",
+    "Hiragana": "へやにいってください。",
     "exampleTrans": "Please enter the room."
   },
   {
@@ -3171,6 +3239,7 @@
       ]
     ],
     "example": "家を出ます。",
+    "Hiragana": "いえをでます。",
     "exampleTrans": "I am leaving the house."
   },
   {
@@ -3217,6 +3286,7 @@
       ]
     ],
     "example": "パンを食べます。",
+    "Hiragana": "パンをたべます。",
     "exampleTrans": "I will eat bread."
   },
   {
@@ -3263,6 +3333,7 @@
       ]
     ],
     "example": "映画を見ます。",
+    "Hiragana": "えいがをみます。",
     "exampleTrans": "I will watch a movie."
   },
   {
@@ -3309,6 +3380,7 @@
       ]
     ],
     "example": "音楽を聞きます。",
+    "Hiragana": "おんがくをききます。",
     "exampleTrans": "I listen to music."
   },
   {
@@ -3355,6 +3427,7 @@
       ]
     ],
     "example": "手紙を書きます。",
+    "Hiragana": "てがみをかきます。",
     "exampleTrans": "I will write a letter."
   },
   {
@@ -3401,6 +3474,7 @@
       ]
     ],
     "example": "本を読みます。",
+    "Hiragana": "ほんをよみます。",
     "exampleTrans": "I will read a book."
   },
   {
@@ -3493,6 +3567,7 @@
       ]
     ],
     "example": "日本語を勉強しています。",
+    "Hiragana": "にほんごを勉強しています。",
     "exampleTrans": "I am studying Japanese."
   },
   {
@@ -3539,6 +3614,7 @@
       ]
     ],
     "example": "私は東京で生まれました。",
+    "Hiragana": "わたしはとうきょうでうまれました。",
     "exampleTrans": "I was born in Tokyo."
   },
   {
@@ -3585,6 +3661,7 @@
       ]
     ],
     "example": "今日は休みです。",
+    "Hiragana": "きょうはやすみです。",
     "exampleTrans": "Today is a day off."
   },
   {
@@ -3631,6 +3708,7 @@
       ]
     ],
     "example": "大きい家に住みたいです。",
+    "Hiragana": "おおきいいえにすみたいです。",
     "exampleTrans": "I want to live in a big house."
   },
   {
@@ -3677,6 +3755,7 @@
       ]
     ],
     "example": "小さいねこがいます。",
+    "Hiragana": "ちいさいねこがいます。",
     "exampleTrans": "There is a small cat."
   }
 ]
