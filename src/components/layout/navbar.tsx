@@ -3,14 +3,16 @@ import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { LanguagePicker } from "@/components/layout/language-picker";
 import { LogOut, Menu, User } from "lucide-react";
 import { useState } from "react";
 
 interface NavbarProps {
   user?: { name?: string | null; email?: string | null; image?: string | null };
+  locale?: string;
 }
 
-export function Navbar({ user }: NavbarProps) {
+export function Navbar({ user, locale = "en" }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -41,6 +43,7 @@ export function Navbar({ user }: NavbarProps) {
           </div>
           <span className="font-medium">{user?.name ?? user?.email ?? "User"}</span>
         </div>
+        <LanguagePicker currentLocale={locale} />
         <ThemeToggle />
         <Button
           variant="ghost"

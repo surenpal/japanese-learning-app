@@ -3,19 +3,27 @@ import { redirect } from "next/navigation";
 import { Sidebar } from "@/components/layout/sidebar";
 import { Navbar } from "@/components/layout/navbar";
 import { AIAssistant } from "@/components/ai-assistant/ai-assistant";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "@/lib/get-locale";
+import { loadMessages } from "@/lib/load-messages";
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
   if (!session?.user) redirect("/login");
 
+  const locale = await getLocale();
+  const messages = await loadMessages(locale);
+
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-gray-950">
-      <Sidebar />
-      <div className="flex flex-col flex-1 overflow-hidden">
-        <Navbar user={session.user} />
-        <main className="flex-1 overflow-y-auto p-6">{children}</main>
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-gray-950">
+        <Sidebar />
+        <div className="flex flex-col flex-1 overflow-hidden">
+          <Navbar user={session.user} locale={locale} />
+          <main className="flex-1 overflow-y-auto p-6">{children}</main>
+        </div>
+        <AIAssistant />
       </div>
-      <AIAssistant />
-    </div>
+    </NextIntlClientProvider>
   );
 }
