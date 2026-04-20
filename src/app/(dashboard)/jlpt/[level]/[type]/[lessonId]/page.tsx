@@ -57,10 +57,10 @@ export default async function LessonDetailPage({
           <Card key={g.id} className="hover:shadow-md transition-all duration-200">
             <CardContent className="pt-5 space-y-4">
               <div className="flex items-center gap-3">
-                <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">{g.pattern}</span>
+                <span className="text-2xl font-bold text-rose-700 dark:text-rose-400">{g.pattern}</span>
                 <Badge variant="outline">{g.examType}</Badge>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 font-medium">{g.meaning}</p>
+              <p className="text-indigo-600 dark:text-indigo-400 font-medium">{g.meaning}</p>
               {g.usage && (
                 <div className="border-l-2 border-gray-300 dark:border-gray-600 pl-3 space-y-1 text-sm text-gray-600 dark:text-gray-400">
                   <p>{(g.usage as { a: string; b: string }).a}</p>
