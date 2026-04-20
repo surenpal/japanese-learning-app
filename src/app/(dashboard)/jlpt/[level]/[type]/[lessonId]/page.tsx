@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { CompleteLessonButton } from "@/components/lessons/complete-lesson-button";
+import { KanjiStrokeOrder } from "@/components/kanji/kanji-stroke-order";
 
 export default async function LessonDetailPage({
   params,
@@ -128,9 +129,7 @@ export default async function LessonDetailPage({
               <CardContent className="pt-5 space-y-4">
                 {/* Character + basic info */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-20 h-20 flex-shrink-0 flex items-center justify-center bg-gray-50 dark:bg-gray-700/60 rounded-xl border border-gray-100 dark:border-gray-600">
-                    <span className="text-5xl font-bold text-gray-900 dark:text-gray-100">{k.character}</span>
-                  </div>
+                  <KanjiStrokeOrder character={k.character} />
                   <div className="space-y-1.5 text-sm pt-1 flex-1">
                     <p className="font-semibold text-gray-900 dark:text-gray-100 text-base">{k.meaning}</p>
                     {k.onyomi && (

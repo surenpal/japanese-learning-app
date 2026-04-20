@@ -3521,6 +3521,7 @@
       ]
     ],
     "example": "友だちと話します。",
+    "Hiragana": "ともだちとはなします。",
     "exampleTrans": "I talk with my friend."
   },
   {
@@ -3567,7 +3568,7 @@
       ]
     ],
     "example": "日本語を勉強しています。",
-    "Hiragana": "にほんごを勉強しています。",
+    "Hiragana": "にほんごをべんきょうしています。",
     "exampleTrans": "I am studying Japanese."
   },
   {
