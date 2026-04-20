@@ -4509,6 +4509,38 @@
     "葉": {
       "meaning": "leaf",
       "exampleTrans": "In autumn, the leaves turn red."
+    },
+    "場合": {
+      "meaning": "case; situation",
+      "exampleTrans": "In case of rain, the match will be canceled."
+    },
+    "倍": {
+      "meaning": "double",
+      "exampleTrans": "This year's sales are double last year's."
+    },
+    "拝見": {
+      "meaning": "seeing (humble)",
+      "exampleTrans": "I have looked at the documents."
+    },
+    "歯医者": {
+      "meaning": "dentist",
+      "exampleTrans": "I have a dentist appointment tomorrow."
+    },
+    "運ぶ": {
+      "meaning": "to carry",
+      "exampleTrans": "I carried the heavy box to the second floor."
+    },
+    "始める": {
+      "meaning": "to begin (something)",
+      "exampleTrans": "I started a new job."
+    },
+    "場所": {
+      "meaning": "place",
+      "exampleTrans": "Please tell me the meeting place."
+    },
+    "恥ずかしい": {
+      "meaning": "embarrassing",
+      "exampleTrans": "Singing in front of people is embarrassing."
     }
   }
 }
