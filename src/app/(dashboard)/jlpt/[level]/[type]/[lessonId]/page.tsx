@@ -67,6 +67,12 @@ export default async function LessonDetailPage({
                   <p>{(g.usage as { a: string; b: string }).b}</p>
                 </div>
               )}
+              {g.commonMistakes && (
+                <div className="border-l-2 border-amber-400 dark:border-amber-500 pl-3 py-1.5 space-y-0.5 bg-amber-50 dark:bg-amber-950/30 rounded-r-md">
+                  <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-wide">Common Mistake</p>
+                  <p className="text-sm text-amber-800 dark:text-amber-300">{g.commonMistakes}</p>
+                </div>
+              )}
               {g.examples && (g.examples as { jp: string; hiragana?: string; en: string }[]).length > 0 && (
                 <div className="space-y-2">
                   {(g.examples as { jp: string; hiragana?: string; en: string }[]).map((ex, i) => (

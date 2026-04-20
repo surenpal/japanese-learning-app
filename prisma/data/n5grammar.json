@@ -2,6 +2,7 @@
   {
     "pattern": "〜は〜です",
     "meaning": "A is B",
+    "commonMistakes": "Learners often confuse は (topic marker) with が (subject marker). Use は when introducing or re-stating a topic.",
     "usage": {
       "a": "Topic marker は",
       "b": "Used to state that A equals or is B"
@@ -19,6 +20,7 @@
   {
     "pattern": "〜は〜ではありません",
     "meaning": "A is not B",
+    "commonMistakes": "Don't shorten to じゃない in formal writing — ではありません is the correct formal negative.",
     "usage": {
       "a": "Negative form of です",
       "b": "Used to deny a statement"
@@ -27,7 +29,7 @@
     "Hiragana1": "わたしはせんせいではありません。",
     "exampleTrans1": "I am not a teacher.",
     "example2": "これはペンではありません。",
-    "Hiragana2": "これはぺんです。",
+    "Hiragana2": "これはぺんではありません。",
     "exampleTrans2": "This is not a pen.",
     "example3": "彼は学生ではありません。",
     "Hiragana3": "かれはがくせいではありません。",
@@ -36,6 +38,7 @@
   {
     "pattern": "〜は〜ですか",
     "meaning": "Is A B?",
+    "commonMistakes": "Don't add a question mark (?) in written Japanese — か already signals a question. Use a period (。) at the end.",
     "usage": {
       "a": "Add か at the end",
       "b": "Forms a yes/no question"
@@ -53,6 +56,7 @@
   {
     "pattern": "〜も",
     "meaning": "also / too",
+    "commonMistakes": "も replaces は, が, or を entirely — don't stack them (e.g., はも is wrong). Use も alone in place of the particle.",
     "usage": {
       "a": "Replaces は, が, or を",
       "b": "Indicates inclusion"
@@ -70,6 +74,7 @@
   {
     "pattern": "〜の",
     "meaning": "possession / connection",
+    "commonMistakes": "Word order is reversed from English: 日本の食べ物 = 'food of Japan', not 'Japan of food'. The owner always comes before の.",
     "usage": {
       "a": "Connects two nouns",
       "b": "Shows ownership or relation"
@@ -87,6 +92,7 @@
   {
     "pattern": "〜さん",
     "meaning": "polite name suffix",
+    "commonMistakes": "Never use さん with your own name — it sounds arrogant. Use it only when referring to or addressing others.",
     "usage": {
       "a": "Used after a name",
       "b": "Shows politeness"
@@ -104,6 +110,7 @@
   {
     "pattern": "〜人（〜じん）",
     "meaning": "nationality suffix",
+    "commonMistakes": "Don't confuse じん (nationality) with にん (counter for people). 日本人 = a Japanese person, 三人 = three people.",
     "usage": {
       "a": "Added to country names",
       "b": "Indicates nationality"
@@ -112,15 +119,16 @@
     "Hiragana1": "わたしはインドじんです。",
     "exampleTrans1": "I am Indian.",
     "example2": "彼は日本人です。",
-    "Hiragana2": "かれは日本人です。",
+    "Hiragana2": "かれはにほんじんです。",
     "exampleTrans2": "He is Japanese.",
     "example3": "あの人はアメリカじんです。",
-    "Hiragana3": "あの人はアメリカじんです。",
+    "Hiragana3": "あのひとはアメリカじんです。",
     "exampleTrans3": "That person is American."
   },
   {
     "pattern": "〜歳（〜さい）",
     "meaning": "age",
+    "commonMistakes": "Use Arabic numerals with さい in everyday writing (20歳), not kanji numerals. Also, don't use さい when asking age — use おいくつ or 何歳 instead.",
     "usage": {
       "a": "Used with numbers",
       "b": "Indicates age"
@@ -138,6 +146,7 @@
   {
     "pattern": "おいくつ",
     "meaning": "how old? (polite)",
+    "commonMistakes": "おいくつ is very polite — use 何歳ですか for neutral or casual contexts. Avoid directly asking elders 何歳 as it can sound rude.",
     "usage": {
       "a": "Polite question",
       "b": "Used to ask age respectfully"
@@ -152,6 +161,7 @@
   {
     "pattern": "こちら／そちら／あちら／どちら",
     "meaning": "polite this/that/which",
+    "commonMistakes": "どちら can mean both 'which direction' and 'which one (of two)' — context determines the meaning. For three or more choices, use どれ instead.",
     "usage": {
       "a": "Polite demonstratives",
       "b": "Used for people, direction, or place"

@@ -149,15 +149,16 @@ model KanjiItem {
 // ─── Grammar ──────────────────────────────────────────────────────────────────
 
 model GrammarItem {
-  id           String     @id @default(cuid())
-  pattern      String
-  meaning      String
-  usage        Json?
-  examples     Json?
-  examType     ExamType
-  level        JLPTLevel?
-  lessonId     String?
-  createdAt    DateTime   @default(now())
+  id             String     @id @default(cuid())
+  pattern        String
+  meaning        String
+  usage          Json?
+  examples       Json?
+  commonMistakes String?    @db.Text
+  examType       ExamType
+  level          JLPTLevel?
+  lessonId       String?
+  createdAt      DateTime   @default(now())
 
   lesson Lesson? @relation(fields: [lessonId], references: [id])
 }

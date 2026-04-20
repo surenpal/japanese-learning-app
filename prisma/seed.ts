@@ -333,13 +333,14 @@ async function main() {
     try {
       await prisma.grammarItem.upsert({
         where: { id },
-        update: { examples, usage: g.usage },
+        update: { examples, usage: g.usage, commonMistakes: (gFlat.commonMistakes as string) ?? null },
         create: {
           id,
           pattern: g.pattern,
           meaning: g.meaning,
           usage: g.usage,
           examples,
+          commonMistakes: (gFlat.commonMistakes as string) ?? null,
           examType: "JLPT",
           level: "N5",
           lessonId: n5GrammarLesson.id,
